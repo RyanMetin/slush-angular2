@@ -2,18 +2,20 @@ var gulp = require('gulp'),
     conflict = require('gulp-conflict'),
     install = require('gulp-install'),
     rename = require('gulp-rename'),
+    run = require('gulp-run'),
     template = require('gulp-template'),
     inquirer = require('inquirer'),
     _ = require('underscore.string');
 
 gulp.task('default', function (done) {
   inquirer.prompt([
-    {type: 'input', name: 'app', message: 'What should your app be named?', default: getName()},
+    {type: 'input', name: 'name', message: 'What should your app be named?', default: getName()},
     {type: 'confirm', name: 'sass', message: 'Should it use Sass?', default: false},
     {type: 'confirm', name: 'ts', message: 'Should it use TypeScript?', default: false}
   ],
   function (answers) {
-    answers.name = _.slugify(answers.app);
+    answers.slug = _.slugify(answers.name);
+    answers.camel = _.camelize(answers.slug);
     var files = [__dirname + '/templates/**'];
     if (answers.ts) {
       files.push('!' + __dirname + '/templates/app/**/*.js')
@@ -39,6 +41,7 @@ gulp.task('default', function (done) {
       .pipe(install())
       .on('finish', function () {
         done();
+        run('npm start').exec();
       });
   });
 });
