@@ -13,9 +13,9 @@ gulp.task('quickstart',shell.task([
 
 <% if(scss) { %>
 gulp.task('sass',function() {
-  gulp.src('./app/sass/*.scss')
+  gulp.src('./app/content/sass/*.scss')
       .pipe(sass())
-      .pipe(gulp.dest('./app/css'))
+      .pipe(gulp.dest('./app/content/css'))
       .pipe(livereload());
 });
 <% } %>
@@ -37,7 +37,7 @@ gulp.task('ts',function() {
 gulp.task('live-reload',function(){
   livereload({
     basePath:'app',
-    port:8080,
+    port:5050,
     start:true
   });
   <% if(scss) { %>
