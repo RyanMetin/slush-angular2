@@ -1,0 +1,36 @@
+{
+  "name": "slush-angular2",
+  "version": "0.1.0",
+  "description": "A slush generator for Angular 2.0 (Alpha-13)",
+  "main": "slushfile.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/thevelourfog/slush-angular2"
+  },
+  "keywords": [
+    "slush",
+    "slushgenerator",
+    "angular",
+    "angularjs",
+    "angular2",
+    "sass",
+    "typescript"
+  ],
+  "author": "Ryan Usumi <rmusumi@hotmail.com>",
+  "dependencies": {
+    "gulp": "~3.8.11",
+    "gulp-conflict": "~0.3.0",
+    "gulp-install": "~0.2.0",
+    "gulp-rename": "~1.2.0",
+    "gulp-template": "~3.0.0",
+    "inquirer": "~0.8.0",
+    "underscore.string": "~3.0.3"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "mocha": "*",
+    "mock-gulp-dest": "~0.1.0"
+  }
+}
