@@ -1,6 +1,7 @@
 import {Component, Template} from 'angular2/angular2';
 import {bind} from 'angular2/di';
-import {StarterSvc} from '../../service/starter/start-svc';
+import {Router} from '../../../node_modules/angular-new-router/dist/router';
+import {StarterSvc} from '../../service/starter/starter-svc';
 
 @Component({
   selector: 'starter-app',

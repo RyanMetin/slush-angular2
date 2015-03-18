@@ -1,14 +1,5 @@
 var gulp = require('gulp'),
-    livereload = require('gulp-livereload'),
-    shell = require('gulp-shell');
-
-gulp.task('quickstart',shell.task([
-  'rmdir app/lib',
-  'git clone https://github.com/angular/quickstart.git app/lib',
-  'cd app/lib',
-  'rm .git',
-  'cd ../..'
-]));
+    livereload = require('gulp-livereload');
 
 <% if(sass) { %>
 var sass = require('gulp-sass');
