@@ -11,7 +11,7 @@ gulp.task('quickstart',shell.task([
   'cd ../..'
 ]));
 
-<% if(scss) { %>
+<% if(sass) { %>
 gulp.task('sass',function() {
   gulp.src('./app/content/sass/*.scss')
       .pipe(sass())
@@ -40,7 +40,7 @@ gulp.task('live-reload',function(){
     port:5050,
     start:true
   });
-  <% if(scss) { %>
+  <% if(sass) { %>
   gulp.watch('./app/sass/*.scss',['sass']);
   <% } %>
   <% if(ts) { %>

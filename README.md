@@ -55,7 +55,7 @@ angular2-app/
 	│		└── starter
 	│				└── starter-svc.js
 	└── lib
-			└── # Dependencies
+		└── # Dependencies
 ```
 
 ## Development
