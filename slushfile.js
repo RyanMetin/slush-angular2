@@ -17,18 +17,8 @@ gulp.task('default', function (done) {
     answers.slug = _.slugify(answers.name);
     answers.camel = _.camelize(answers.slug);
     var files = [__dirname + '/templates/**'];
-    if (answers.ts) {
-      files.push('!' + __dirname + '/templates/app/**/*.js')
-    }
-    else {
-      files.push('!' + __dirname + '/templates/app/**/*.ts')
-    }
-    if (answers.sass) {
-      files.push('!' + __dirname + '/templates/app/css/*.css')
-    }
-    else {
-      files.push('!' + __dirname + '/templates/app/sass/*.scss')
-    }
+    answers.ts ? files.push('!' + __dirname + '/templates/app/**/*.js') : files.push('!' + __dirname + '/templates/app/**/*.ts')
+    answers.sass ? files.push('!' + __dirname + '/templates/app/content/sass/*.css') : files.push('!' + __dirname + '/templates/app/content/css/*.scss')
     return gulp.src(files)
       .pipe(template(answers))
       .pipe(rename(function (file) {
@@ -40,8 +30,8 @@ gulp.task('default', function (done) {
       .pipe(gulp.dest('./'))
       .pipe(install())
       .on('finish', function () {
+        run('npm start').exec()
         done();
-        run('npm start').exec();
       });
   });
 });
