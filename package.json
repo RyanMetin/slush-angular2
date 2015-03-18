@@ -1,7 +1,7 @@
 {
   "name": "slush-angular2",
   "description": "A Slush Generator For Angular 2 (Alpha-13)",
-  "version": "0.0.2",
+  "version": "0.0.6",
   "author": {
     "name": "Ryan Usumi",
     "email": "rmusumi@hotmail.com"
@@ -23,7 +23,6 @@
     "gulp-conflict": "~0.3.0",
     "gulp-install": "~0.2.0",
     "gulp-rename": "~1.2.0",
-    "gulp-run": "~1.6.6",
     "gulp-template": "~3.0.0",
     "inquirer": "~0.8.0",
     "underscore.string": "~3.0.3"

@@ -1,7 +1,7 @@
 slush-angular2
 ==============
 
-A slush generator for Angular 2 Alpha Preview, using the angular/quickstart repository.
+Slush generator for Angular 2 Alpha Preview, using the angular/quickstart repository.
 
 ## Installation
 

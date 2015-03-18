@@ -1,17 +1,17 @@
 var gulp = require('gulp'),
     livereload = require('gulp-livereload'),
-    sass = require('gulp-sass'),
-    shell = require('gulp-shell'),
-    ts = require('gulp-typescript');
+    shell = require('gulp-shell');
 
 gulp.task('quickstart',shell.task([
+  'rmdir app/lib',
   'git clone https://github.com/angular/quickstart.git app/lib',
   'cd app/lib',
-  'rm -rf .git',
+  'rm .git',
   'cd ../..'
 ]));
 
 <% if(sass) { %>
+var sass = require('gulp-sass');
 gulp.task('sass',function() {
   gulp.src('./app/content/sass/*.scss')
       .pipe(sass())
@@ -21,6 +21,7 @@ gulp.task('sass',function() {
 <% } %>
 
 <% if(ts) { %>
+var ts = require('gulp-typescript');
 gulp.task('ts',function() {
   var typescript = gulp
       .src('./app/**/*.ts')

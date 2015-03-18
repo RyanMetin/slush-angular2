@@ -2,7 +2,6 @@ var gulp = require('gulp'),
     conflict = require('gulp-conflict'),
     install = require('gulp-install'),
     rename = require('gulp-rename'),
-    run = require('gulp-run'),
     template = require('gulp-template'),
     inquirer = require('inquirer'),
     _ = require('underscore.string');
@@ -30,7 +29,6 @@ gulp.task('default', function (done) {
       .pipe(gulp.dest('./'))
       .pipe(install())
       .on('finish', function () {
-        run('npm start').exec()
         done();
       });
   });
