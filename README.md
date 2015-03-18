@@ -41,21 +41,21 @@ angular2-app/
 	├── index.html
 	├── index.js
 	├── content
-	│	├── css
-	│   │	└── *.css
-	│	├── sass
-	│	│	└── *.scss
-	│	├── img
-	│   └── svg
+	│		├── css
+	│		│		└── *.css
+	│		├── sass
+	│		│		└── *.scss
+	│		├── img
+	│   	└── svg
 	├── components
-	│	└── starter
-	│		├── starter.html
-	│		└── starter.js
+	│		└── starter
+	│				├── starter.html
+	│				└── starter.js
 	├── services
-	│	└── starter
-	│		└── starter-svc.js
+	│		└── starter
+	│				└── starter-svc.js
 	└── lib
-		└── # Dependencies
+			└── # Dependencies
 ```
 
 ## Development
@@ -66,7 +66,7 @@ To start your app run:
 gulp
 ```
 
-This runs Live-Reload at `http://localhost:5050`(, and will compile any Sass/TypeScript).
+Access via LiveReload at [http://localhost:5050](http://localhost:5050) (and will compile any Sass/TypeScript).
 
 #### CSS Preprocessor
 Only includes Sass right now using `gulp-sass`.
@@ -88,4 +88,4 @@ This is my first published package, so contributions are very welcome. There are
 
 ## License
 
-[MIT](https://github.com/thevelourfog/slush-angular2/LICENSE)
+[MIT](https://github.com/thevelourfog/slush-angular2/blob/master/LICENSE)

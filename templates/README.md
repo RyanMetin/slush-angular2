@@ -9,7 +9,7 @@ To start your app run:
 gulp
 ```
 
-Then go to `[http://localhost:5050](http://localhost:5050)`.
+Then go to [http://localhost:5050](http://localhost:5050).
 
 ### Test
 
