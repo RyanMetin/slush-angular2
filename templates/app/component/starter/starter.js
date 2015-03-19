@@ -15,8 +15,8 @@ import {StarterSvc} from '../../service/starter/starter-svc';
 
 export class Starter {
 
-  constructor() {
-  	
+  constructor(svc:StarterSvc, $router:Router) {
+  	this.title = svc.title;
   }
 
 }
