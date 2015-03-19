@@ -1,36 +1,47 @@
 {
-  "name": "TheVelourFog.github.io",
-  "description": "My Github Page. Expect A Blog And Other Shenanigans.",
-  "version": "0.0.1",
+  "name": "slush-angular2",
+  "description": "A Slush Generator For Angular 2 (Alpha-13)",
+  "version": "0.0.7",
   "author": {
     "name": "Ryan Usumi",
-    "email": "rmusumi@hotmail.com"
+    "email": "rmusumi@hotmail.com",
+    "url": "https://thevelourfog.github.io"
   },
-  "homepage": "https://TheVelourFog.github.io",
+  "homepage": "https://github.com/thevelourfog/slush-angular2",
   "repository": {
     "type": "git",
-    "url": "git://github.com/thevelourfog/thevelourfog.github.io.git"
+    "url": "git://github.com/thevelourfog/slush-angular2.git"
   },
   "license": {
     "type": "MIT",
-    "url": "https://github.com/thevelourfog/thevelourfog.github.io/LICENSE"
+    "url": "https://github.com/thevelourfog/slush-angular2/blob/master/LICENSE.md"
   },
-  "main": "index.html",
+  "bugs": {
+    "url": "https://github.com/thevelourfog/slush-angular2/issues"
+  },
+  "main": "slushfile.js",
   "scripts": {
+
   },
   "dependencies": {
-    "angular": "latest",
-    "angular-material": "latest",
-    "angular-new-router": "latest",
+    "gulp": "^3.8.11",
+    "gulp-conflict": "^0.3.0",
+    "gulp-install": "^0.2.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-template": "^3.0.0",
+    "inquirer": "^0.8.0",
+    "underscore.string": "^3.0.3"
   },
   "devDependencies": {
-    "gulp": "latest",
-    "gulp-sass": "latest"
+
   },
   "keywords": [
-    "angular",
+    "slushgenerator",
+    "slush",
     "angularjs",
-    "angular-new-router",
+    "angular",
+    "angular2",
+    "gulp",
     "sass",
     "typescript"
   ]
