@@ -1,21 +1,19 @@
 import {Component, Template} from 'angular2/angular2';
 import {bind} from 'angular2/di';
-import {Router} from '../../../node_modules/angular-new-router/dist/router';
-import {StarterSvc} from '../../service/starter/starter-svc';
+import {StarterSvc} from 'service/starter/starter-svc';
 
 @Component({
-  selector: 'starter-app',
+  selector: 'starter-component',
   componentServices: [ StarterSvc ]
 })
 
 @Template({
-  url: 'starter.html',
-  directives: [  ]
+  url: 'starter.html'
 })
 
 export class Starter {
 
-  constructor(svc:StarterSvc, $router:Router) {
+  constructor(svc:StarterSvc) {
   	this.title = svc.title;
   }
 

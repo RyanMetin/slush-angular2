@@ -1,5 +1,9 @@
 var gulp = require('gulp'),
-    livereload = require('gulp-livereload');
+    livereload = require('gulp-livereload'),
+    config = {
+      basePath: './app',
+      port: 5050
+    };
 
 <% if(sass) { %>
 var sass = require('gulp-sass');
@@ -27,11 +31,7 @@ gulp.task('ts',function() {
 <% } %>
 
 gulp.task('live-reload',function(){
-  livereload({
-    basePath:'app',
-    port:5050,
-    start:true
-  });
+  livereload.listen(config);
   <% if(sass) { %>
   gulp.watch('./app/sass/*.scss',['sass']);
   <% } %>

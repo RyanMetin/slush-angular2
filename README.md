@@ -76,7 +76,7 @@ Not ready.
 
 ### Test
 
-Not ready. Will include Karma and Protractor.
+Not ready.
 
 ### Production
 
