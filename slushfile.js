@@ -8,23 +8,17 @@ var gulp = require('gulp'),
 
 gulp.task('default', function (done) {
   inquirer.prompt([
-    {type: 'input', name: 'name', message: 'What should your app be named?', default: getName()},
-    {type: 'confirm', name: 'sass', message: 'Should it use Sass?', default: false},
-    {type: 'confirm', name: 'ts', message: 'Should it use TypeScript?', default: false}
+    {type: 'input', name: 'name', message: 'What should your app be named?', default: getName()}
   ],
   function (answers) {
     answers.slug = _.slugify(answers.name);
     answers.camel = _.camelize(answers.slug);
     var files = [__dirname + '/templates/**'];
-    answers.ts ? files.push('!' + __dirname + '/templates/app/**/*.js') : files.push('!' + __dirname + '/templates/app/**/*.ts')
-    answers.sass ? files.push('!' + __dirname + '/templates/app/content/sass/*.css') : files.push('!' + __dirname + '/templates/app/content/css/*.scss')
+    files.push('!' + __dirname + '/templates/app/**/*.js');
+    files.push('!' + __dirname + '/templates/app/content/sass/*.css');
     return gulp.src(files)
       .pipe(template(answers))
-      .pipe(rename(function (file) {
-        if (file.basename[0] === '_') {
-          file.basename = '.' + file.basename.slice(1);
-        }
-      }))
+      .pipe(rename(function (file) { if (file.basename[0] === '_') { file.basename = '.' + file.basename.slice(1); }}))
       .pipe(conflict('./'))
       .pipe(gulp.dest('./'))
       .pipe(install())

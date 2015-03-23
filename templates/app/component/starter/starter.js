@@ -1,20 +1,20 @@
-import {Component, Template} from 'angular2/angular2';
-import {bind} from 'angular2/di';
-import {StarterSvc} from 'service/starter/starter-svc';
+import {Component,Template,If} from 'angular2/angular2';
+import {StarterService} from 'service/starter/starter';
 
 @Component({
-  selector: 'starter-component',
-  componentServices: [ StarterSvc ]
+  selector: 'starter',
+  componentServices: [StarterService]
 })
 
 @Template({
-  url: 'starter.html'
+  url: 'starter.html',
+  directives: [If]
 })
 
 export class Starter {
 
-  constructor(svc:StarterSvc) {
-  	this.title = svc.title;
+  constructor(svc:StarterService) {
+    this.title = svc.title;
   }
-
+  
 }

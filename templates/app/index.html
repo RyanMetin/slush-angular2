@@ -2,26 +2,25 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
     <title><%= name %></title>
-    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.css">
   </head>
   <body>
-    <starter-app></starter-app>
+    <starter></starter>
 
   <script src="lib/dist/es6-shim.js"></script>
-  <script>
-    System.paths = {
-      'angular2/*':'lib/angular2/*.js',
-      'rtts_assert/*': 'lib/rtts_assert/*.js',
-      'router/*': '../node_modules/angular-new-router/**/*.js',
-      'index': 'index.js',
-      'component/*': 'component/**/*.js',
-      'service/*': 'service/**/*.js'
-    };
-    System.import('index').then(function(module) {
-      module.main();
-    }, console.log.bind(console));
-  </script>
+  /**
+   * config.js
+   *
+   * @desc Imports index.js and
+   * @desc Registers paths using system.js
+   * Paths: angular2/*
+   *        rtts_assert/*
+   *        componenet/*
+   *        service/*
+   */
+  <script src="config.js"></script>
   </body>
 </html>
