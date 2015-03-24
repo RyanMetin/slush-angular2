@@ -14,8 +14,8 @@ gulp.task('default', function (done) {
     answers.slug = _.slugify(answers.name);
     answers.camel = _.camelize(answers.slug);
     var files = [__dirname + '/templates/**'];
-    files.push('!' + __dirname + '/templates/app/**/*.js');
-    files.push('!' + __dirname + '/templates/app/content/sass/*.css');
+    files.push('!' + __dirname + '/templates/src/*.js');
+    files.push('!' + __dirname + '/templates/src/*.css');
     return gulp.src(files)
       .pipe(template(answers))
       .pipe(rename(function (file) { if (file.basename[0] === '_') { file.basename = '.' + file.basename.slice(1); }}))

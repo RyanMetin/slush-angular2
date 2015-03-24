@@ -1,7 +1,7 @@
 export class StarterService {
 
 	constructor() {
-		this.title = <%= name %>;
+		this.title = 'Starter Angular2 App';
 	}
 
 }

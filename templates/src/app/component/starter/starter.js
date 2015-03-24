@@ -7,7 +7,7 @@ import {StarterService} from 'service/starter/starter';
 })
 
 @Template({
-  url: 'starter.html',
+  url: 'app/component/starter/starter.html',
   directives: [If]
 })
 

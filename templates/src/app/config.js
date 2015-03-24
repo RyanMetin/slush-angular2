@@ -3,9 +3,9 @@
     paths: {
       'angular2/*':'lib/angular2/*.js',
       'rtts_assert/*': 'lib/rtts_assert/*.js',
-      'index': 'index.js',
-      'component/*': 'component/**/*.js',
-      'service/*': 'service/**/*.js'
+      'index': 'app/index.js',
+      'component/*': 'app/component/*.js',
+      'service/*': 'app/service/*.js'
     }
   });
   System.import('index').then(function(module) {

@@ -1,12 +1,8 @@
 var gulp = require('gulp'),
-    livereload = require('gulp-livereload'),
-    config = {
-      basePath: './app',
-      port: 5050
-    };
+    browserSync = require('browser-sync');
 
-gulp.task('live-reload',function(){
-  livereload.listen(config);
+gulp.task('start',function(){
+  browserSync({server:{baseDir:'./src'}});
 });
 
-gulp.task('default',['live-reload']);
+gulp.task('default',['start']);
