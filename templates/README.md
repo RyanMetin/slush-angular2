@@ -6,10 +6,8 @@
 To start your app run:
 
 ```bash
-gulp
+npm start
 ```
-
-Then go to [http://localhost:5050](http://localhost:5050).
 
 ### Test
 

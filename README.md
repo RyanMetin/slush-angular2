@@ -23,56 +23,19 @@ cd angular2-app
 slush angular2
 ```
 
-You will be prompted to name your app, decide if your app will use Sass, and decide if it will use TypeScript.
-
-## Structure
-
-Includes a starter component and a starter service.
-
-```
-angular2-app/
-├── .bowerrc
-├── .editorconfig
-├── .gitignore
-├── gulpfile.js
-├── package.json
-├── README.md
-└── app
-	├── index.html
-	├── index.js
-	├── content
-	│		├── css
-	│		│		└── *.css
-	│		├── sass
-	│		│		└── *.scss
-	│		├── img
-	│   	└── svg
-	├── components
-	│		└── starter
-	│				├── starter.html
-	│				└── starter.js
-	├── services
-	│		└── starter
-	│				└── starter-svc.js
-	└── lib
-		└── # Dependencies
-```
-
 ## Development
 
 To start your app run:
 
 ```bash
-gulp
+npm start
 ```
 
-Access via LiveReload at [http://localhost:5050](http://localhost:5050) (and will compile any Sass/TypeScript).
+#### CSS Preprocessors
+Soon.
 
-#### CSS Preprocessor
-Only includes Sass right now using `gulp-sass`.
-
-#### JS Superset
-Not ready. 
+#### JS Supersets
+Soon. 
 
 ### Test
 
