@@ -1,7 +1,7 @@
 {
   "name": "slush-angular2",
-  "description": "A Slush Generator For Angular 2 (Alpha-11)",
-  "version": "0.0.11",
+  "description": "A Slush Generator For Angular2 (Alpha-14)",
+  "version": "0.1.0",
   "author": {
     "name": "Ryan Usumi",
     "email": "rmusumi@hotmail.com",

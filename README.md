@@ -1,7 +1,16 @@
 slush-angular2
 ==============
 
-Slush generator for Angular 2 Alpha Preview, using the angular/quickstart repository.
+Slush generator to get started with the Angular2 Alpha Preview. 
+
+It uses the [angular/quickstart](https://github.com/angular/quickstart) repo to build the dependencies needed:
+- [Angular2](https://www.npmjs.com/package/angular2): The current Alpha Preview pre-built in ES5.
+- [rtts-assert](https://www.npmjs.com/package/rtts_assert): The run-time type assertion library pre-built in ES5.
+- The es6-shim, which provides:
+	- [Traceur](https://www.npmjs.com/package/traceur): Compiles ES6 to ES5 and uses rtts_assert to transpile TypeScript at run-time.
+	- [ES6 Module Loader](https://www.npmjs.com/package/es6-module-loader): A polyfill for asynchronous module loading.
+	- [systemjs](https://www.npmjs.com/package/systemjs): Works with the es6-module-loader to dynamically load any module format.
+	- [zonejs](https://www.npmjs.com/package/zone.js): BTFord's Zone implementation for controlling the execution of asynchronous calls.
 
 ## Installation
 
