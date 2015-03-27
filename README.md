@@ -34,10 +34,10 @@ cd angular2-app
 slush angular2
 ```
 
-### Structure
+## Structure
 - content/
 - lib/
-	- # angular2 dependencies
+	- angular2 dependencies
 - src/
 	- index.html
 	- app/
