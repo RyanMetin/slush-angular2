@@ -1,8 +1,7 @@
 language: node_js
 
 node_js:
-	- iojs
-	- node
+  - 0.12
 
 install:
-	- slush angular2
+  - slush angular2
