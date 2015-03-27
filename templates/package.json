@@ -1,5 +1,5 @@
 {
-  "name": "<%= slug %> ",
+  "name": "<%= camel %> ",
   "version": "0.0.5",
   "scripts": {
     "postinstall": "quickstart.sh",
