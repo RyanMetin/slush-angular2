@@ -1,4 +1,4 @@
-<%= slug %>
+<%= camel %>
 ============
 
 ## Development

@@ -1,6 +1,8 @@
 slush-angular2
 ==============
 
+![](http://thevelourfog.github.io/src/content/svg/shield.svg)
+
 Slush generator to get started with the Angular2 Alpha Preview.
 
 Scaffold has an example component with a decorator, service and template. Mouse over the header and check it out.
@@ -34,6 +36,18 @@ cd angular2-app
 slush angular2
 ```
 
+## Development
+
+To start your app run:
+
+```bash
+npm start
+```
+
+### Now you're ready to get Angular... 2!
+
+![](http://i.imgur.com/85O2cvX.gif)
+
 ## Structure
 - content/
 - lib/
@@ -48,14 +62,6 @@ slush angular2
 			- decorator.js # decorator directive
 			- service.js # injectable service
 			- template.html # component template
-
-## Development
-
-To start your app run:
-
-```bash
-npm start
-```
 
 #### CSS Preprocessors
 Soon.
