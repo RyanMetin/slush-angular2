@@ -1,7 +1,9 @@
 slush-angular2
 ==============
 
-Slush generator to get started with the Angular2 Alpha Preview. 
+Slush generator to get started with the Angular2 Alpha Preview.
+
+Scaffold has an example component with a decorator, service and template. Mouse over the header and check it out.
 
 It uses the [angular/quickstart](https://github.com/angular/quickstart) repo to build the dependencies needed:
 - [Angular2](https://www.npmjs.com/package/angular2): The current Alpha Preview pre-built in ES5.
@@ -31,6 +33,21 @@ cd angular2-app
 
 slush angular2
 ```
+
+### Structure
+- content/
+- lib/
+	- # angular2 dependencies
+- src/
+	- index.html
+	- app/
+		- config.js # configuration for system paths and import
+		- index.js # main app and bootstrap
+		- starter/
+			- component.js # component directive
+			- decorator.js # decorator directive
+			- service.js # injectable service
+			- template.html # component template
 
 ## Development
 
