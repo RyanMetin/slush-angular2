@@ -1,20 +1,20 @@
-import {Component,Template,If} from 'angular2/angular2';
-import {StarterSvc} from 'starter/service';
+import {Component,Template} from 'angular2/angular2';
+import {TitleSvc} from 'starter/service';
+import {HoverHeader} from 'starter/decorator';
 
 @Component({
-  selector: 'starter',
-  componentServices: [StarterSvc]
+	selector: 'starter',
+	services: [TitleSvc]
 })
 
 @Template({
-  url: 'app/starter/template.html',
-  directives: [If]
+	url: 'app/starter/template.html',
+	directives: [HoverHeader]
 })
 
 export class Starter {
-
-  constructor() {
-  	this.title = 'Angular 2 Starter';
-  }
-  
+	title: string;
+	constructor(svc: TitleSvc) {
+		this.title = svc.title;
+	}
 }

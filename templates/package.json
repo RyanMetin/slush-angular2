@@ -1,6 +1,6 @@
 {
   "name": "<%= slug %> ",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "scripts": {
     "postinstall": "quickstart.sh",
     "start": "gulp"
@@ -8,7 +8,7 @@
   "dependencies": {
   },
   "devDependencies": {
-    "gulp": "3.8.11",
+    "gulp": "^3.8.11",
     "gulp-connect": "^2.2.0",
     "opn": "^1.0.1"
   }

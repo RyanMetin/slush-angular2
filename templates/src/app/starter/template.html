@@ -1,26 +1,30 @@
 <style>
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
-.toolbar {
+div.toolbar {
 	background-color: #4527A0;
+	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.45);
 	color: #B39DDB;
 	display: flex;
 	flex-direction: column;
+	font-family: inherit;
+	font-size: 1.5em;
+	height: 64px;
 	min-height: 64px;
 	position: relative;
+	transition: all 0.5s ease-in-out;
 	width: 100%;
 }
-.title {
+h1.title {
 	align-items: center;
 	display: flex;
 	flex-direction: row;
-	font-family: 'Open Sans', sans-serif;
-	font-size: 1.5em;
-	height: 64px;
+	font-family: inherit;
+	font-size: inherit;
+	height: inherit;
 	margin: 0;
 	padding: 0 16px;
 	width: 100%;
 }
 </style>
-<div class="toolbar">
+<div decor class="toolbar">
 	<h1 class="title">{{title}}</h1>
 </div>
