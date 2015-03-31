@@ -26,19 +26,15 @@ npm install -g slush-angular2
 
 ## Usage
 
-Run the generator from within a new folder for your app:
+Run the generator and name your project when prompted (default = 'Angular2 Demo'):
 
 ```bash
-mkdir angular2-app
-
-cd angular2-app
-
 slush angular2
 ```
 
 ## Development
 
-To start your app run:
+From within your new project directory run:
 
 ```bash
 npm start
