@@ -2,7 +2,7 @@ import {Decorator,NgElement} from 'angular2/angular2';
 
 @Decorator({
 	selector: '[decor]',
-	events: {
+	hostListeners: {
         mouseenter: 'bigHead()',
         mouseleave: 'regHead()'
 	}

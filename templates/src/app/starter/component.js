@@ -1,14 +1,14 @@
-import {Component,Template} from 'angular2/angular2';
+import {Component,View} from 'angular2/angular2';
 import {TitleSvc} from 'starter/service';
 import {HoverHeader} from 'starter/decorator';
 
 @Component({
 	selector: 'starter',
-	services: [TitleSvc]
+	injectables: [TitleSvc]
 })
 
-@Template({
-	url: 'app/starter/template.html',
+@View({
+	templateUrl: 'app/starter/template.html',
 	directives: [HoverHeader]
 })
 
