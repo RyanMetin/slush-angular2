@@ -1,9 +1,25 @@
 var gulp = require('gulp'),
+  builder = require('systemjs-builder'),
   connect = require('gulp-connect'),
   del = require('del'),
   open = require('opn'),
   plumber = require('gulp-plumber'),
+  rename = require('gulp-rename'),
   traceur = require('gulp-traceur');
+
+gulp.task('build', function() {
+  var angular2 = new builder({
+    paths: {
+      'angular2/*': 'node_modules/angular2/es6/prod/*.es6',
+      'rx/*': 'node_modules/angular2/node_modules/rx/*.js'
+    }
+  });
+  return angular2.build('angular2/angular2', 'build/lib/angular2.js', {});
+});
+
+gulp.task('clean', function(done) {
+  del(['build'], done);
+});
 
 gulp.task('html', function() {
   gulp.src('./src/*.html')
@@ -21,28 +37,26 @@ gulp.task('js', function() {
       moduleName: true,
       modules: 'instantiate',
       types: true
-    }))
-    .pipe(rename({extname:'.js'}))
+    })).pipe(rename({extname:'.js'}))
     .pipe(gulp.dest('build'))
     .pipe(connect.reload());
 });
 
-gulp.task('lib', function() {
+gulp.task('lib', ['build'], function() {
   gulp.src([
     'node_modules/angular2/node_modules/traceur/bin/traceur.js',
     'node_modules/angular2/node_modules/traceur/bin/traceur-runtime.js',
     'node_modules/angular2/node_modules/zone.js/long-stack-trace-zone.js',
     'node_modules/angular2/node_modules/zone.js/zone.js',
     'node_modules/es6-module-loader/dist/es6-module-loader.js',
-    'node_modules/es6-module-loader/dist/es6-module-loader.js.map',
-    'node_modules/systemjs/dist/system.js',
-    'node_modules/systemjs/dist/system.js.map'
-  ])
+    'node_modules/es6-module-loader/dist/es6-module-loader-sans-promises.src.js',
+    'node_modules/systemjs/dist/system.js'
+  ]).pipe(gulp.dest('build/lib'));
 });
 
 gulp.task('serve', function() {
   connect.server({
-    root: 'src',
+    root: '/dist',
     port: 5050,
     livereload: true
   });
