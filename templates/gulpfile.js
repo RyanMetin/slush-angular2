@@ -1,71 +1,65 @@
 var gulp = require('gulp'),
-  builder = require('systemjs-builder'),
-  connect = require('gulp-connect'),
-  del = require('del'),
-  open = require('opn'),
-  plumber = require('gulp-plumber'),
-  rename = require('gulp-rename'),
-  traceur = require('gulp-traceur');
+	Builder = require('systemjs-builder'),
+	del = require('del'),
+	merge = require('merge-stream'),
+	path = require('path'),
+	plumber = require('gulp-plumber'),
+	run = require('run-sequence'),
+	source = require('gulp-sourcemaps'),
+	ts = require('gulp-typescript'),
+	webserver = require('gulp-webserver'),
 
-gulp.task('build', function() {
-  var angular2 = new builder({
-    paths: {
-      'angular2/*': 'node_modules/angular2/es6/prod/*.es6',
-      'rx/*': 'node_modules/angular2/node_modules/rx/*.js'
-    }
-  });
-  return angular2.build('angular2/angular2', 'build/lib/angular2.js', {});
+	tsProject = ts.createProject('tsconfig.json', {typescript: require('typescript')}),
+	
+	build = new Builder({
+		paths: {
+			'angular2/*': 'node_modules/angular2/es6/prod/*.es6',
+			'rx': 'node_modules/angular2/node_modules/rx/dist/rx.js'
+		}, meta: {
+			'rx': {format: 'cjs'}
+		}
+	}),
+	bundle = new Builder();
+
+gulp.task('build', ['clean'], function(cb) {
+	run('build:ts', cb);
 });
 
-gulp.task('clean', function(done) {
-  del(['build'], done);
+gulp.task('build:angular2', function() {
+	return build.build('angular2/angular2', './js/lib/angular2.js', {sourceMaps: true});
 });
 
-gulp.task('html', function() {
-  gulp.src('./src/*.html')
-    .pipe(gulp.dest('build'))
-    .pipe(connect.reload());
+gulp.task('build:bundle', function() {
+	bundle.loadConfig('./js/config.js').then(function() {
+		bundle.config({baseURL: 'file:' + path.resolve('./js')});
+		return bundle.buildSFX('js/index', './js/bundle.js', {minify: true, sourceMaps: true});
+	});
 });
 
-gulp.task('js', function() {
-  gulp.src('./src/app/*.js')
-    .pipe(rename({extname:''}))
-    .pipe(plumber())
-    .pipe(traceur({
-      annotations: true,
-      memberVariables: true,
-      moduleName: true,
-      modules: 'instantiate',
-      types: true
-    })).pipe(rename({extname:'.js'}))
-    .pipe(gulp.dest('build'))
-    .pipe(connect.reload());
+gulp.task('build:router', function() {
+	return build.build('angular2/router', './js/lib/router.js', {sourceMaps: true});
 });
 
-gulp.task('lib', ['build'], function() {
-  gulp.src([
-    'node_modules/angular2/node_modules/traceur/bin/traceur.js',
-    'node_modules/angular2/node_modules/traceur/bin/traceur-runtime.js',
-    'node_modules/angular2/node_modules/zone.js/long-stack-trace-zone.js',
-    'node_modules/angular2/node_modules/zone.js/zone.js',
-    'node_modules/es6-module-loader/dist/es6-module-loader.js',
-    'node_modules/es6-module-loader/dist/es6-module-loader-sans-promises.src.js',
-    'node_modules/systemjs/dist/system.js'
-  ]).pipe(gulp.dest('build/lib'));
+gulp.task('build:ts', function() {
+	var tsResult = gulp.src('./ts/**/*.ts')
+		.pipe(plumber())
+		.pipe(source.init())
+		.pipe(ts(tsProject));
+	return tsResult.js
+		.pipe(source.write())
+		.pipe(gulp.dest('./js'));
 });
+
+gulp.task('clean', function(cb) {
+	del(['./dist', './js'], cb);
+});
+
+gulp.task('default', ['serve', 'watch']);
 
 gulp.task('serve', function() {
-  connect.server({
-    root: '/dist',
-    port: 5050,
-    livereload: true
-  });
-  open('http://localhost:5050');
+	gulp.src('./').pipe(webserver({livereload: true, open:true}));
 });
 
 gulp.task('watch', function() {
-  gulp.watch('./src/*.html', ['html']);
-  gulp.watch('./src/app/*.js', ['js']);
+	gulp.watch('./src/**', ['build:ts']);
 });
-
-gulp.task('default', ['serve','watch']);
