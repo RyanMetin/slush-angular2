@@ -12,7 +12,7 @@ gulp.task('default', function (cb) {
       type: 'input', 
       name: 'name', 
       message: 'Name Your App:', 
-      default: 'Angular2 Example'
+      default: 'Angular2 Slushy'
     }
   ],
   function (answers) {

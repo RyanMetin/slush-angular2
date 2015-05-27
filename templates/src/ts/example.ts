@@ -1,5 +1,5 @@
 /// <reference path="typings/tsd.d.ts" />
-import {Component, View} from 'angular2/angular2';
+import {Component, View, NgIf} from 'angular2/angular2';
 import {NgIf} from 'angular2/directives';
 
 @Component({

@@ -4,7 +4,7 @@ import {ComponentAnnotation as Component, ViewAnnotation as View, NgIf} from 'an
 	selector: 'example'
 })
 @View({
-	template: '<h1 *ng-if="name">Example Component: {{name}}</h1>',
+	template: `<h1 *ng-if="name">{{name}}</h1>`,
 	directives: [NgIf]
 })
 export class Example {
