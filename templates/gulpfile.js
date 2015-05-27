@@ -50,11 +50,15 @@ gulp.task('copy:typing', function() {
 	return merge(atscript, reflect, typescript);
 });
 
-gulp.task('default', ['serve:src','watch']);
+gulp.task('default', ['src','watch']);
+
+gulp.task('src', ['serve:src', 'watch']);
 
 gulp.task('serve:src', function() {
 	gulp.src('./').pipe(webserver({livereload: true, open: true}));
 });
+
+gulp.task('dist', ['serve:dist', 'watch']);
 
 gulp.task('serve:dist', function() {
 	gulp.src('./dist').pipe(webserver({livereload: true, open: true}));

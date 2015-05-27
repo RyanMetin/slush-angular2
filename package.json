@@ -22,13 +22,13 @@
   "main": "slushfile.js",
   "scripts": {},
   "devDependencies": {
-    "gulp": "latest",
-    "gulp-conflict": "latest",
-    "gulp-install": "latest",
-    "gulp-rename": "latest",
-    "gulp-template": "latest",
-    "inquirer": "latest",
-    "underscore.string": "latest"
+    "gulp": "^3.8.11",
+    "gulp-conflict": "^0.4.0",
+    "gulp-install": "^0.4.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-template": "^3.0.0",
+    "inquirer": "^0.8.5",
+    "underscore.string": "^3.0.3"
   },
   "keywords": [
     "slushgenerator",
