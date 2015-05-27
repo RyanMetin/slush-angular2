@@ -11,5 +11,7 @@
 		"target": "es5"
 	},
 	"files": [
+		"./src/ts/**/*.ts",
+		"./jspm_packages/npm/angular2@2.0.0-alpha.25/atscript/**/*.ts"
 	]
 }

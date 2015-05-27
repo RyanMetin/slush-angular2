@@ -1,20 +1,15 @@
 slush-angular2
 ==============
 
-![](http://thevelourfog.github.io/src/content/svg/shield.svg)
+Get started with the Angular2 Preview with this Slush generator!
 
-Slush generator to get started with the Angular2 Alpha Preview.
-
-Scaffold has an example component with a decorator, service and template. Mouse over the header and check it out.
-
-It uses the [angular/quickstart](https://github.com/angular/quickstart) repo to build the dependencies needed:
-- [Angular2](https://www.npmjs.com/package/angular2): The current Alpha Preview pre-built in ES5.
-- [rtts-assert](https://www.npmjs.com/package/rtts_assert): The run-time type assertion library pre-built in ES5.
-- The es6-shim, which provides:
-	- [Traceur](https://www.npmjs.com/package/traceur): Compiles ES6 to ES5 and uses rtts_assert to transpile TypeScript at run-time.
-	- [ES6 Module Loader](https://www.npmjs.com/package/es6-module-loader): A polyfill for asynchronous module loading.
-	- [systemjs](https://www.npmjs.com/package/systemjs): Works with the es6-module-loader to dynamically load any module format.
-	- [zonejs](https://www.npmjs.com/package/zone.js): BTFord's Zone implementation for controlling the execution of asynchronous calls.
+This uses [jspm](http://jspm.io/) to grab and package all of these dependencies:
+- [angular2](https://www.npmjs.com/package/angular2)
+- [es6-module-loader](https://www.npmjs.com/package/es6-module-loader)
+- [reflect-metadata](https://www.npmjs.com/package/reflect-metadata)
+- [systemjs](https://www.npmjs.com/package/systemjs)
+- [traceur](https://www.npmjs.com/package/traceur)
+- [zone](https://www.npmjs.com/package/zone.js)
 
 ## Installation
 
@@ -32,46 +27,54 @@ Run the generator and name your project when prompted (default = 'Angular2 Demo'
 slush angular2
 ```
 
+Now you've got everything you need to get started.
+
+![](http://i.imgur.com/85O2cvX.gif)
+
 ## Development
 
 From within your new project directory run:
 
 ```bash
-npm start
+gulp src
 ```
 
-### Now you're ready to get Angular... 2!
+## Production
 
-![](http://i.imgur.com/85O2cvX.gif)
+Bundle your app with:
+
+```bash
+gulp build:all
+```
+
+Serve it up with:
+
+```bash
+gulp dist
+```
 
 ## Structure
-- content/
-- lib/
-	- angular2 dependencies
-- src/
+
 	- index.html
-	- app/
-		- config.js # configuration for system paths and import
-		- index.js # main app and bootstrap
-		- starter/
-			- component.js # component directive
-			- decorator.js # decorator directive
-			- service.js # injectable service
-			- template.html # component template
+	- config.js
+	- src/
+		- index.js # Bootstrap the example component.
+		- example.js # A basic Angular2 component.
+		- content/ # Browser assets.
+		- ts/ # TypeScript files.
+			- typings/ TypeScript definitions.
+	- dist/
+		- bundle.js # Self-executing bundle of all dependencies.
+		- index.html
+	- tsconfig.json # TypeScript configurations.
 
-#### CSS Preprocessors
-Soon.
+## To-do
 
-#### JS Supersets
-Soon. 
-
-### Test
-
-Not ready.
-
-### Production
-
-Not ready.
+	- Get TypeScript working properly from JSPM.
+	- More templates to scaffold from:
+		- Webpack
+		- TypeScript
+	- Optional Sass. 
 
 ## Contribute
 

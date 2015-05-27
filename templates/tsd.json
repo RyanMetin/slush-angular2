@@ -2,11 +2,11 @@
   "version": "v4",
   "repo": "borisyankov/DefinitelyTyped",
   "ref": "master",
-  "path": "ts/typings",
-  "bundle": "ts/typings/tsd.d.ts",
+  "path": "src/ts/typings",
+  "bundle": "src/ts/typings/tsd.d.ts",
   "installed": {
     "angular2/angular2.d.ts": {
-      "commit": "f23cd55e319a0f67362ca0dbc4cf3e2ec1339f4e"
+      "commit": "d67c5e3e1a1291ab58dcaace6ce76f69e860d33c"
     }
   }
 }

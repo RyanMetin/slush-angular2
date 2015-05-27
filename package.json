@@ -1,7 +1,7 @@
 {
   "name": "slush-angular2",
-  "description": "A Slush Generator For The Angular 2 Alpha Preview",
-  "version": "0.1.8",
+  "description": "Slush Generator For An Angular2 Boilerplate",
+  "version": "0.2.0",
   "author": {
     "name": "Ryan Usumi",
     "email": "rmusumi@hotmail.com",
@@ -12,33 +12,38 @@
     "type": "git",
     "url": "git://github.com/thevelourfog/slush-angular2.git"
   },
-  "license": {
+  "licenses": [{
     "type": "MIT",
     "url": "https://github.com/thevelourfog/slush-angular2/blob/master/LICENSE.md"
-  },
+  }],
   "bugs": {
     "url": "https://github.com/thevelourfog/slush-angular2/issues"
   },
   "main": "slushfile.js",
   "scripts": {},
-  "dependencies": {
-    "gulp": "^3.8.11",
-    "gulp-conflict": "^0.3.0",
-    "gulp-install": "^0.4.0",
-    "gulp-template": "^3.0.0",
-    "inquirer": "^0.8.2",
-    "underscore.string": "^3.0.3"
+  "devDependencies": {
+    "gulp": "latest",
+    "gulp-conflict": "latest",
+    "gulp-install": "latest",
+    "gulp-rename": "latest",
+    "gulp-template": "latest",
+    "inquirer": "latest",
+    "underscore.string": "latest"
   },
-  "devDependencies": {},
   "keywords": [
     "slushgenerator",
     "slush",
     "angularjs",
     "angular",
     "angular2",
+    "boilerplate",
     "generator",
     "gulp",
+    "jspm",
     "node",
-    "scaffold"
+    "sass",
+    "scaffold",
+    "systemjs",
+    "typescript"
   ]
 }
