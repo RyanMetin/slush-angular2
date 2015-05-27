@@ -19,10 +19,11 @@ var gulp = require('gulp'),
 			'rx': {format: 'cjs'}
 		}
 	}),
+	
 	bundle = new Builder();
 
 gulp.task('build', ['clean'], function(cb) {
-	run('build:ts', cb);
+	run(['build:copy', 'build:angular2', 'build:router'], 'build:ts', cb);
 });
 
 gulp.task('build:angular2', function() {
@@ -30,10 +31,23 @@ gulp.task('build:angular2', function() {
 });
 
 gulp.task('build:bundle', function() {
-	bundle.loadConfig('./js/config.js').then(function() {
-		bundle.config({baseURL: 'file:' + path.resolve('./js')});
-		return bundle.buildSFX('js/index', './js/bundle.js', {minify: true, sourceMaps: true});
-	});
+	return bundle.buildSFX('js/index', './dist/bundle.js', {minify: true, sourceMaps: true});
+});
+
+gulp.task('build:copy', function() {
+	gulp.src([
+		'node_modules/angular2/node_modules/rx/dist/rx.all.js',
+		'node_modules/angular2/node_modules/rx/dist/rx.all.map',
+		'node_modules/angular2/node_modules/traceur/bin/traceur.js',
+		'node_modules/angular2/node_modules/traceur/bin/traceur-runtime.js',
+		'node_modules/angular2/node_modules/zone.js/dist/zone.js',
+		'node_modules/reflect-metadata/reflect.js',
+		'node_modules/reflect-metadata/reflect.js.map',
+		'node_modules/systemjs/dist/system.js',
+		'node_modules/systemjs/dist/system.js.map',
+		'node_modules/systemjs/node_modules/es6-module-loader/dist/es6-module-loader.js',
+		'node_modules/systemjs/node_modules/es6-module-loader/dist/es6-module-loader.js.map'
+	]).pipe(gulp.dest('./js/lib'));
 });
 
 gulp.task('build:router', function() {
@@ -61,5 +75,5 @@ gulp.task('serve', function() {
 });
 
 gulp.task('watch', function() {
-	gulp.watch('./src/**', ['build:ts']);
+	gulp.watch('./ts/**/*.ts', ['build:ts']);
 });

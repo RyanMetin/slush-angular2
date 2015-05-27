@@ -7,10 +7,29 @@
 </head>
 <body>
 	<example></example>
-	<script src="./jspm_packages/system.js"></script>
-	<script src="./js/config.js"></script>
-	<script src="./js/lib/angular2.js"></script>
-	<script src="./js/lib/router.js"></script>
-	<script>System.import('index');</script>
+	<script src="./lib/traceur-runtime.js"></script>
+	<script src="./lib/es6-module-loader.js"></script>-->
+	<script src="./lib/system.js"></script>
+	<script src="./lib/zone.js"></script>
+	<script>
+		System.config({
+			baseURL: '/js/',
+			paths: {
+				'lib:*': 'lib/*.js',
+				'angular2/*': 'lib/angular2.js',
+				'index': 'index.js'
+			},
+			map: {
+				'traceur': 'lib:traceur',
+				'traceur-runtime': 'lib:traceur-runtime',
+				'es6-module-loader': 'lib:es6-module-loader',
+				'angular/router': 'lib:router',
+				'reflect-metadata': 'lib:reflect',
+				'rx': 'lib:rx'
+			},
+			transpiler: 'traceur'
+		});
+		System.import('index');
+	</script>
 </body>
 </html>

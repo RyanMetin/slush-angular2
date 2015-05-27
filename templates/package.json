@@ -1,8 +1,17 @@
 {
-  "devDependencies": {
+  "version": "0.0.1",
+  "name": "",
+  "description": "",
+  "dependencies": {
     "angular2": "^2.0.0-alpha.25",
+    "reflect-metadata": "^0.1.0",
+    "systemjs": "^0.16.11",
+    "zone.js": "^0.5.0"
+  },
+  "devDependencies": {
     "del": "^1.2.0",
     "gulp": "^3.8.11",
+    "gulp-html-replace": "^1.4.5",
     "gulp-plumber": "^1.0.1",
     "gulp-sourcemaps": "^1.5.2",
     "gulp-typescript": "^2.7.5",
@@ -12,25 +21,5 @@
     "systemjs-builder": "^0.10.6",
     "tsd": "^0.6.0",
     "typescript": "^1.5.0-beta"
-  },
-  "jspm": {
-    "directories": {
-      "baseURL": "js",
-      "packages": "jspm_packages"
-    },
-    "dependencies": {
-      "es6-promise": "npm:es6-promise@^2.1.1",
-      "reflect-metadata": "npm:reflect-metadata@^0.1.0",
-      "rtts_assert": "npm:rtts_assert@^2.0.0-alpha.25",
-      "rx": "npm:rx@^2.5.2",
-      "zone.js": "npm:zone.js@^0.5.0"
-    },
-    "devDependencies": {
-      "traceur": "github:jmcriffey/bower-traceur@0.0.88",
-      "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.88"
-    }
-  },
-  "scripts": {
-    "postinstall": "jspm install"
   }
 }
