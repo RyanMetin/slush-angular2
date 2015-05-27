@@ -1,7 +1,7 @@
 {
   "name": "slush-angular2",
   "description": "Slush Generator For An Angular2 Boilerplate",
-  "version": "0.2.0",
+  "version": "0.2.01",
   "author": {
     "name": "Ryan Usumi",
     "email": "rmusumi@hotmail.com",
@@ -21,7 +21,7 @@
   },
   "main": "slushfile.js",
   "scripts": {},
-  "devDependencies": {
+  "dependencies": {
     "gulp": "^3.8.11",
     "gulp-conflict": "^0.4.0",
     "gulp-install": "^0.4.0",
