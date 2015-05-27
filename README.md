@@ -33,10 +33,10 @@ Now you've got everything you need to get started.
 
 ## Development
 
-From within your new project directory run:
+From your new project directory run:
 
 ```bash
-gulp src
+gulp serve:src
 ```
 
 ## Production
@@ -50,23 +50,23 @@ gulp build:all
 Serve it up with:
 
 ```bash
-gulp dist
+gulp serve:dist
 ```
 
 ## Structure
 
-	- index.html
-	- config.js
 	- src/
+		- index.html
+		- config.js # System configuration.
 		- index.js # Bootstrap the example component.
 		- example.js # A basic Angular2 component.
 		- content/ # Browser assets.
 		- ts/ # TypeScript files.
-			- typings/ TypeScript definitions.
+			- typings/ # TypeScript definitions.
 	- dist/
-		- bundle.js # Self-executing bundle of all dependencies.
+		- bundle.js # Self-executing bundle of dependencies.
 		- index.html
-	- tsconfig.json # TypeScript configurations.
+	- tsconfig.json # TypeScript configuration.
 
 ## To-do
 

@@ -6,7 +6,7 @@
 To start your app run:
 
 ```bash
-gulp src
+gulp serve:src
 ```
 
 ## Production
@@ -20,13 +20,13 @@ gulp build:all
 Then start app with:
 
 ```bash
-gulp dist
+gulp serve:dist
 ```
 
 ## TypeScript
 
-Not working properly at the moment.
-However, typescript can be compiled from src/ts/ with:
+Not entirely set up at the moment.
+However, TypeScript can be compiled from src/ts/ with:
 
 ```bash
 gulp build:ts
