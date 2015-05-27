@@ -21,8 +21,8 @@ gulp.task('default', function (cb) {
     path.resolve(process.cwd(), answers.slug);
     gulp.src(__dirname + '/templates/**')
       .pipe(template(answers))
-      .pipe(conflict('./'))
-      .pipe(gulp.dest('./'))
+      .pipe(conflict(path.join(process.cwd(), answers.slug)))
+      .pipe(gulp.dest(path.join(process.cwd(), answers.slug)))
       .pipe(install())
       .on('finish', function () {
         cb();
