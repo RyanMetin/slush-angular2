@@ -1,0 +1,58 @@
+{
+  "version": "0.0.1",
+  "name": "<%= camel %>",
+  "description": "",
+  "author": {
+    "name": "",
+    "email": ""
+  },
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "licenses": [
+    {
+      "type": "",
+      "url": ""
+    }
+  ],
+  "scripts": {
+  },
+  "dependencies": {
+    "angular2": "^2.0.0-alpha.25",
+    "reflect-metadata": "^0.1.0"
+  },
+  "devDependencies": {
+    "raw-loader": "^0.5.1",
+    "tsd": "^0.6.0",
+    "tslint-loader": "^0.9.0",
+    "typescript": "^1.5.0-beta",
+    "typescript-simple-loader": "^0.1.2",
+    "webpack": "^1.9.10",
+    "webpack-dev-server": "^1.9.0"
+  },
+  "eslintConfig": {
+    "ecmaFeatures": {
+      "modules": true
+    },
+    "env": {
+      "browser": true,
+      "es6": true
+    },
+    "plugins": [
+      "decorator"
+    ],
+    "rules": {
+      "quotes": 0
+    }
+  },
+  "keywords": [
+    "angular2",
+    "gulp",
+    "jspm",
+    "slush",
+    "systemjs",
+    "traceur",
+    "typescript"
+  ]
+}
