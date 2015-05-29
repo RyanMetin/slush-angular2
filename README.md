@@ -3,17 +3,17 @@ slush-angular2
 
 Get started with the Angular2 Preview with this Slush generator!
 
-	What it uses:
-	- [angular2](https://www.npmjs.com/package/angular2)
-	- [es6-module-loader](https://www.npmjs.com/package/es6-module-loader)
-	- [reflect-metadata](https://www.npmjs.com/package/reflect-metadata)
-	- [systemjs](https://www.npmjs.com/package/systemjs)
-	- [zone](https://www.npmjs.com/package/zone.js)
+What it uses:
+- [angular2](https://www.npmjs.com/package/angular2)
+- [es6-module-loader](https://www.npmjs.com/package/es6-module-loader)
+- [reflect-metadata](https://www.npmjs.com/package/reflect-metadata)
+- [systemjs](https://www.npmjs.com/package/systemjs)
+- [zone](https://www.npmjs.com/package/zone.js)
 	
-	Build options:
-	- Use [jspm](https://jspm.io/) and [traceur](https://www.npmjs.com/package/traceur).
-	- [TypeScript](https://typescriptlang.org)!
-	- Or [Webpack](https://webpack.github.io) and [Babel](https://babeljs.io).
+Build options:
+- Use [jspm](https://jspm.io/) and [traceur](https://www.npmjs.com/package/traceur).
+- [TypeScript](https://typescriptlang.org)!
+- Or [Webpack](https://webpack.github.io) and [Babel](https://babeljs.io).
 
 ## Installation
 
