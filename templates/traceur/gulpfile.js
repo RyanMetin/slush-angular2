@@ -6,10 +6,8 @@ var gulp = require('gulp'),
 	eslint = require('gulp-eslint'),
 	merge = require('merge-stream'),
 	path = require('path'),
-	plumber = require('gulp-plumber'),
 	replace = require('gulp-html-replace'),
 	run = require('run-sequence'),
-	ts = require('gulp-typescript'),
 	webserver = require('gulp-webserver');
 
 gulp.task('build:all', ['clean'], function(cb) {

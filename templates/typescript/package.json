@@ -1,6 +1,6 @@
 {
   "version": "0.0.1",
-  "name": "",
+  "name": "<%= camel %>",
   "description": "",
   "author": {
     "name": "",
@@ -17,8 +17,8 @@
     }
   ],
   "scripts": {
-    "postinstall": "",
-    "start": "gulp"
+    "postinstall": "gulp build:lib",
+    "start": "gulp serve:src"
   },
   "dependencies": {
     "angular2": "^2.0.0-alpha.25",
@@ -29,6 +29,7 @@
   "devDependencies": {
     "del": "latest",
     "gulp": "latest",
+    "gulp-html-replace": "latest",
     "gulp-plumber": "latest",
     "gulp-typescript": "latest",
     "gulp-sourcemaps": "latest",
