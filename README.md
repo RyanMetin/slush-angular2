@@ -3,13 +3,17 @@ slush-angular2
 
 Get started with the Angular2 Preview with this Slush generator!
 
-This uses [jspm](http://jspm.io/) to grab and package all of these dependencies:
-- [angular2](https://www.npmjs.com/package/angular2)
-- [es6-module-loader](https://www.npmjs.com/package/es6-module-loader)
-- [reflect-metadata](https://www.npmjs.com/package/reflect-metadata)
-- [systemjs](https://www.npmjs.com/package/systemjs)
-- [traceur](https://www.npmjs.com/package/traceur)
-- [zone](https://www.npmjs.com/package/zone.js)
+	What it uses:
+	- [angular2](https://www.npmjs.com/package/angular2)
+	- [es6-module-loader](https://www.npmjs.com/package/es6-module-loader)
+	- [reflect-metadata](https://www.npmjs.com/package/reflect-metadata)
+	- [systemjs](https://www.npmjs.com/package/systemjs)
+	- [zone](https://www.npmjs.com/package/zone.js)
+	
+	Build options:
+	- Use [jspm](https://jspm.io/) and [traceur](https://www.npmjs.com/package/traceur).
+	- [TypeScript](https://typescriptlang.org)!
+	- Or [Webpack](https://webpack.github.io) and [Babel](https://babeljs.io).
 
 ## Installation
 
@@ -21,7 +25,7 @@ npm install -g slush-angular2
 
 ## Usage
 
-Run the generator and name your project when prompted (default = 'Angular2 Demo'):
+Run the generator and answer its questions:
 
 ```bash
 slush angular2
