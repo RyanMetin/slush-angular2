@@ -1,7 +1,7 @@
 slush-angular2
 ==============
 
-Get started with the Angular2 Preview with this Slush generator!
+Get started with the Angular2 Preview:
 
 What it uses:
 - [angular2](https://www.npmjs.com/package/angular2)
@@ -40,21 +40,15 @@ Now you've got everything you need to get started.
 From your new project directory run:
 
 ```bash
-gulp serve:src
+gulp src
 ```
 
 ## Production
 
-Bundle your app with:
+Bundle your app and serve it with:
 
 ```bash
-gulp build:all
-```
-
-Serve it up with:
-
-```bash
-gulp serve:dist
+gulp dist
 ```
 
 ## Structure

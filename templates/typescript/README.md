@@ -6,7 +6,7 @@
 Get started with:
 
 ```bash
-gulp serve:src
+gulp src
 ```
 
 This will transpile your TypeScript and open your browser to src.
@@ -16,7 +16,7 @@ This will transpile your TypeScript and open your browser to src.
 Bundle your work:
 
 ```bash
-gulp serve:dist
+gulp dist
 ```
 
 This will build your dist folder with bundled dependencies and then open in your browser.

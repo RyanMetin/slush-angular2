@@ -32,21 +32,19 @@ gulp.task('clean', function(cb) {
 	del(['./dist', './src/js'], cb);
 });
 
-gulp.task('default', ['serve:src', 'lint:js']);
-
 gulp.task('lint:js', function() {
 	gulp.src('./src/**/*.js')
 		.pipe(eslint('package.json'))
 		.pipe(eslint.format('stylish'));
 });
 
-gulp.task('serve:src', ['src', 'watch']);
-gulp.task('src', function() {
+gulp.task('src', ['serve:src', 'watch']);
+gulp.task('serve:src', function() {
 	gulp.src('./').pipe(webserver({livereload: true, open: 'http://localhost:8000/src/'}));
 });
 
-gulp.task('serve:dist', ['dist', 'watch']);
-gulp.task('dist', function() {
+gulp.task('dist', ['serve:dist', 'watch']);
+gulp.task('serve:dist', function() {
 	gulp.src('./dist').pipe(webserver({open: true}));
 });
 

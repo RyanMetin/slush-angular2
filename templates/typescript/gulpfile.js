@@ -18,7 +18,7 @@ gulp.task('build:angular2', function() {
 	});
 	return angular2.build('angular2/*', './src/lib/angular2.js');
 });
-gulp.task('build:bundle', ['build:ts'], function() {
+gulp.task('build:bundle', function() {
 	var bundle = new Builder({
 		baseURL: './',
 		paths: {'angular2/*': 'node_modules/angular2/es6/prod/*.es6',
@@ -30,8 +30,8 @@ gulp.task('build:bundle', ['build:ts'], function() {
 	});
 	return bundle.buildSFX('src/js/index', 'dist/bundle.js', {minify: true, sourceMaps: true});
 });
-gulp.task('build:dist', ['build:bundle'], function() {
-	var html = gulp.src('./src/*.html').pipe(replace({'bundle': 'bundle.js'})),
+gulp.task('build:dist', function() {
+	var html = gulp.src('./src/*.html').pipe(replace({'bundle': ['bundle.js', 'Reflect.js']})),
 		meta = gulp.src('./src/content/**'),
 		reflect = gulp.src('node_modules/reflect-metadata/Reflect.js');
 	return merge(html, meta, reflect).pipe(gulp.dest('./dist'));
@@ -71,13 +71,17 @@ gulp.task('copy:dependencies', function() {
 	]).pipe(gulp.dest('./src/lib'));
 });
 
-gulp.task('serve:src', ['build:ts', 'src', 'watch']);
-gulp.task('src', function() {
+gulp.task('src', function(cb) {
+	run('build:ts', ['serve:src', 'watch'], cb);
+});
+gulp.task('serve:src', function() {
 	gulp.src('./src').pipe(webserver({livereload: true, open: true}));
 });
 
-gulp.task('serve:dist', ['build:dist', 'dist']);
-gulp.task('dist', function() {
+gulp.task('dist', function(cb) {
+	run(['build:dist', 'build:ts'], 'build:bundle', 'serve:dist', cb);
+});
+gulp.task('serve:dist', function() {
 	gulp.src('./dist').pipe(webserver({open: true}));
 });
 
