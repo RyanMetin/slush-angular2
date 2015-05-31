@@ -759,11 +759,39 @@ declare module "angular2/di" {
 }
 
 declare module "angular2/router" {
-  var Router: any;
-  var RouterOutlet: any;
-  var RouterLink: any;
-  var RouteParams: any;
-  var routerInjectables: any;
-  var RouteConfigAnnotation: any;
-  var RouteConfig: any;
+   class Instruction {}
+   class Router {
+      navigate(url: string): Promise<any>;
+      config(config: any): Promise<any>;
+      deactivate(): Promise<any>;
+      activate(instruction: Instruction): Promise<any>;
+      recognize(url: string): Instruction;
+      renavigate(): Promise<any>;
+      generate(name:string, params:any): string;
+      subscribe(onNext: Function): void;
+   }
+   var RouterOutlet: any;
+   var RouterLink: any;
+   var RouteParams: any;
+   var RouteConfigAnnotation: any;
+   var RouteConfig: any;
+   var routerInjectables: any;
+}
+
+declare module "angular2/src/services/xhr_impl" {
+   class XHR {
+      get(url: string): Promise<string>;
+   }
+   class XHRImpl extends XHR {
+      get(url: string): Promise<string>;
+   }
+}
+
+declare module "angular2/src/services/ruler" {
+   class Rectangle {
+      constructor(left: any, top: any, width: any, height: any);
+   }
+   class Ruler {
+      measure(el: any): Promise<Rectangle>;
+   }
 }

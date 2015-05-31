@@ -51,10 +51,11 @@ gulp.task('clean:js', function(cb) { del(['./src/js'], cb); });
 gulp.task('clean:lib', function(cb) { del(['./src/lib'], cb); });
 
 gulp.task('copy:definitions', function() {
-	var zone = gulp.src('./node_modules/angular2/atscript/typings/zone/zone.d.ts'),
+	var promise = gulp.src('./node_modules/angular2/atscript/typings/es6-promise/es6-promise.d.ts'),
 		reflect = gulp.src('./node_modules/reflect-metadata/reflect-metadata.d.ts'),
-		typescript = gulp.src('./node_modules/typescript/bin/lib.es6.d.ts');
-	return merge(reflect, typescript, zone).pipe(gulp.dest('./src/typings'));
+		typescript = gulp.src('./node_modules/typescript/bin/lib.es6.d.ts'),
+		zone = gulp.src('./node_modules/angular2/atscript/typings/zone/zone.d.ts');
+	return merge(promise, reflect, typescript, zone).pipe(gulp.dest('./src/typings'));
 });
 gulp.task('copy:dependencies', function() {
 	gulp.src([
