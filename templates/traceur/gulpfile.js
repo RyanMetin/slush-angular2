@@ -17,8 +17,8 @@ gulp.task('build:all', ['clean'], function(cb) {
 gulp.task('build:bundle', function() {
 	var bundle = new Builder();
 	return bundle.loadConfig('./src/config.js').then(function() {
-		bundle.config({baseURL: 'file:' + path.resolve('./')});
-		return bundle.buildSFX('reflect-metadata + zone.js + src/index', 'dist/bundle.js', {minify: true, sourceMaps: true});
+		bundle.config({baseURL: 'file:' + path.resolve('./'), meta: {'zone.js': {format: 'global'}}});
+		return bundle.buildSFX('reflect-metadata + src/index', 'dist/bundle.js', {minify: true, sourceMaps: true});
 	});
 });
 
