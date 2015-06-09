@@ -21,10 +21,10 @@
     "start": "gulp serve:src"
   },
   "dependencies": {
-    "angular2": "^2.0.0-alpha.25",
-    "es6-module-loader": "^0.16.6",
+    "angular2": "^2.0.0-alpha.26",
+    "es6-module-loader": "^0.17.0",
     "reflect-metadata": "^0.1.0",
-    "systemjs": "^0.16.11"
+    "systemjs": "^0.17.1"
   },
   "devDependencies": {
     "del": "latest",
