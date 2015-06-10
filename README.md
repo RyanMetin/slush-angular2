@@ -1,4 +1,4 @@
-slush-angular2
+[slush-angular2](https://www.npmjs.com/package/slush-angular2)
 ==============
 
 Get started with the Angular2 Preview:
