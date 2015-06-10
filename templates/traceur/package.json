@@ -27,14 +27,12 @@
     "gulp-eslint": "latest",
     "gulp-html-replace": "latest",
     "gulp-plumber": "latest",
-    "gulp-typescript": "latest",
     "gulp-webserver": "latest",
     "jspm": "latest",
     "merge-stream": "latest",
     "run-sequence": "latest",
     "systemjs-builder": "latest",
-    "tsd": "latest",
-    "typescript": "latest"
+    "tsd": "latest"
   },
   "jspm": {
     "configFile": "src/config.js",
@@ -69,7 +67,6 @@
     "jspm",
     "slush",
     "systemjs",
-    "traceur",
-    "typescript"
+    "traceur"
   ]
 }

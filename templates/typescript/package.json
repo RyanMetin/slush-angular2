@@ -22,8 +22,8 @@
   },
   "dependencies": {
     "angular2": "^2.0.0-alpha.26",
-    "es6-module-loader": "^0.17.0",
-    "reflect-metadata": "^0.1.0",
+    "es6-promise": "^2.3.0",
+    "whatwg-fetch": "^0.9.0",
     "systemjs": "^0.17.1"
   },
   "devDependencies": {
