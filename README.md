@@ -81,3 +81,7 @@ This is my first published package, so contributions are very welcome. There are
 ## License
 
 [MIT](https://github.com/thevelourfog/slush-angular2/blob/master/LICENSE)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/TheVelourFog/slush-angular2/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
