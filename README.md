@@ -1,4 +1,4 @@
-[slush-angular2](https://www.npmjs.com/package/slush-angular2) [![Build Status](https://travis-ci.org/TheVelourFog/slush-angular2.svg?branch=master)](https://travis-ci.org/TheVelourFog/slush-angular2)
+[slush-angular2](https://www.npmjs.com/package/slush-angular2) [![Build Status](https://travis-ci.org/TheVelourFog/slush-angular2.svg?branch=master)](https://travis-ci.org/TheVelourFog/slush-angular2) [![NPM version](https://badge-me.herokuapp.com/api/npm/slush-angular2.png)](http://badges.enytc.com/for/npm/slush-angular2)
 ==============
 
 Get started with the Angular2 Preview:
