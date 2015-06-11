@@ -2,3 +2,6 @@ language: node_js
 
 node_js:
   - 0.12
+  
+preinstall:
+  - npm install slush slush-angular2
