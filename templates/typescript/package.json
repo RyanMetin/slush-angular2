@@ -21,10 +21,10 @@
     "start": "gulp serve:src"
   },
   "dependencies": {
-    "angular2": "^2.0.0-alpha.26",
+    "angular2": "^2.0.0-alpha.28",
     "es6-promise": "^2.3.0",
     "whatwg-fetch": "^0.9.0",
-    "systemjs": "^0.17.1"
+    "systemjs": "^0.18.4"
   },
   "devDependencies": {
     "del": "latest",
