@@ -1,6 +1,8 @@
 [slush-angular2](https://www.npmjs.com/package/slush-angular2) [![Build Status](https://travis-ci.org/TheVelourFog/slush-angular2.svg?branch=master)](https://travis-ci.org/TheVelourFog/slush-angular2) [![NPM version](https://badge-me.herokuapp.com/api/npm/slush-angular2.png)](http://badges.enytc.com/for/npm/slush-angular2) [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/TheVelourFog/slush-angular2/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 ==============
 
+# **I'm being told that this isn't working properly as it is right now. I will fix it as soon as I can get to a computer - I'm on vacation though so it may be another week before that happens. I'll merge a working fork if anybody feels like fixing it before then.**
+
 Get started with the Angular2 Preview:
 
 What it uses:
