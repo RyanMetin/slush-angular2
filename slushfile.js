@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
     conflict = require('gulp-conflict'),
     install = require('gulp-install'),
+    gulpif = require('gulp-if'),
     inquirer = require('inquirer'),
     path = require('path'),
     template = require('gulp-template'),
@@ -20,7 +21,7 @@ gulp.task('default', function (cb) {
     answers.camel = _.camelize(answers.slug);
     path.resolve(process.cwd(), answers.slug);
     gulp.src(__dirname + '/templates/typescript/**')
-      .pipe(template(answers))
+      .pipe(gulpif(/^(?!.*angular2\.d\.ts$)/, template(answers)))
       .pipe(conflict(path.join(process.cwd(), answers.slug)))
       .pipe(gulp.dest(path.join(process.cwd(), answers.slug)))
       .pipe(install())
