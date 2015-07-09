@@ -27,6 +27,7 @@
     "gulp-install": "latest",
     "gulp-rename": "latest",
     "gulp-template": "latest",
+    "gulp-if": "latest",
     "inquirer": "latest",
     "underscore.string": "latest"
   },
