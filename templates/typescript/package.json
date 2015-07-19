@@ -17,11 +17,12 @@
     }
   ],
   "scripts": {
-    "postinstall": "gulp build:lib",
+    "postinstall": "gulp build:lib && tsd install angular2 es6-promise rx rx-lite -ros",
     "start": "gulp serve:src"
   },
   "dependencies": {
-    "angular2": "^2.0.0-alpha.28",
+    "angular2": "^2.0.0-alpha.31",
+    "es6-module-loader": "^0.17.3",
     "es6-promise": "^2.3.0",
     "whatwg-fetch": "^0.9.0",
     "systemjs": "^0.18.4"

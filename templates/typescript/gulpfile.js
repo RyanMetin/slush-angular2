@@ -13,14 +13,14 @@ var gulp = require('gulp'),
 
 gulp.task('build:angular2', function() {
 	var angular2 = new Builder({
-		paths: {'angular2/*': 'node_modules/angular2/es6/prod/*.es6', 'rx': 'node_modules/angular2/node_modules/rx/dist/rx.js'}, 
+		paths: {'angular2/*': 'node_modules/angular2/es6/dev/*.js', 'rx': 'node_modules/angular2/node_modules/rx/dist/rx.js'}, 
 		meta: {'rx': {format: 'cjs'}}
 	});
 	return angular2.build('angular2/*', './src/lib/angular2.js');
 });
 gulp.task('build:bundle', function() {
 	var bundle = new Builder({
-		baseURL: './',
+		baseURL: 'file:./',
 		paths: {'angular2/*': 'node_modules/angular2/es6/prod/*.es6',
 				'reflect-metadata': 'node_modules/angular2/node_modules/reflect-metadata/Reflect.js',
 				'rx': 'node_modules/angular2/node_modules/rx/dist/rx.js',

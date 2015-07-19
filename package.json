@@ -27,8 +27,7 @@
     "gulp-install": "latest",
     "gulp-rename": "latest",
     "gulp-template": "latest",
-    "inquirer": "latest",
-    "underscore.string": "latest"
+    "inquirer": "latest"
   },
   "keywords": [
     "slushgenerator",
@@ -40,6 +39,7 @@
     "generator",
     "gulp",
     "jspm",
+    "material",
     "node",
     "sass",
     "scaffold",

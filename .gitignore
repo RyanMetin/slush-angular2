@@ -1,6 +1,7 @@
 dist/
 jspm_packages/
 node_modules/
+typings/
 .tmp/
 npm-debug.log
 thumbs.db

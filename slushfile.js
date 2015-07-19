@@ -3,8 +3,7 @@ var gulp = require('gulp'),
     install = require('gulp-install'),
     inquirer = require('inquirer'),
     path = require('path'),
-    template = require('gulp-template'),
-    _ = require('underscore.string');
+    template = require('gulp-template');
 
 gulp.task('default', function (cb) {
   inquirer.prompt([
@@ -16,8 +15,8 @@ gulp.task('default', function (cb) {
     }
   ],
   function (answers) {
-    answers.slug = _.slugify(answers.name);
-    answers.camel = _.camelize(answers.slug);
+    answers.slug = slugify(answers.name);
+    answers.camel = camelize(answers.name);
     path.resolve(process.cwd(), answers.slug);
     gulp.src(__dirname + '/templates/typescript/**')
       .pipe(template(answers))
@@ -29,3 +28,13 @@ gulp.task('default', function (cb) {
       }).resume();
   });
 });
+ 
+function slugify (str) {
+ str = str.toString().trim();
+ return str.toLowerCase().replace(/\s/g, '-');
+}
+
+function camelize (str) {
+ str = str.toString().trim();
+ return str.charAt(0).toLowerCase() + str.slice(1).replace(/[-_\s]+(.)?/g, function(m, c) { return c ? c.toUpperCase() : ''; });
+}

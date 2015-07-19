@@ -1,53 +1,49 @@
 [slush-angular2](https://www.npmjs.com/package/slush-angular2) [![Build Status](https://travis-ci.org/TheVelourFog/slush-angular2.svg?branch=master)](https://travis-ci.org/TheVelourFog/slush-angular2) [![NPM version](https://badge-me.herokuapp.com/api/npm/slush-angular2.png)](http://badges.enytc.com/for/npm/slush-angular2) [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/TheVelourFog/slush-angular2/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 ==============
 
-# **I'm being told that this isn't working properly as it is right now. I will fix it as soon as I can get to a computer - I'm on vacation though so it may be another week before that happens. I'll merge a working fork if anybody feels like fixing it before then.**
+Get started with the Angular2 Alpha:
 
-Get started with the Angular2 Preview:
-
-What it uses:
+Uses:
 - [angular2](https://www.npmjs.com/package/angular2)
 - [es6-module-loader](https://www.npmjs.com/package/es6-module-loader)
 - [reflect-metadata](https://www.npmjs.com/package/reflect-metadata)
 - [systemjs](https://www.npmjs.com/package/systemjs)
+- [typescript](https://typescriptlang.org)
 - [zone](https://www.npmjs.com/package/zone.js)
 	
-Build options:
-- Use [jspm](https://jspm.io/) and [traceur](https://www.npmjs.com/package/traceur).
-- [TypeScript](https://typescriptlang.org)!
-- Or [Webpack](https://webpack.github.io) and [Babel](https://babeljs.io).
+Options:
+- Scaffold: Basic or Boilerplate.
+- Preprocessor: Sass
 
-## Installation
-
-Install `slush-angular2` globally (must have slush installed globally):
+### Install It
 
 ```bash
-npm install -g slush-angular2
+npm i -g slush slush-angular2
 ```
 
-## Usage
+### Generate It
 
-Run the generator and answer its questions:
+Run the generator. Answer its questions.
 
 ```bash
 slush angular2
 ```
 
-Now you've got everything you need to get started.
+Get coding in new project directory.
 
 ![](http://i.imgur.com/85O2cvX.gif)
 
-## Development
+### Develop It
 
-From your new project directory run:
+Compile and run in browser with LiveReload.
 
 ```bash
 gulp src
 ```
 
-## Production
+### Bundle It
 
-Bundle your app and serve it with:
+Put all the script in one neat file and run in browser.
 
 ```bash
 gulp dist
@@ -70,11 +66,7 @@ gulp dist
 
 ## To-do
 
-	- Get TypeScript working properly from JSPM.
-	- More templates to scaffold from:
-		- Webpack
-		- TypeScript
-	- Optional Sass. 
+	- Component generator in slush: Create script for a new Angular 2 component.
 
 ## Contribute
 
