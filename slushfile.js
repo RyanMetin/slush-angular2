@@ -8,17 +8,40 @@ var gulp = require('gulp'),
 gulp.task('default', function (cb) {
   inquirer.prompt([
     {
-      type: 'input', 
+      type: 'input',
+      message: 'Name your project:',
       name: 'name', 
-      message: 'Name Your App:', 
-      default: 'Angular2 Slushy'
+      validate: function (answer) {
+        if (!answer) {
+          return 'Seriously, name your project:';
+        } else {
+          return true;
+        }
+      }
+    }, {
+      type: 'list',
+      message: 'Choose your scaffold:',
+      name: 'scaffold',
+      choices: ['basic', 'boiler'],
+      default: 'boiler'
+    }, {
+      type: 'list',
+      message: 'Choose your script:',
+      name: 'syntax',
+      choices: ['es5', 'es6'],
+      default: 'es6'
+    }, {
+      type: 'confirm',
+      message: 'Use TypeScript?',
+      name: 'ts',
+      default: true
     }
   ],
   function (answers) {
     answers.slug = slugify(answers.name);
     answers.camel = camelize(answers.name);
     path.resolve(process.cwd(), answers.slug);
-    gulp.src(__dirname + '/templates/typescript/**')
+    gulp.src(__dirname + '/templates/' + answers.scaffold + '/**')
       .pipe(template(answers))
       .pipe(conflict(path.join(process.cwd(), answers.slug)))
       .pipe(gulp.dest(path.join(process.cwd(), answers.slug)))
