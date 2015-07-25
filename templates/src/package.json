@@ -1,0 +1,44 @@
+{
+  "version": "0.0.1",
+  "name": "<%= camel %>",<% if (boiler) { %>
+  "description": "",
+  "author": {
+    "name": "<%= user.authorName %>",
+    "email": "<%= user.authorEmail %>"
+  },
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "licenses": [
+    {
+      "type": "",
+      "url": ""
+    }
+  ],
+  "keywords": [
+    "angular2"
+  ],<% } %>
+  "scripts": {
+    "postinstall": "gulp prepare<% if (ts) { %> && tsd install angular2 es6-promise rx rx-lite -ros<% } %>",
+    "start": "gulp serve"
+  },<% if (!minimal) { %>
+  "dependencies": {
+    "angular2": "^2.0.0-alpha.32",
+    "systemjs": "^0.18.4"
+  },<% } %>
+  "devDependencies": {
+    "del": "latest",
+    "gulp": "latest",
+    "gulp-html-replace": "latest",
+    "gulp-plumber": "latest",
+    "gulp-sourcemaps": "latest",
+    "gulp-webserver": "latest",
+    "merge-stream": "latest",
+    "run-sequence": "latest",
+    "systemjs-builder": "latest"<% if (ts) { %>,
+    "gulp-typescript": "latest",
+    "tsd": "latest",
+    "typescript": "latest"<% } %>
+  }
+}

@@ -1,0 +1,11 @@
+/* TEAM */
+
+  <name> -- <role> -- <twitter>
+
+/* THANKS */
+
+  <name> -- <role> -- <twitter>
+
+/* TECHNOLOGY */
+
+  Angular2, SystemJS, TypeScript

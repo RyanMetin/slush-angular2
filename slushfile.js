@@ -8,7 +8,9 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     template = require('gulp-template');
 
-var config = ini.parse(fs.readFileSync(process.env.HOME + '/.gitconfig', 'utf-8'));
+var home = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE,
+  configFile = path.join(home, '.gitconfig'),
+  user = ini.parse(fs.readFileSync(configFile, 'utf-8')).user;
 
 gulp.task('default', function (cb) {
   inquirer.prompt([
@@ -18,17 +20,13 @@ gulp.task('default', function (cb) {
       name: 'name',
       default: 'slushy',
       validate: function (input) {
-        if (!input) {
-          return 'Seriously, name your project:';
-        } else {
-          return true;
-        }
+        return /\w/g.test(input) || 'Seriously, name your project:';
       }
     }, {
       type: 'list',
       message: 'Choose a scaffold:',
       name: 'scaffold',
-      choices: ['basic', 'boiler'],
+      choices: ['minimal', 'basic', 'boiler'],
       default: 'boiler'
     }, {
       type: 'list',
@@ -40,7 +38,10 @@ gulp.task('default', function (cb) {
       type: 'confirm',
       message: 'Use TypeScript?',
       name: 'ts',
-      default: true
+      default: true,
+      when: function (answers) {
+        return answers.spec === 'es6';
+      }
     }, {
       type: 'confirm',
       message: 'Everything look good?',
@@ -54,8 +55,30 @@ gulp.task('default', function (cb) {
     answers.slug = slugify(answers.name);
     answers.camel = camelize(answers.name);
     path.resolve(process.cwd(), answers.slug);
-    gulp.src(__dirname + '/templates/' + answers.scaffold + '/**')
+    
+    var scaffold = [
+      path.join(__dirname, 'templates/src/**')
+    ];
+    if (answers.scaffold == 'boiler') {
+      scaffold.push(path.join(__dirname, 'templates/boiler/**'));
+    }
+    if (answers.ts) {
+      scaffold.push(path.join(__dirname, 'templates/ts/**'));
+      return answers.script = 'ts';
+    } else {
+      return answers.script = 'js';
+    }
+    
+    gulp.src(scaffold)
       .pipe(template(answers))
+      .pipe(rename(function (file) {
+        if (file.basename[0] === '_' && file.extname !== '.scss') {
+          file.basename = '.' + file.basename.slice(1);
+        }
+        if (file.extname === '.ts') {
+          file.extname = '.' + answers.script;
+        }
+      }))
       .pipe(conflict(path.join(process.cwd(), answers.slug)))
       .pipe(gulp.dest(path.join(process.cwd(), answers.slug)))
       .pipe(install())
