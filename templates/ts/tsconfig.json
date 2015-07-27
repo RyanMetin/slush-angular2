@@ -3,6 +3,7 @@
 	"compilerOptions": {
 		"declaration": false,
 		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
 		"module": "commonjs",
 		"noImplicitAny": false,
 		"noLib": false,

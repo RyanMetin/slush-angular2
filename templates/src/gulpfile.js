@@ -9,14 +9,23 @@ var gulp = require('gulp'),
 	replace = require('gulp-html-replace'),
 	run = require('run-sequence'),
 	ts = require('gulp-typescript'),
-	webserver = require('gulp-webserver');
+	webserver = require('gulp-webserver'),
+	ngBuilder = new Builder({
+		paths: {
+			'*': 'node_modules/angular2/es6/dev/*.js',
+			'rx': 'node_modules/angular2/node_modules/rx/dist/rx.js'
+		}, meta: {
+			'rx': {
+				format: 'cjs'
+			}
+		}
+	});
 
 gulp.task('build:angular2', function() {
-	var angular2 = new Builder({
-		paths: {'*': 'node_modules/angular2/es6/dev/*.js', 'rx': 'node_modules/angular2/node_modules/rx/dist/rx.js'}, 
-		meta: {'rx': {format: 'cjs'}}
-	});
-	return angular2.build('angular2/angular2', './src/lib/angular2.js', {sourceMaps: true});
+	return ngBuilder.build('angular2/angular2', './lib/angular2.js');
+});
+gulp.task('build:router', function() {
+	return ngBuilder.build('angular2/router - angular2/angular2', './lib/router.js');
 });
 gulp.task('build:bundle', function() {
 	var bundle = new Builder({
@@ -50,23 +59,17 @@ gulp.task('build:ts', ['clean:js'], function() {
 gulp.task('clean:js', function(cb) { del(['./src/js'], cb); });
 gulp.task('clean:lib', function(cb) { del(['./src/lib'], cb); });
 
-gulp.task('copy:definitions', function() {
-	var reflect = gulp.src('./node_modules/reflect-metadata/reflect-metadata.d.ts'),
-		typescript = gulp.src('./node_modules/typescript/bin/lib.es6.d.ts'),
-		zone = gulp.src('./node_modules/angular2/atscript/typings/zone/zone.d.ts');
-	return merge(reflect, typescript, zone).pipe(gulp.dest('./src/typings'));
-});
 gulp.task('copy:dependencies', function() {
 	gulp.src([
 	    './node_modules/angular2/node_modules/traceur/bin/traceur-runtime.js',
-			'./node_modules/angular2/node_modules/reflect-metadata/Reflect*.{js,map}',
-			'./node_modules/angular2/node_modules/rtts_assert/rtts_assert*.{js,map}',
+		'./node_modules/angular2/node_modules/reflect-metadata/Reflect*.{js,map}',
+		'./node_modules/angular2/node_modules/rtts_assert/rtts_assert*.{js,map}',
 	    './node_modules/angular2/node_modules/zone.js/dist/zone.js',
-			'./node_modules/es6-promise/dist/es6-promise*.js',
-			'./node_modules/whatwg-fetch/fetch.js',
+		'./node_modules/es6-promise/dist/es6-promise*.js',
+		'./node_modules/whatwg-fetch/fetch.js',
 	    './node_modules/systemjs/dist/system*.{js,map}',
 	    './node_modules/systemjs/node_modules/es6-module-loader/dist/es6-module-loader*.{js,map}'
-	]).pipe(gulp.dest('./src/lib'));
+	]).pipe(gulp.dest('./lib'));
 });
 
 gulp.task('src', function(cb) {

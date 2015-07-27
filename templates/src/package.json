@@ -38,6 +38,7 @@
     "run-sequence": "latest",
     "systemjs-builder": "latest"<% if (ts) { %>,
     "gulp-typescript": "latest",
+    "gulp-tslint": "latest",
     "tsd": "latest",
     "typescript": "latest"<% } %>
   }
