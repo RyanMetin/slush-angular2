@@ -9,8 +9,10 @@ var gulp = require('gulp'),
 	replace = require('gulp-html-replace'),
 	run = require('run-sequence'),
 	ts = require('gulp-typescript'),
-	webserver = require('gulp-webserver'),
-	ngBuilder = new Builder({
+	webserver = require('gulp-webserver');
+
+gulp.task('build:angular2', function() {
+	var ngBuild = new Builder({
 		paths: {
 			'*': 'node_modules/angular2/es6/dev/*.js',
 			'rx': 'node_modules/angular2/node_modules/rx/dist/rx.js'
@@ -19,14 +21,11 @@ var gulp = require('gulp'),
 				format: 'cjs'
 			}
 		}
-	});
+	})
+	ngBuild.build('angular2/router - angular2/angular2', './lib/router.js', {});
+	return ngBuild.build('angular2/angular2', './lib/angular2.js', {});
+});
 
-gulp.task('build:angular2', function() {
-	return ngBuilder.build('angular2/angular2', './lib/angular2.js');
-});
-gulp.task('build:router', function() {
-	return ngBuilder.build('angular2/router - angular2/angular2', './lib/router.js');
-});
 gulp.task('build:bundle', function() {
 	var bundle = new Builder({
 		baseURL: 'file:./',
@@ -61,14 +60,13 @@ gulp.task('clean:lib', function(cb) { del(['./src/lib'], cb); });
 
 gulp.task('copy:dependencies', function() {
 	gulp.src([
-	    './node_modules/angular2/node_modules/traceur/bin/traceur-runtime.js',
+	  './node_modules/angular2/node_modules/traceur/bin/traceur-runtime.js',
 		'./node_modules/angular2/node_modules/reflect-metadata/Reflect*.{js,map}',
 		'./node_modules/angular2/node_modules/rtts_assert/rtts_assert*.{js,map}',
-	    './node_modules/angular2/node_modules/zone.js/dist/zone.js',
+	  './node_modules/angular2/node_modules/zone.js/dist/zone.js',
 		'./node_modules/es6-promise/dist/es6-promise*.js',
-		'./node_modules/whatwg-fetch/fetch.js',
-	    './node_modules/systemjs/dist/system*.{js,map}',
-	    './node_modules/systemjs/node_modules/es6-module-loader/dist/es6-module-loader*.{js,map}'
+	  './node_modules/systemjs/dist/system*.{js,map}',
+	  './node_modules/systemjs/node_modules/es6-module-loader/dist/es6-module-loader*.{js,map}'
 	]).pipe(gulp.dest('./lib'));
 });
 

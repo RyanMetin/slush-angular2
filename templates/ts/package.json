@@ -1,0 +1,45 @@
+{
+  "version": "0.0.1",
+  "name": "<%= camel %>",
+  "description": "Angular2 Using TypeScript",<% if (boiler) { %>
+  "author": {
+    "name": "<%= authorName %>",
+    "email": "<%= authorEmail %>"
+  },
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "licenses": [
+    {
+      "type": "",
+      "url": ""
+    }
+  ],
+  "keywords": [
+    "angular2"
+  ],<% } %>
+  "scripts": {
+    "postinstall": "gulp prepare && tsd install angular2 es6-promise rx rx-lite -ros",
+    "start": "gulp serve"
+  },
+  "dependencies": {
+    "angular2": "^2.0.0-alpha.34",
+    "systemjs": "^0.18.6"
+  },
+  "devDependencies": {
+    "del": "latest",
+    "gulp": "latest",
+    "gulp-html-replace": "latest",
+    "gulp-plumber": "latest",
+    "gulp-sourcemaps": "latest",
+    "gulp-webserver": "latest",
+    "merge-stream": "latest",
+    "run-sequence": "latest",
+    "systemjs-builder": "latest",
+    "gulp-typescript": "latest",
+    "gulp-tslint": "latest",
+    "tsd": "latest",
+    "typescript": "latest"
+  }
+}
