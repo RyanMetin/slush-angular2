@@ -9,4 +9,4 @@ Get started with:
 npm start
 ```
 
-This will transpile your TypeScript and open app in your browser.
+Open the app in your browser with LiveReload.
