@@ -10,10 +10,6 @@ Uses:
 - [systemjs](https://www.npmjs.com/package/systemjs)
 - [typescript](https://typescriptlang.org)
 - [zone](https://www.npmjs.com/package/zone.js)
-	
-Options:
-- Scaffold: Basic or Boilerplate.
-- Preprocessor: Sass
 
 ### Install It
 
@@ -33,40 +29,29 @@ Get coding in new project directory.
 
 ![](http://i.imgur.com/85O2cvX.gif)
 
-### Develop It
+### Serve It
 
 Compile and run in browser with LiveReload.
 
 ```bash
-gulp src
-```
-
-### Bundle It
-
-Put all the script in one neat file and run in browser.
-
-```bash
-gulp dist
+npm start
 ```
 
 ## Structure
 
-	- src/
 		- index.html
-		- config.js # System configuration.
-		- index.js # Bootstrap the example component.
-		- example.js # A basic Angular2 component.
-		- content/ # Browser assets.
-		- ts/ # TypeScript files.
-			- typings/ # TypeScript definitions.
-	- dist/
-		- bundle.js # Self-executing bundle of dependencies.
-		- index.html
-	- tsconfig.json # TypeScript configuration.
+		- app/
+			- Scripts, styles or templates in here. TypeScript is compiled in this directory.
+		- lib/
+			- Angular2 and all of it's dependencies, bundled up into once nice not-so-little self-executing file.
+		- typings/
+			- TypeScript definitions.
 
 ## To-do
-
-	- Component generator in slush: Create script for a new Angular 2 component.
+	
+	- Include tests.
+	- Component/directive/service generator in slush.
+	- Option to use Angular2 with Express.
 
 ## Contribute
 

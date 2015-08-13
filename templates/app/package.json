@@ -1,0 +1,28 @@
+{
+  "version": "0.0.1",
+  "name": "<%= camel %>",
+  "description": "Angular2 Using TypeScript",
+	"main": "app/boot",
+  "scripts": {
+    "postinstall": "gulp build && tsd install angular2 es6-promise rx rx-lite systemjs -ros",
+    "start": "gulp serve"
+  },
+  "dependencies": {
+    "angular2": "^2.0.0-alpha.34",
+    "systemjs": "^0.18.9"
+  },
+  "devDependencies": {
+    "del": "latest",
+    "gulp": "latest",
+    "gulp-plumber": "latest",
+    "gulp-sourcemaps": "latest",
+    "gulp-tslint": "latest",
+    "gulp-typescript": "latest",
+    "gulp-webserver": "latest",
+    "merge-stream": "latest",
+    "run-sequence": "latest",
+    "systemjs-builder": "latest",
+    "tsd": "latest",
+    "typescript": "latest"
+  }
+}

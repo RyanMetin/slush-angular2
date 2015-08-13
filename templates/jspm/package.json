@@ -1,0 +1,27 @@
+{
+  "name": "",
+  "version": "",
+  "devDependencies": {
+    "jspm": "0.16.0-beta.7",
+    "systemjs-builder": "^0.13.1",
+    "tsd": "^0.6.3"
+  },
+  "jspm": {
+    "directories": {},
+    "dependencies": {
+      "angular2": "npm:angular2@^2.0.0-alpha.34",
+      "es6-shim": "npm:es6-shim@^0.33.0",
+      "reflect-metadata": "npm:reflect-metadata@^0.1.0",
+      "rx": "npm:rx@3.0.0",
+      "zone.js": "npm:zone.js@^0.5.2"
+    },
+    "devDependencies": {
+      "typescript": "npm:typescript@^1.5.3"
+    }
+  },
+  "main": "src/boot",
+  "scripts": {
+    "postinstall": "jspm install && tsd install angular2 es6-promise rx rx-lite systemjs -ros",
+    "start": "http-server"
+  }
+}
