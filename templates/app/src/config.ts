@@ -1,4 +1,4 @@
-/// <reference path="typings/tsd.d.ts" />
+/// <reference path="../typings/tsd.d.ts" />
 System.config({
 	baseURL: '/',
 	defaultJSExtensions: true,
@@ -7,9 +7,9 @@ System.config({
 	},
 	paths: {
 		'*': '*.js',
-		'angular2/*': 'lib/angular2.js',
-		'traceur-runtime': 'lib/traceur-runtime.js'
+		'traceur-runtime': 'lib/traceur-runtime',
+		'angular2/*': 'lib/angular2'
 	}
 });
 
-System.import('boot');
+System.import('boot').catch(console.error.bind(console));

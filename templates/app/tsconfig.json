@@ -4,7 +4,7 @@
 		"declaration": false,
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
-		"module": "commonjs",
+		"module": "system",
 		"noImplicitAny": false,
 		"noLib": false,
 		"removeComments": true,

@@ -16,7 +16,7 @@ gulp.task('build', function(cb) {
 });
 gulp.task('build:angular2', function() {
 	var angular2 = new Builder(gulpCfg.devCfg);
-	return angular2.build('angular2/angular2', 'dist/lib/angular2.js', {});
+	return angular2.build('angular2/angular2', 'dist/lib/angular2.js', {sourceMaps: true});
 });
 gulp.task('build:html', function() {
 	gulp.src('./src/**/*.html').pipe(gulp.dest('./dist'));
@@ -51,7 +51,8 @@ var gulpCfg = {
 		'./node_modules/angular2/node_modules/zone.js/dist/zone.js',
 		'./node_modules/systemjs/dist/system.js',
 		'./node_modules/systemjs/dist/system.js.map',
-		'./node_modules/systemjs/node_modules/es6-module-loader/dist/es6-module-loader.js'
+		'./node_modules/systemjs/node_modules/es6-module-loader/dist/es6-module-loader.js',
+		'./node_modules/systemjs/node_modules/es6-module-loader/dist/es6-module-loader.js.map'
 	],
 	devCfg: {
 		defaultJSExtensions: true,
