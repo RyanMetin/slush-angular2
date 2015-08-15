@@ -6,6 +6,7 @@
 Uses:
 - [angular2](https://www.npmjs.com/package/angular2)
 - [es6-module-loader](https://www.npmjs.com/package/es6-module-loader)
+- [jspm](https://www.jspm.io)
 - [reflect-metadata](https://www.npmjs.com/package/reflect-metadata)
 - [systemjs](https://www.npmjs.com/package/systemjs)
 - [typescript](https://typescriptlang.org)
