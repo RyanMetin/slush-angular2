@@ -24,6 +24,7 @@ System.config({
     "angular2": "npm:angular2@2.0.0-alpha.34",
     "es6-shim": "npm:es6-shim@0.33.0",
     "reflect-metadata": "npm:reflect-metadata@0.1.0",
+    "rx": "npm:rx@3.0.0",
     "typescript": "npm:typescript@1.5.3",
     "zone.js": "npm:zone.js@0.5.2",
     "github:jspm/nodelibs-assert@0.1.0": {
@@ -83,6 +84,9 @@ System.config({
       "assert": "github:jspm/nodelibs-assert@0.1.0"
     },
     "npm:rx@2.5.1": {
+      "process": "github:jspm/nodelibs-process@0.1.1"
+    },
+    "npm:rx@3.0.0": {
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:typescript@1.5.3": {

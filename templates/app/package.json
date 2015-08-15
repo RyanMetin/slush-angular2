@@ -4,7 +4,7 @@
   "description": "Angular2 Using TypeScript",
 	"main": "src/boot",
   "scripts": {
-    "postinstall": "tsd install angular2 es6-promise rx rx-lite systemjs -ros && gulp build",
+    "postinstall": "jspm install && tsd install angular2 es6-promise rx rx-lite systemjs -ros",
     "start": "gulp serve"
   },
   "dependencies": {

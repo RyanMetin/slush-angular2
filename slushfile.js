@@ -45,7 +45,7 @@ gulp.task('default', function (cb) {
 		resolve(process.cwd(), answers.slug);
 		
 		var scaffold = [
-			join(__dirname, 'templates/app/**')
+			join(__dirname, 'templates/jspm/**')
 		];
 		
 		gulp.src(scaffold)

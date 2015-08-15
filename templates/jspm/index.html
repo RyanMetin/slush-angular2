@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title></title>
-	<script src="jspm_packages/system.src.js"></script>
-	<script src="config.js"></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="viewport" id="viewport" content="width=device-width,initial-scale=1"/>
+  <title><%= appName %></title>
+  <script src="jspm_packages/system.src.js"></script>
+  <script src="config.js"></script>
 </head>
 <body>
-	<test></test>
-	<script>
-		System.import('src');
-	</script>
+  <<%= slug %>></<%= slug %>>
+  <script>
+	System.import('src');
+  </script>
 </body>
 </html

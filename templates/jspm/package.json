@@ -1,7 +1,11 @@
 {
-  "name": "",
-  "version": "",
+  "version": "0.0.1",
+  "name": "<%= camel %>",
+  "description": "Angular2 Using TypeScript",
   "devDependencies": {
+    "del": "^1.2.1",
+    "gulp": "^3.9.0",
+    "gulp-webserver": "^0.9.1",
     "jspm": "0.16.0-beta.7",
     "systemjs-builder": "^0.13.1",
     "tsd": "^0.6.3"
@@ -22,6 +26,6 @@
   "main": "src/boot",
   "scripts": {
     "postinstall": "jspm install && tsd install angular2 es6-promise rx rx-lite systemjs -ros",
-    "start": "http-server"
+    "start": "gulp serve"
   }
 }

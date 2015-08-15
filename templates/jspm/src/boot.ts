@@ -2,11 +2,8 @@
 import 'es6-shim';
 import 'reflect-metadata';
 import 'zone.js';
+import {bootstrap} from 'angular2/angular2';
 
-import {bootstrap, Component, View} from 'angular2/angular2';
+import Example from 'example.ts';
 
-@Component({selector: 'test'});
-@View({template: '<h1>FUCK</h1>'});
-class Test {}
-
-bootstrap(Test);
+bootstrap(Example);
