@@ -66,39 +66,39 @@ gulp.task('default', function (cb) {
 
 gulp.task('boilerplate', function(cb) {
 	inquirer.prompt([
-		{
-			type: 'input',
-			message: 'Project name:',
-			name: 'appName',
-			default: 'slushy'
-		}, {
-			type: 'input',
-      message: 'Your name:',
-      name: 'authorName',
-      when: function (answers) {
+	  {
+	  	type: 'input',
+	  	message: 'Project name:',
+	  	name: 'appName',
+	  	default: 'slushy'
+	  }, {
+		type: 'input',
+        message: 'Your name:',
+        name: 'authorName',
+        when: function (answers) {
         return answers.boiler;
       },
-      default: boilerCfg.authorName
-    }, {
-      type: 'input',
-      message: 'Your email:',
-      name: 'authorEmail',
-      default: boilerCfg.authorEmail
-		}, {
-			type: 'input',
-			message: 'Your GitHub user name:',
-			name: 'userName'
-		}, {
-			type: 'list',
-			message: 'Choose an OSS license:',
-			name: 'license',
-			choices: ['Apache', 'MIT', 'GPL']
-		}, {
-			type: 'confirm',
-			message: 'Everything look good?',
-			name: 'good',
-			default: true
-		}
+        default: boilerCfg.authorName
+      }, {
+        type: 'input',
+        message: 'Your email:',
+        name: 'authorEmail',
+        default: boilerCfg.authorEmail
+	  }, {
+		type: 'input',
+		message: 'Your GitHub user name:',
+		name: 'userName'
+	  }, {
+		type: 'list',
+		message: 'Choose an OSS license:',
+		name: 'license',
+		choices: ['Apache', 'MIT', 'GPL']
+	  }, {
+		type: 'confirm',
+		message: 'Everything look good?',
+		name: 'good',
+		default: true
+	  }
 	], function (answers) {
 		if(!answers.good) {
 			return cb();

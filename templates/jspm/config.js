@@ -17,6 +17,9 @@ System.config({
     "src": {
       "defaultExtension": "ts",
       "main": "boot"
+    },
+    "map": {
+      "example": "src/example"
     }
   },
 
