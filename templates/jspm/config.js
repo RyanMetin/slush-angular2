@@ -16,10 +16,10 @@ System.config({
   packages: {
     "src": {
       "defaultExtension": "ts",
-      "main": "boot"
-    },
-    "map": {
-      "example": "src/example"
+      "main": "boot",
+      "map": {
+        "example": "src/example"
+      }
     }
   },
 
