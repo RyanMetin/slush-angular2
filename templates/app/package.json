@@ -4,8 +4,12 @@
   "description": "Angular2 Using TypeScript",
   "devDependencies": {
     "browser-sync": "^2.9.7",
+    "jasmine": "^2.3.2",
     "jspm": "^0.16.11",
-    "tsd": "^0.6.4"
+    "karma": "^0.13.10",
+    "protractor": "^2.4.0",
+    "tsd": "^0.6.4",
+    "tslint": "^2.5.1"
   },
   "jspm": {
     "directories": {},
@@ -21,10 +25,10 @@
   },
   "main": "src/boot",
   "scripts": {
-    "postinstall": "npm run jspm & npm run tsd && npm start",
+    "postinstall": "npm run jspm && npm run tsd && npm start",
     "jspm": "jspm install",
     "tsd": "tsd install angular2 es6-promise rx rx-lite systemjs -rs",
-    "serve": "browser-sync start --server --open local --files src/*",
+    "serve": "browser-sync start --server --open local --files \"index.html, config.js, src/**/*\"",
     "start": "npm run serve"
   }
 }

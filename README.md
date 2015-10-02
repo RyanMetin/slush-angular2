@@ -3,8 +3,8 @@
 
 [![Build Status](https://travis-ci.org/TheVelourFog/slush-angular2.svg?branch=master)](https://travis-ci.org/TheVelourFog/slush-angular2) [![NPM version](https://badge-me.herokuapp.com/api/npm/slush-angular2.png)](http://badges.enytc.com/for/npm/slush-angular2) [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/TheVelourFog/slush-angular2/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
-## Start playing with the Angular2 Alpha
->Generate a project with:
+## Start Using Angular2
+>Generate a project that uses:
 >* **[angular2](https://www.npmjs.com/package/angular2)**
 >* **[browsersync](https://www.npmjs.com/package/browser-sync)**
 >* **[jspm](https://www.jspm.io)**
@@ -12,7 +12,7 @@
 >* **[typescript](https://typescriptlang.org)**
 
 ### Installation
->Install package globally (**[slush](https://www.npmjs.com/package/slush)** as well, if you don't have it):
+>Install package globally (**[slush](https://www.npmjs.com/package/slush)** and **[tsd](https://www.npmjs.com/package/tsd)** as well, if you don't have them):
 >>`npm i -g slush-angular2`
 >
 >Run the generator:
@@ -25,9 +25,9 @@
 >>![](http://i.imgur.com/85O2cvX.gif)
 
 ### Usage
->TypeScript in `src/` is compiled automatically by systemjs on load.
+>TypeScript in `src/` is imported into `boot.ts` and compiled automatically by systemjs on load.
 >
->Any new TypeScript file must have its path mapped for the `src/` package  in `config.js`:
+>TypeScript files can have an alias mapped for the `src/` package  in `config.js`:
 >>```
 >>System.config({
 >>	packages: {
@@ -35,18 +35,21 @@
 >>	    "map": {
 >>	      [module alias]: [file path (ts extension can be omitted)]
 >>```
+>This way the file can imported by its alias. Otherwise, it must have its path referenced for import
 >
->To manually start Browsersync:
+>Browsersync can be started manually with:
 >>`npm start`
 
 ## Structure
 
->* index.html
->* config.js
->* src/
->  * Scripts, styles or templates here. Browsersync watches this directory for changes.
->* typings/
->  * TypeScript definitions.
+>* index.html  <-- Watched by Browsersync
+>* config.js  <-- Watched by Browsersync.
+>* res/  <-- Shared resources; images, styling, etc.
+>* src/  <-- Browsersync watches everything in this directory for changes.
+>  * component/  <-- Seperate components in here.
+>  * directives/  <-- Directives.
+>  * service/  <-- Services.
+>* typings/  <-- TypeScript definitions.
 
 ## To-do
 	

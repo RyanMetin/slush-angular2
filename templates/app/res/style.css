@@ -1,0 +1,9 @@
+* {
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+}
+body {
+	box-sizing: border-box;
+	font: normal normal normal 100%/normal 'Roboto Condensed', sans-serif;
+}
