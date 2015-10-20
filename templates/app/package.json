@@ -14,6 +14,7 @@
   "jspm": {
     "directories": {},
     "dependencies": {
+      "@reactivex/rxjs": "npm:@reactivex/rxjs@^5.0.0-alpha.3",
       "angular2": "npm:angular2@^2.0.0-alpha.37",
       "reflect-metadata": "npm:reflect-metadata@^0.1.2",
       "rx": "npm:rx@4.0.0",
