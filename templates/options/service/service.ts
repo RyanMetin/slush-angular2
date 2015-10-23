@@ -1,4 +1,4 @@
-/// <reference path="../typings/tsd.d.ts" />
+///<reference path="../../typings/tsd.d.ts"/>
 import {Injectable} from 'angular2/angular2';
 
 @Injectable()

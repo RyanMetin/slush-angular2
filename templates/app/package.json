@@ -3,22 +3,20 @@
   "name": "<%= camel %>",
   "description": "Angular2 Using TypeScript",
   "devDependencies": {
-    "browser-sync": "^2.9.7",
+    "browser-sync": "^2.9.11",
     "jasmine": "^2.3.2",
-    "jspm": "^0.16.11",
-    "karma": "^0.13.10",
-    "protractor": "^2.4.0",
-    "tsd": "^0.6.4",
-    "tslint": "^2.5.1"
+    "jspm": "^0.16.13",
+    "karma": "^0.13.11",
+    "protractor": "^2.5.1",
+    "tsd": "^0.6.5"
   },
   "jspm": {
     "directories": {},
     "dependencies": {
       "@reactivex/rxjs": "npm:@reactivex/rxjs@^5.0.0-alpha.3",
-      "angular2": "npm:angular2@^2.0.0-alpha.37",
+      "angular2": "npm:angular2@^2.0.0-alpha.44",
       "reflect-metadata": "npm:reflect-metadata@^0.1.2",
-      "rx": "npm:rx@4.0.0",
-      "zone.js": "npm:zone.js@^0.5.7"
+      "zone.js": "npm:zone.js@^0.5.8"
     },
     "devDependencies": {
       "typescript": "npm:typescript@^1.6.2"

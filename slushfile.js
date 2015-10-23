@@ -14,9 +14,7 @@ gulp.task('default', function (cb) {
 			type: 'input',
 			message: 'Name your project:',
 			name: 'appName',
-			validate: function (input) {
-				return /\w/g.test(input) || 'Seriously, name your project:';
-			},
+			validate: function (input) { return /\w/g.test(input) || 'Seriously, name your project:'; },
 			default: 'slushy'
 		}, {
 			type: 'confirm',
@@ -25,9 +23,7 @@ gulp.task('default', function (cb) {
 			default: true
 		}
 	], function (answers) {
-		if (!answers.good) {
-			return cb();
-		}
+		if (!answers.good) { return cb(); }
 		answers.slug = slugify(answers.appName);
 		answers.camel = camelize(answers.appName);
 		
@@ -47,9 +43,7 @@ gulp.task('default', function (cb) {
 			.pipe(conflict(join(process.cwd(), answers.slug)))
 			.pipe(gulp.dest(join(process.cwd(), answers.slug)))
 			.pipe(install())
-			.on('finish', function() {
-				cb();
-			}).resume();
+			.on('finish', function() { cb(); }).resume();
 	});
 });
 
@@ -58,6 +52,10 @@ gulp.task('boilerplate', function (cb) {
 });
 
 gulp.task('component', function (cb) {
+	
+});
+
+gulp.task('directive', function (cb) {
 	
 });
 
