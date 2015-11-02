@@ -1,8 +1,11 @@
-/// <reference path="../typings/tsd.d.ts" />
+///<reference path="typings/tsd.d.ts"/>
 import 'reflect-metadata';
 import 'zone.js';
 import {bootstrap} from 'angular2/angular2';
+import {ROUTER_PROVIDERS} from 'angular2/router';
 
 import Example from 'example';
 
-bootstrap(Example);
+bootstrap(Example, [
+	ROUTER_PROVIDERS
+]);
