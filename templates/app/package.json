@@ -5,15 +5,15 @@
   "devDependencies": {
     "browser-sync": "^2.9.11",
     "jasmine": "^2.3.2",
-    "jspm": "^0.16.13",
-    "karma": "^0.13.11",
+    "jspm": "^0.16.14",
+    "karma": "^0.13.14",
     "protractor": "^2.5.1",
     "tsd": "^0.6.5"
   },
   "jspm": {
     "directories": {},
     "dependencies": {
-      "@reactivex/rxjs": "npm:@reactivex/rxjs@^5.0.0-alpha.3",
+      "@reactivex/rxjs": "npm:@reactivex/rxjs@^5.0.0-alpha.7",
       "angular2": "npm:angular2@^2.0.0-alpha.44",
       "reflect-metadata": "npm:reflect-metadata@^0.1.2",
       "zone.js": "npm:zone.js@^0.5.8"

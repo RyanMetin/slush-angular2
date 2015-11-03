@@ -18,7 +18,10 @@ System.config({
       "defaultExtension": "ts",
       "main": "boot",
       "map": {
-        "example": "src/component/example/example"
+        "appComponent": "src/app/appComponent",
+        "customPipes": "src/shared/customPipes",
+        "exampleComponent": "src/example/exampleComponent",
+        "exampleDirective": "src/example/exampleDirective"
       }
     }
   }

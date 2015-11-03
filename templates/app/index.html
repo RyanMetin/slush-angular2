@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
   <meta name="viewport" id="viewport" content="width=device-width,initial-scale=1"/>
   <title><%= appName %></title>
+  <base href="/"/>
   <link href="http://fonts.googleapis.com/css?family=Roboto:400" rel="stylesheet"/>
   <link href="res/favicon.ico" rel="icon" type="image/x-icon"/>
   <link href="res/style.css" rel="stylesheet" type="text/css"/>
@@ -14,7 +15,7 @@
 <body>
   <<%= slug %>>Loading...</<%= slug %>>
   <script>
-	  System.import('src').catch(function(e){console.error(e,"\nReport errors at https://github.com/thevelourfog/slush-angular2/issues")});
+	  System.import('src');
   </script>
 </body>
 </html>
