@@ -9,5 +9,10 @@
 		"removeComments": true,
 		"sourceMap": true,
 		"target": "es5"
-	}
+	},
+	"exclude": [
+		"bower_components",
+		"jspm_packages",
+		"node_modules"
+	]
 }

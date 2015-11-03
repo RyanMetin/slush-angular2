@@ -2,7 +2,7 @@
 import {Directive, HostListener} from 'angular2/angular2';
 
 @Directive({
-	selector: '[drag-this]'
+	selector: '[drag-directive]'
 })
 export default class {
 	@HostListener('mousedown', ['$event.target'])

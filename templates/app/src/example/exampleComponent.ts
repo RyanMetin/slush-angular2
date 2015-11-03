@@ -1,7 +1,7 @@
 ///<reference path="../typings/tsd.d.ts"/>
 import {Component} from 'angular2/angular2';
 
-import ExampleDirective from 'exampleDirective';
+import DragDirective from 'exampleDirective';
 
 @Component({
 	selector: 'home-component',
@@ -11,7 +11,7 @@ import ExampleDirective from 'exampleDirective';
 export class HomeComponent {}
 
 @Component({
-	directives: [ExampleDirective],
+	directives: [DragDirective],
 	selector: 'drag-component',
 	styles: [`
 		[drag-directive] {
