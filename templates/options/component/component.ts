@@ -1,12 +1,16 @@
-///<reference path="../../../typings/tsd.d.ts"/>
-import {Component, View} from 'angular2/angular2';
+///<reference path="../typings/tsd.d.ts"/>
+import {Component} from 'angular2/angular2';
 
 @Component({
-	selector: '',
-	viewBindings: []
-})
-@View({
 	directives: [],
+	events: [],
+	host: [],
+	inputs: [],
+	outputs: [],
+	pipes: [],
+	properties: [],
+	providers: [],
+	selector: '<%= slug %>',
 	styles: [],
 	template: ``,
 })
@@ -15,4 +19,5 @@ export default class {
 	constructor() {
 		
 	}
+	
 }

@@ -1,6 +1,0 @@
-{
-	"name": "<%= appName %>",
-	"short_name": "<%= camel %>",
-	"start_url": "/index.html?homescreen=1",
-	"display": "standalone"
-}

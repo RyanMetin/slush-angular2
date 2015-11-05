@@ -17,7 +17,10 @@
     "url": "https://github.com/thevelourfog/slush-angular2/issues"
   },
   "main": "slushfile.js",
-  "scripts": {},
+  "scripts": {
+    "prepublish": "",
+    "publish": ""
+  },
   "dependencies": {
     "gulp": "latest",
     "gulp-conflict": "latest",

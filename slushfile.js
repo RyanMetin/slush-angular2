@@ -6,33 +6,16 @@ var gulp = require('gulp'),
 	join = require('path').join,
 	rename = require('gulp-rename'),
 	resolve = require('path').resolve,
-	template = require('gulp-template');
+	template = require('gulp-template'),
+	prompts = require('./tasks/prompts');
 	
 gulp.task('default', function (cb) {
-	inquirer.prompt([
-		{
-			type: 'input',
-			message: 'Name your project:',
-			name: 'appName',
-			validate: function (input) { return /\w/g.test(input) || 'Seriously, name your project:'; },
-			default: 'slushy'
-		}, {
-			type: 'confirm',
-			message: 'Everything look good?',
-			name: 'good',
-			default: true
-		}
-	], function (answers) {
+	inquirer.prompt(prompts.default, function (answers) {
 		if (!answers.good) { return cb(); }
-		answers.slug = slugify(answers.appName);
-		answers.camel = camelize(answers.appName);
-		
+		answers.slug = slugify(answers.project);
+		answers.camel = camelize(answers.project);
 		resolve(process.cwd(), answers.slug);
-		
-		var scaffold = [
-			join(__dirname, 'templates/app/**')
-		];
-		
+		var scaffold = [ join(__dirname, 'templates/app/**') ];
 		gulp.src(scaffold)
 			.pipe(template(answers))
 			.pipe(rename(function (file) {
@@ -48,23 +31,55 @@ gulp.task('default', function (cb) {
 });
 
 gulp.task('boilerplate', function (cb) {
-	
+	var ini = require('ini'),
+		boilerCfg = (function() {
+		var home = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE,
+		configFile = join(home, '.gitconfig'),
+		user = ini.parse(fs.readFileSync(configFile, 'utf-8')).user;
+		return {
+			authorName: user.name || '',
+			autherEmail: user.email || ''
+		};
+	})();
+	inquirer.prompt(prompts.boilerplate, function (answers) {
+		if(!answers.good) { return cb(); }
+		gulp.src(join(__dirname, 'templates/options/boilerplate/**'))
+			.pipe(template(answers))
+			.pipe(rename(function (file) {
+				if (file.basename[0] === '_') {
+					file.basename = '.' + file.basename.slice(1);
+				}
+			}))
+			.pipe(conflict(join(process.cwd(), answers.slug)))
+			.pipe(gulp.dest(join(process.cwd(), answers.slug)))
+			.on('finish', function() {
+				cb();
+			}).resume();
+	});
 });
 
 gulp.task('component', function (cb) {
-	
+	inquirer.prompt(prompts.component, function (answers) {
+		
+	});
 });
 
 gulp.task('directive', function (cb) {
-	
+	inquirer.prompt(prompts.directive, function (answers) {
+		
+	});
 });
 
-gulp.task('server', function (cb) {
-	
+gulp.task('pipe', function (cb) {
+	inquirer.prompt(prompts.pipe, function (answers) {
+		
+	});
 });
 
 gulp.task('service', function (cb) {
-	
+	inquirer.prompt(prompts.service, function (answers) {
+		
+	});
 });
  
 function slugify (str) {

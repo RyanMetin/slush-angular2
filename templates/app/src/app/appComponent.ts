@@ -8,11 +8,14 @@ import {CapitalizePipe} from 'customPipes';
 @Component({
 	directives: [ROUTER_DIRECTIVES],
 	pipes: [CapitalizePipe],
-	selector: '<%= appName %>',
+	selector: '<%= project %>',
 	styles: [`
 		.dash {
 			align-items: center;
 			background: #555;
+			box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16),
+              		0 3px 1px -2px rgba(0,0,0,0.20),
+              		0 1px 3px 0 rgba(0,0,0,0.12);
 			color: #EEE;
 			display: flex;
 			flex-flow: row wrap;
@@ -68,6 +71,6 @@ import {CapitalizePipe} from 'customPipes';
 export default class {
 	appName: string;
 	constructor () {
-		this.appName = '<%= appName %>';
+		this.appName = '<%= project %>';
 	}
 }

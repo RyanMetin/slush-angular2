@@ -2,6 +2,10 @@
 import {Injectable} from 'angular2/angular2';
 
 @Injectable()
-export default class {
+export class <%= camel %> {
+	
+	constructor () {
+		
+	}
 	
 }

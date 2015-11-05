@@ -1,0 +1,13 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"noImplicitAny": false,
+		"noLib": false,
+		"outFile": "./js/slushfile.js",
+		"target": "es5"
+	},
+	"files": [
+		"./ts/prompts.ts",
+		"./ts/tasks.ts"
+	]
+}
