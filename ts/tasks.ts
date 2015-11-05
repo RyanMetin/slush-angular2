@@ -8,11 +8,13 @@ let conflict = require('gulp-conflict'),
 	rename = require('gulp-rename'),
 	template = require('gulp-template');
 
-import {Prompts} from './prompts';
 import {Util} from './util.ts';
 
 gulp.task('default', cb => {
-	inquirer.prompt(Prompts.default, answers => {
+	inquirer.prompt([
+		Util.promptFn.nameIt('project', 'slushy'), 
+		Util.promptFn.confirmIt('project')
+	], answers => {
 		if (!answers.good) { return cb(); }
 		answers.camel = Util.camelize(answers.project);
 		answers.slug = Util.slugify(answers.project);
@@ -32,8 +34,17 @@ gulp.task('default', cb => {
 });
 
 gulp.task('component', cb => {
-	Util.checkDir();
-	inquirer.prompt(Prompts.component, answers => {
+	Util.checkDir(cb);
+	inquirer.prompt([
+		Util.promptFn.nameIt('component'),
+		Util.promptFn.intOrExt('css'), 
+		Util.promptFn.intOrExt('html'),
+		Util.promptFn.imports('core'),
+		Util.promptFn.imports('form'),
+		Util.promptFn.imports('http'),
+		Util.promptFn.imports('router'),
+		Util.promptFn.confirmIt('component')
+	], answers => {
 		if (!answers.good) { return cb(); }
 		gulp.src(path.join(__dirname, 'templates/options/component'))
 			.pipe(template(answers))
@@ -45,8 +56,12 @@ gulp.task('component', cb => {
 });
 
 gulp.task('directive', cb => {
-	Util.checkDir();
-	inquirer.prompt(Prompts.directive, answers => {
+	Util.checkDir(cb);
+	inquirer.prompt([
+		Util.promptFn.nameIt('directive'),
+		Util.promptFn.imports('core'),
+		Util.promptFn.confirmIt('directive')
+	], answers => {
 		if (!answers.good) { return cb(); }
 		gulp.src(path.join(__dirname, 'templates/options/directive'))
 			.pipe(template(answers))
@@ -58,26 +73,32 @@ gulp.task('directive', cb => {
 });
 
 gulp.task('pipe', cb => {
-	Util.checkDir();
-	inquirer.prompt(Prompts.pipe, answers => {
+	Util.checkDir(cb);
+	inquirer.prompt([
+		Util.promptFn.nameIt('pipe'),
+		Util.promptFn.confirmIt('pipe')
+	], answers => {
 		if (!answers.good) { return cb(); }
 		gulp.src(path.join(__dirname, 'templates/options/pipe'))
 			.pipe(template(answers))
 			.pipe(rename(file => { file.basename = answers.pipe; }))
-			.pipe(conflict(process.cwd(), 'src/', answers.pipe))
+			.pipe(conflict(process.cwd(), 'src/shared', answers.pipe))
 			.pipe(gulp.dest(path.join(process.cwd(), 'answers')))
 			.on('finish', () => { cb(); }).resume();
 	});
 });
 
 gulp.task('service', cb => {
-	Util.checkDir();
-	inquirer.prompt(Prompts.service, answers => {
+	Util.checkDir(cb);
+	inquirer.prompt([
+		Util.promptFn.nameIt('service'),
+		Util.promptFn.confirmIt('service')
+	], answers => {
 		if (!answers.good) { return cb(); }
 		gulp.src(path.join(__dirname, 'templates/options/service'))
 			.pipe(template(answers))
 			.pipe(rename(file => { file.basename = answers.service; }))
-			.pipe(conflict(process.cwd(), 'src/', answers.service))
+			.pipe(conflict(process.cwd(), 'src/shared', answers.service))
 			.pipe(gulp.dest(path.join(process.cwd(), 'answers')))
 			.on('finish', () => { cb(); }).resume();
 	});

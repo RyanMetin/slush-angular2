@@ -6,8 +6,6 @@ import {Pipe} from 'angular2/angular2';
 })
 export class CapitalizePipe {
 	transform (value: string): any {
-		return value.toLowerCase().replace(/\b\w/g, (match) => {
-			return match.toUpperCase();
-		});
+		return value.toLowerCase().replace(/\b\w/g, match => match.toUpperCase());
 	}
 }

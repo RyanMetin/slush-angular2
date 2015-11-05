@@ -7,7 +7,7 @@
 		"target": "es5"
 	},
 	"files": [
-		"./ts/prompts.ts",
-		"./ts/tasks.ts"
+		"./ts/tasks.ts",
+		"./ts/util.ts"
 	]
 }
