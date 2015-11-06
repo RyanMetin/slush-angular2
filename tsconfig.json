@@ -1,13 +1,12 @@
 {
 	"compilerOptions": {
-		"module": "commonjs",
+		"moduleResolution": "node",
 		"noImplicitAny": false,
-		"noLib": false,
-		"outFile": "./js/slushfile.js",
+		"outFile": "./slushfile.js",
 		"target": "es5"
 	},
 	"files": [
-		"./ts/tasks.ts",
-		"./ts/util.ts"
+		"./gen/tasks.ts",
+		"./gen/util.ts"
 	]
 }

@@ -2,7 +2,7 @@
 import {Pipe} from 'angular2/angular2';
 
 @Pipe({name: '<%= slug %>'})
-export class <%= camel %> {
+export class <%= mod %> {
 	
 	transform (val, args?) {
 		return val;

@@ -2,8 +2,31 @@
 import {Component} from 'angular2/angular2';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 
-import {DragComponent, HomeComponent} from 'exampleComponent';
-import {CapitalizePipe} from 'customPipes';
+import {DragDirective} from 'exampleDirective';
+import {CapitalizePipe} from 'examplePipe';
+
+@Component({
+	selector: 'home-component',
+	styles: [`.home { padding: 4% 8%; }`],
+	template: `<h1 class="home">Welcome to Angular2</h1>`
+})
+class HomeComponent {}
+
+@Component({
+	directives: [DragDirective],
+	selector: 'drag-component',
+	styles: [`
+		[drag-directive] {
+			position: relative;
+			left: 24px;
+			top: 24px;
+		}
+	`],
+	template: `
+		<img drag-directive src="../../res/angular-shield.png">
+	`
+})
+class DragComponent {}
 
 @Component({
 	directives: [ROUTER_DIRECTIVES],

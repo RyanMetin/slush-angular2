@@ -18,8 +18,7 @@
   },
   "main": "slushfile.js",
   "scripts": {
-    "prepublish": "",
-    "publish": ""
+    "prepublish": "tsc -p ."
   },
   "dependencies": {
     "gulp": "latest",
@@ -27,7 +26,6 @@
     "gulp-install": "latest",
     "gulp-rename": "latest",
     "gulp-template": "latest",
-    "ini": "latest",
     "inquirer": "latest"
   },
   "keywords": [
@@ -36,7 +34,6 @@
     "angularjs",
     "angular",
     "angular2",
-    "boilerplate",
     "browsersync",
     "generator",
     "node",
