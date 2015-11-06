@@ -5,4 +5,4 @@ node_js:
   - 0.12
   
 preinstall:
-  - npm i slush typescript -g
+  - npm i slush -g
