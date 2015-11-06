@@ -23,7 +23,7 @@ class HomeComponent {}
 		}
 	`],
 	template: `
-		<img drag-directive src="../../res/angular-shield.png">
+		<img drag-directive src="https://raw.githubusercontent.com/TheVelourFog/slush-angular2/master/templates/app/res/angular-shield.png">
 	`
 })
 class DragComponent {}

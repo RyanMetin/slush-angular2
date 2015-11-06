@@ -11,23 +11,30 @@
 >* **[systemjs](https://www.npmjs.com/package/systemjs)**
 >* **[typescript](https://typescriptlang.org)**
 
-### Installation
+## Installation
 >Install package globally (**[slush](https://www.npmjs.com/package/slush)** and **[tsd](https://www.npmjs.com/package/tsd)** as well, if you don't have them):
 >>`npm i -g slush-angular2`
 >
->Run the generator:
->>`slush angular2`
+>Run the generator (optional argument used for name):
+>>`slush angular2 [<name>]`
 >
->This automatically opens browser to new directory. 
->
->Your Angular2 project is ready to go.
+>This builds your Angular2 project and automatically opens browser to new directory. 
 >
 >>![](http://i.imgur.com/85O2cvX.gif)
 
-### Usage
->TypeScript in `src/` is imported into `boot.ts` and compiled automatically by systemjs on load.
+## Usage
+>Generator includes tasks:
+>* component
+>* directive
+>* pipe
+>* service
 >
->TypeScript files can have an alias mapped for the `src/` package  in `config.js`:
+>Run the generator in project's root directory and specify which file to build (optional argument for name again):
+>>`slush angular2:<task> [<name>]`
+>
+>There are options to include common imports but the generator does not inject them for you (yet).
+>
+>TypeScript files need an alias mapped for the `src/` package  in `config.js`:
 >>```
 >>System.config({
 >>	packages: {
@@ -35,14 +42,16 @@
 >>	    "map": {
 >>	      [module alias]: [file path (ts extension can be omitted)]
 >>```
->This way the file can imported by its alias. Otherwise, it must have its path referenced for import
+>This way jspm will compile on load, and the files can imported by alias.
+>
+>The generator does not map new files for you (again, yet).
 >
 >Browsersync can be started manually with:
 >>`npm start`
 
 ## Structure
 
->* index.html  <-- Watched by Browsersync
+>* index.html  <-- Watched by Browsersync.
 >* config.js  <-- Watched by Browsersync.
 >* res/  <-- Shared resources; images, styling, etc.
 >* src/  <-- Browsersync watches everything in this directory for changes.
@@ -54,9 +63,6 @@
 ## To-do
 	
 >* Tests.
->* Component/directive/service generators.
->* Optional Express usage.
-	
 
 ## Contribute
 
