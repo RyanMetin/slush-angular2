@@ -10,7 +10,7 @@ let conflict = require('gulp-conflict'),
 
 gulp.task('default', cb => {
 	inquirer.prompt([
-		Util.promptFn.nameIt('project', (gulp.args > 0) ? gulp.args : 'slushy'), 
+		Util.promptFn.nameIt('project', (gulp.args.length > 0) ? gulp.args : 'slushy'), 
 		Util.promptFn.confirmIt('project')
 	], answers => {
 		if (!answers.good) { return cb(); }

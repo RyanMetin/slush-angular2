@@ -40,7 +40,7 @@
 >>	packages: {
 >>	  "src": {
 >>	    "map": {
->>	      [module alias]: [file path (ts extension can be omitted)]
+>>	      [module alias]: [file path (ts ext can be omitted)]
 >>```
 >This way jspm will compile on load, and the files can imported by alias.
 >
@@ -50,7 +50,6 @@
 >>`npm start`
 
 ## Structure
-
 >* index.html  <-- Watched by Browsersync.
 >* config.js  <-- Watched by Browsersync.
 >* res/  <-- Shared resources; images, styling, etc.
@@ -61,14 +60,11 @@
 >* typings/  <-- TypeScript definitions.
 
 ## To-do
-	
+>* Automate systemjs mapping.
 >* Tests.
 
 ## Contribute
-
 >This is my first published package, so contributions are very welcome. There are no guidelines for contributing. If you find a problem or have a suggestion go ahead and [submit an issue](https://github.com/thevelourfog/slush-angular2/issues).
 
 ## License
-
 >[MIT](https://github.com/thevelourfog/slush-angular2/blob/master/LICENSE)
-
