@@ -13,9 +13,11 @@ import {<%= router %>} from 'angular2/router';<% } %>
 	pipes: [],
 	properties: [],
 	providers: [],
-	selector: '<%= select %>',
-	<%= (styles == 'inline') ? "styles: [``]," : "styleUrls: ['']," %>
-	<%= (template == 'inline') ? "template: [``]" : "templateUrl: ['']" %>
+	selector: '<%= select %>',<% if(styles == 'inline') { %>
+	styles: [``],<% } else { %>
+	styleUrls: ['src/component/<%= slug %>.css'],<% } %><% if(template == 'inline') { %>
+	template: ``<% } else { %>
+	templateUrl: 'src/component/<%= slug %>.html'<% } %>
 })
 export class <%= mod %> {
 	

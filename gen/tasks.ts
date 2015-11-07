@@ -49,7 +49,10 @@ gulp.task('component', cb => {
 		answers.mod = Util.classable(answers.camel);
 		answers.slug = Util.slugify(answers.component);
 		answers.select = Util.selectable(answers.selector, answers.slug);
-		gulp.src(path.join(__dirname, 'templates/options/component/component.ts'))
+		let source = [path.join(__dirname, 'templates/options/component/component.ts')];
+		if (answers.styles == 'external') { source.push(path.join(__dirname, 'templates/options/styles.css')); }
+		if (answers.template == 'external') { source.push(path.join(__dirname, 'templates/options/template.html')); }
+		gulp.src(source)
 			.pipe(template(answers))
 			.pipe(rename(file => { file.basename = answers.camel; }))
 			.pipe(conflict(path.join(process.cwd(), 'src/component')))
