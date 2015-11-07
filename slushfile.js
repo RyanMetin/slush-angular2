@@ -1,4 +1,3 @@
-///<reference path="typings/tsd.d.ts"/>
 var conflict = require('gulp-conflict'), gulp = require('gulp'), fs = require('fs'), install = require('gulp-install'), inquirer = require('inquirer'), path = require('path'), rename = require('gulp-rename'), template = require('gulp-template');
 gulp.task('default', function (cb) {
     inquirer.prompt([
