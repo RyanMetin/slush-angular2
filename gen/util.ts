@@ -39,7 +39,7 @@ var Util = {
 				message: 'Name your ' + str + ':',
 				name: str,
 				validate: (input) => { return /\w/g.test(input) || 'Seriously, name it:'; },
-				filter: (input) => { return input.trim(); },
+				filter: (input) => { return input.toString().trim(); },
 				default: def
 			};
 		},

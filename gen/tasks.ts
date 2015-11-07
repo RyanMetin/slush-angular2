@@ -48,6 +48,7 @@ gulp.task('component', cb => {
 		answers.camel = Util.camelize(answers.component);
 		answers.mod = Util.classable(answers.camel);
 		answers.slug = Util.slugify(answers.component);
+		answers.select = Util.selectable(answers.selector, answers.slug);
 		gulp.src(path.join(__dirname, 'templates/options/component/component.ts'))
 			.pipe(template(answers))
 			.pipe(rename(file => { file.basename = answers.camel; }))

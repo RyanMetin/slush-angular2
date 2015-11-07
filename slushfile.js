@@ -1,3 +1,4 @@
+///<reference path="typings/tsd.d.ts"/>
 var conflict = require('gulp-conflict'), gulp = require('gulp'), fs = require('fs'), install = require('gulp-install'), inquirer = require('inquirer'), path = require('path'), rename = require('gulp-rename'), template = require('gulp-template');
 gulp.task('default', function (cb) {
     inquirer.prompt([
@@ -42,6 +43,7 @@ gulp.task('component', function (cb) {
         answers.camel = Util.camelize(answers.component);
         answers.mod = Util.classable(answers.camel);
         answers.slug = Util.slugify(answers.component);
+        answers.select = Util.selectable(answers.selector, answers.slug);
         gulp.src(path.join(__dirname, 'templates/options/component/component.ts'))
             .pipe(template(answers))
             .pipe(rename(function (file) { file.basename = answers.camel; }))
@@ -155,7 +157,7 @@ var Util = {
                 message: 'Name your ' + str + ':',
                 name: str,
                 validate: function (input) { return /\w/g.test(input) || 'Seriously, name it:'; },
-                filter: function (input) { return input.trim(); },
+                filter: function (input) { return input.toString().trim(); },
                 default: def
             };
         },
