@@ -1,5 +1,5 @@
 ///<reference path="../typings/tsd.d.ts"/>
-import {Directive<%= ',' + coreImports %>} from 'angular2/angular2';
+import {Directive<%= (core.length > 0) ? ',' + core : '' %>} from 'angular2/angular2';
 
 @Directive({
 	events: [],
@@ -9,7 +9,7 @@ import {Directive<%= ',' + coreImports %>} from 'angular2/angular2';
 	properties: [],
 	providers: [],
 	queries: [],
-	selector: '[<%= slug %>]'
+	selector: '<%= select %>'
 })
 export class <%= mod %> {
 	

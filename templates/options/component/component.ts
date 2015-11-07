@@ -1,8 +1,8 @@
 ///<reference path="../typings/tsd.d.ts"/>
-import {Component<%= ',' + coreImports %>} from 'angular2/angular2';<% if(formImports.length > 0) {%>
-import {<%= formImports %>} from 'angular2/angular2';<%} %><% if(httpImports.length > 0) {%>
-import {<%= httpImports %>} from 'angular2/http';<%} %><% if(routerImports.length > 0) {%>
-import {<%= routerImports %>} from 'angular2/router';<%} %>
+import {Component<%= (core.length > 0) ? ',' + core : '' %>} from 'angular2/angular2';<% if(form.length > 0) { %>
+import {<%= form %>} from 'angular2/angular2';<% } %><% if(http.length > 0) { %>
+import {<%= http %>} from 'angular2/http';<% } %><% if(router.length > 0) { %>
+import {<%= router %>} from 'angular2/router';<% } %>
 
 @Component({
 	directives: [],
@@ -13,9 +13,11 @@ import {<%= routerImports %>} from 'angular2/router';<%} %>
 	pipes: [],
 	properties: [],
 	providers: [],
-	selector: '<%= slug %>',
-	styles: [],
-	template: ``
+	selector: '<%= select %>',<% if(styles == 'inline') { %>
+	styles: [``],<% } else if(styles == 'external') { %>
+	styleUrls: [''],<% } %><% if(template == 'inline') { %>
+	template: ``,<% } else if(template == 'external') { %>
+	templateUrl: '',<% } %>
 })
 export class <%= mod %> {
 	

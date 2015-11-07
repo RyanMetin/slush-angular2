@@ -9,11 +9,20 @@ var Util = {
 	camelize (str: string): string {
 		return str.charAt(0).toLowerCase() + str.slice(1).replace(/[-_\s]+(.)?/g, function(m, c) { return c ? c.toUpperCase() : ''; });
 	},
+	classable (str: string): string {
+		return str.charAt(0).toUpperCase() + str.slice(1);
+	},
+	selectable (ans: string, str: string): string {
+		if (ans == 'element') {
+			return str;
+		} else if (ans == 'attribute') {
+			return '['.concat(str, ']');
+		} else if (ans == 'class') {
+			return '.' + str;
+		}
+	},
 	slugify (str: string): string {
 		return str.toLowerCase().replace(/\s/g, '-');
-	},
-	classy (str: string): string {
-		return str.charAt(0).toUpperCase() + str.slice(1);
 	},
 	checkDir (cb) {
 		try {
@@ -30,7 +39,7 @@ var Util = {
 				message: 'Name your ' + str + ':',
 				name: str,
 				validate: (input) => { return /\w/g.test(input) || 'Seriously, name it:'; },
-				filter: (input) => { return input.toString().trim(); },
+				filter: (input) => { return input.trim(); },
 				default: def
 			};
 		},
@@ -42,22 +51,31 @@ var Util = {
 				default: true
 			};
 		},
+		importIt (str: string) {
+			return {
+				type: 'checkbox',
+				message: 'Imports from ' + str + ':',
+				name: str,
+				choices: ng2API[str],
+				paginated: true
+			};
+		},
 		intOrExt (str: string) {
 			return {
 				type: 'list',
 				message: 'Inline or external ' + str + '?',
 				name: str,
-				choices: ['Inline', 'External'],
+				choices: ['inline', 'external'],
 				default: 0
 			};
 		},
-		imports (str: string) {
+		selectIt (index: number) {
 			return {
-				type: 'checkbox',
-				message: 'Imports from ' + str + ':',
-				name: str + 'Imports',
-				choices: ng2API[str],
-				paginated: true
+				type: 'list',
+				message: 'Selector type:',
+				name: 'selector',
+				choices: ['attribute', 'class', 'element'],
+				default: index
 			};
 		}
 	}

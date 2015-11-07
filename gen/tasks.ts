@@ -35,17 +35,18 @@ gulp.task('component', cb => {
 	Util.checkDir(cb);
 	inquirer.prompt([
 		Util.promptFn.nameIt('component', gulp.args),
-		// Util.promptFn.intOrExt('css'), 
-		// Util.promptFn.intOrExt('html'),
-		Util.promptFn.imports('core'),
-		Util.promptFn.imports('form'),
-		Util.promptFn.imports('http'),
-		Util.promptFn.imports('router'),
+		Util.promptFn.selectIt(2),
+		Util.promptFn.intOrExt('styles'), 
+		Util.promptFn.intOrExt('template'),
+		Util.promptFn.importIt('core'),
+		Util.promptFn.importIt('form'),
+		Util.promptFn.importIt('http'),
+		Util.promptFn.importIt('router'),
 		Util.promptFn.confirmIt('component')
 	], answers => {
 		if (!answers.good) { return cb(); }
 		answers.camel = Util.camelize(answers.component);
-		answers.mod = Util.classy(answers.camel);
+		answers.mod = Util.classable(answers.camel);
 		answers.slug = Util.slugify(answers.component);
 		gulp.src(path.join(__dirname, 'templates/options/component/component.ts'))
 			.pipe(template(answers))
@@ -60,13 +61,15 @@ gulp.task('directive', cb => {
 	Util.checkDir(cb);
 	inquirer.prompt([
 		Util.promptFn.nameIt('directive', gulp.args),
-		Util.promptFn.imports('core'),
+		Util.promptFn.selectIt(0),
+		Util.promptFn.importIt('core'),
 		Util.promptFn.confirmIt('directive')
 	], answers => {
 		if (!answers.good) { return cb(); }
 		answers.camel = Util.camelize(answers.directive);
-		answers.mod = Util.classy(answers.camel);
+		answers.mod = Util.classable(answers.camel);
 		answers.slug = Util.slugify(answers.directive);
+		answers.select = Util.selectable(answers.selector, answers.slug);
 		gulp.src(path.join(__dirname, 'templates/options/directive/directive.ts'))
 			.pipe(template(answers))
 			.pipe(rename(file => { file.basename = answers.camel; }))
@@ -84,7 +87,7 @@ gulp.task('pipe', cb => {
 	], answers => {
 		if (!answers.good) { return cb(); }
 		answers.camel = Util.camelize(answers.pipe);
-		answers.mod = Util.classy(answers.camel);
+		answers.mod = Util.classable(answers.camel);
 		answers.slug = Util.slugify(answers.pipe);
 		gulp.src(path.join(__dirname, 'templates/options/pipe/pipe.ts'))
 			.pipe(template(answers))
@@ -103,7 +106,7 @@ gulp.task('service', cb => {
 	], answers => {
 		if (!answers.good) { return cb(); }
 		answers.camel = Util.camelize(answers.service);
-		answers.mod = Util.classy(answers.camel);
+		answers.mod = Util.classable(answers.camel);
 		gulp.src(path.join(__dirname, 'templates/options/service/service.ts'))
 			.pipe(template(answers))
 			.pipe(rename(file => { file.basename = answers.camel; }))
