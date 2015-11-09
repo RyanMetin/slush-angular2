@@ -18,12 +18,13 @@ class HomeComponent {}
 	styles: [`
 		[drag-directive] {
 			position: relative;
-			left: 24px;
-			top: 24px;
+			background: url(https://raw.githubusercontent.com/TheVelourFog/slush-angular2/master/templates/app/res/angular-shield.png) center/contain no-repeat;
+			height: 400px;
+			width: 400px;
 		}
 	`],
 	template: `
-		<img drag-directive src="https://raw.githubusercontent.com/TheVelourFog/slush-angular2/master/templates/app/res/angular-shield.png">
+		<div drag-directive></div>
 	`
 })
 class DragComponent {}
