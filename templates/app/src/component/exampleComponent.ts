@@ -1,9 +1,8 @@
-///<reference path="../typings/tsd.d.ts"/>
 import {Component} from 'angular2/angular2';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 
-import {DragDirective} from 'exampleDirective';
-import {CapitalizePipe} from 'examplePipe';
+import {DragDirective} from '../directive/exampleDirective';
+import {CapitalizePipe} from '../shared/examplePipe';
 
 @Component({
 	selector: 'home-component',
@@ -18,6 +17,7 @@ class HomeComponent {}
 	styles: [`
 		[drag-directive] {
 			position: relative;
+			/* Slush is passing broken image files. Getting from repository for now. */
 			background: url(https://raw.githubusercontent.com/TheVelourFog/slush-angular2/master/templates/app/res/angular-shield.png) center/contain no-repeat;
 			height: 400px;
 			width: 400px;

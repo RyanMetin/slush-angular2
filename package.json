@@ -1,7 +1,7 @@
 {
   "name": "slush-angular2",
   "description": "Slush Generator For Angular2",
-  "version": "0.4.12",
+  "version": "0.4.2",
   "author": {
     "name": "Ryan Usumi",
     "email": "rmusumi@hotmail.com",
@@ -32,10 +32,8 @@
     "slush",
     "angularjs",
     "angular",
-    "angular2",
-    "browsersync",
+    "angular2", 
     "generator",
-    "node",
     "scaffold",
     "systemjs",
     "typescript"

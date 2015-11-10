@@ -6,14 +6,24 @@
   <meta name="viewport" id="viewport" content="width=device-width,initial-scale=1"/>
   <title><%= project %></title>
   <link href="http://fonts.googleapis.com/css?family=Roboto:400" rel="stylesheet"/>
-  <link href="res/favicon.ico" rel="icon" type="image/x-icon"/>
+  <!-- Slush passing broken image files. -->
+  <link href="https://raw.githubusercontent.com/TheVelourFog/slush-angular2/master/templates/app/res/favicon.ico" rel="icon" type="image/x-icon"/>
   <link href="res/style.css" rel="stylesheet" type="text/css"/>
-  <script src="jspm_packages/system.src.js" type="text/javascript"></script>
-  <script src="config.js" type="text/javascript"></script>
+  <script src="node_modules/systemjs/dist/system.src.js" type="text/javascript"></script>
+  <script src="node_modules/angular2/bundles/angular2.dev.js" type="text/javascript"></script>
+  <script src="node_modules/angular2/bundles/router.dev.js" type="text/javascript"></script>
 </head>
 <body>
   <<%= slug %>>Loading...</<%= slug %>>
   <script>
+    System.config({
+      packages: {
+        'src': {
+          'defaultExtension': 'js',
+          'main': 'boot'
+        }
+      }
+    });
 	  System.import('src');
   </script>
 </body>

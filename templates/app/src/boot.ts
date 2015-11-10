@@ -1,10 +1,7 @@
-///<reference path="typings/tsd.d.ts"/>
-import 'reflect-metadata';
-import 'zone.js';
 import {bootstrap, provide} from 'angular2/angular2';
 import {APP_BASE_HREF, ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy} from 'angular2/router';
 
-import Example from 'exampleComponent';
+import Example from './component/exampleComponent';
 
 bootstrap(Example, [
 	ROUTER_PROVIDERS,

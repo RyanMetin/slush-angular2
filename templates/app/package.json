@@ -1,33 +1,24 @@
 {
   "version": "0.0.1",
-  "name": "<%= camel %>",
+  "name": "slushy",
   "description": "Angular2 Using TypeScript",
-  "devDependencies": {
-    "browser-sync": "^2.9.11",
-    "jasmine": "^2.3.2",
-    "jspm": "^0.16.14",
-    "karma": "^0.13.14",
-    "protractor": "^2.5.1",
-    "tsd": "^0.6.5"
+  "dependencies": {
+    "angular2": "^2.0.0-alpha.45",
+    "systemjs": "^0.19.5"
   },
-  "jspm": {
-    "directories": {},
-    "dependencies": {
-      "@reactivex/rxjs": "npm:@reactivex/rxjs@^5.0.0-alpha.7",
-      "angular2": "npm:angular2@^2.0.0-alpha.45",
-      "reflect-metadata": "npm:reflect-metadata@^0.1.2",
-      "zone.js": "npm:zone.js@^0.5.8"
-    },
-    "devDependencies": {
-      "typescript": "npm:typescript@^1.6.2"
-    }
+  "devDependencies": {
+    "jasmine": "^2.3.2",
+    "karma": "^0.13.14",
+    "live-server": "^0.8.2",
+    "parallelshell": "^2.0.0",
+    "protractor": "^2.5.1",
+    "typescript": "^1.6.2"
   },
   "main": "src/boot",
   "scripts": {
-    "postinstall": "npm run jspm && npm run tsd && npm start",
-    "jspm": "jspm install",
-    "tsd": "tsd install angular2 es6-promise rx rx-lite systemjs -rs",
-    "serve": "browser-sync start --server --open local --files \"index.html, config.js, src/**/*\"",
-    "start": "npm run serve"
+    "postinstall": "npm start",
+    "compile": "tsc -p src --outDir dist -w",
+    "serve": "live-server --open=.",
+    "start": "parallelshell \"npm run compile\" \"npm run serve\""
   }
 }
