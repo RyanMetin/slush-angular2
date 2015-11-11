@@ -2,9 +2,9 @@
 	"compilerOptions": {
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
+		"inlineSourceMap": true,
 		"module": "commonjs",
 		"noImplicitAny": false,
-		"sourceMap": true,
 		"target": "ES5"
 	}
 }
