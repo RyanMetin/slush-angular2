@@ -1,4 +1,4 @@
-import {Component} from 'angular2/angular2';
+import {Component, CORE_DIRECTIVES} from 'angular2/angular2';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 
 import {DragDirective} from '../directive/exampleDirective';
@@ -30,7 +30,7 @@ class HomeComponent {}
 class DragComponent {}
 
 @Component({
-	directives: [ROUTER_DIRECTIVES],
+	directives: [CORE_DIRECTIVES, ROUTER_DIRECTIVES],
 	pipes: [CapitalizePipe],
 	selector: '<%= project %>',
 	styles: [`
@@ -60,7 +60,7 @@ class DragComponent {}
 		}
 		.dash__link:hover { color: #E1BEE7; }
 		.dash__link.router-link-active { color: #BA68C8; }
-		.dash__link:not(:first-child):before {
+		.dash__link:not(:first-of-type):before {
 			color: #EEE;
 			content: " · "
 		}
@@ -69,8 +69,7 @@ class DragComponent {}
 		<header class="dash">
 			<h1 class="dash__title">{{appName | capitalize}}</h1>
 			<nav class="dash__nav">
-				<a class="dash__link" [router-link]="['/Home']">Home</a>
-				<a class="dash__link" [router-link]="['/Example']">Example</a>
+				<a class="dash__link" *ng-for="#route of appRoutes" [router-link]="[route]">{{route}}</a>
 			</nav>
 		</header>
 		<router-outlet></router-outlet>
@@ -93,8 +92,8 @@ class DragComponent {}
 	}
 ])
 export default class {
-	appName: string;
-	constructor () {
-		this.appName = '<%= project %>';
-	}
+	public appName: string = '<%= project %>';
+	public appRoutes: Array<string> = [
+		'Home', 'Example'
+	];
 }
