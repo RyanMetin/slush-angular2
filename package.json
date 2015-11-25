@@ -1,7 +1,7 @@
 {
   "name": "slush-angular2",
   "description": "Slush Generator For Angular2",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "author": {
     "name": "Ryan Usumi",
     "email": "rmusumi@hotmail.com",
@@ -22,6 +22,7 @@
   "dependencies": {
     "gulp": "latest",
     "gulp-conflict": "latest",
+    "gulp-filter": "latest",
     "gulp-install": "latest",
     "gulp-rename": "latest",
     "gulp-template": "latest",

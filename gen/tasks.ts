@@ -1,6 +1,7 @@
 ///<reference path="typings/tsd.d.ts"/>
 let conflict = require('gulp-conflict'),
 	gulp = require('gulp'),
+	filter = require('gulp-filter'),
 	fs = require('fs'),
 	install = require('gulp-install'),
 	inquirer = require('inquirer'),
@@ -17,8 +18,11 @@ gulp.task('default', cb => {
 		answers.camel = Util.camelize(answers.project);
 		answers.slug = Util.slugify(answers.project);
 		path.resolve(process.cwd(), answers.slug);
+		let img = filter(['**/**', '!**/**.{ico,png}'], {restore: true});
 		gulp.src(path.join(__dirname, 'templates/app/**'))
+			.pipe(img)
 			.pipe(template(answers))
+			.pipe(img.restore)
 			.pipe(rename(file => {
 				if (file.basename[0] === '_' && file.extname !== '.scss') {
 					file.basename = '.' + file.basename.slice(1);

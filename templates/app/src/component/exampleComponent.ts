@@ -17,8 +17,7 @@ class HomeComponent {}
 	styles: [`
 		[drag-directive] {
 			position: relative;
-			/* Slush is passing broken image files. Getting from repository for now. */
-			background: url(https://raw.githubusercontent.com/TheVelourFog/slush-angular2/master/templates/app/res/angular-shield.png) center/contain no-repeat;
+			background: url("res/shield.png") center/contain no-repeat;
 			height: 400px;
 			width: 400px;
 		}

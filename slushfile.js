@@ -1,5 +1,5 @@
 ///<reference path="typings/tsd.d.ts"/>
-var conflict = require('gulp-conflict'), gulp = require('gulp'), fs = require('fs'), install = require('gulp-install'), inquirer = require('inquirer'), path = require('path'), rename = require('gulp-rename'), template = require('gulp-template');
+var conflict = require('gulp-conflict'), gulp = require('gulp'), filter = require('gulp-filter'), fs = require('fs'), install = require('gulp-install'), inquirer = require('inquirer'), path = require('path'), rename = require('gulp-rename'), template = require('gulp-template');
 gulp.task('default', function (cb) {
     inquirer.prompt([
         Util.promptFn.nameIt('project', (gulp.args.length > 0) ? gulp.args : 'slushy'),
@@ -11,8 +11,11 @@ gulp.task('default', function (cb) {
         answers.camel = Util.camelize(answers.project);
         answers.slug = Util.slugify(answers.project);
         path.resolve(process.cwd(), answers.slug);
+        var img = filter(['**/**', '!**/**.{ico,png}'], { restore: true });
         gulp.src(path.join(__dirname, 'templates/app/**'))
+            .pipe(img)
             .pipe(template(answers))
+            .pipe(img.restore)
             .pipe(rename(function (file) {
             if (file.basename[0] === '_' && file.extname !== '.scss') {
                 file.basename = '.' + file.basename.slice(1);

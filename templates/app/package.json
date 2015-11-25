@@ -7,8 +7,9 @@
     "systemjs": "^0.19.6"
   },
   "devDependencies": {
-    "jasmine": "^2.3.2",
+    "jasmine-core": "^2.3.4",
     "karma": "^0.13.15",
+    "karma-jasmine": "^0.3.6",
     "live-server": "^0.8.2",
     "parallelshell": "^2.0.0",
     "protractor": "^3.0.0",
