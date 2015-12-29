@@ -34,8 +34,8 @@ gulp.task('component', function (cb) {
         Util.promptFn.selectIt(2),
         Util.promptFn.intOrExt('styles'),
         Util.promptFn.intOrExt('template'),
+        Util.promptFn.importIt('common'),
         Util.promptFn.importIt('core'),
-        Util.promptFn.importIt('form'),
         Util.promptFn.importIt('http'),
         Util.promptFn.importIt('router'),
         Util.promptFn.confirmIt('component')
@@ -125,10 +125,13 @@ gulp.task('service', function (cb) {
     });
 });
 var ng2API = {
-    core: ['CORE_DIRECTIVES', 'DEFAULT_PIPES', 'Attribute', 'EventEmitter', 'Host', 'HostBinding', 'HostListener', 'Inject', 'Input', 'Optional', 'Output', 'Query'],
-    form: ['FORM_DIRECTIVES', 'FORM_PROVIDERS', 'FormBuilder', 'Validators'],
+    animation: [],
+    common: ['COMMON_DIRECTIVES', 'CORE_DIRECTIVES', 'FORM_DIRECTIVES', 'FORM_PROVIDERS', 'FormBuilder', 'Validators'],
+    compiler: [],
+    core: ['DEFAULT_PIPES', 'Attribute', 'EventEmitter', 'Host', 'HostBinding', 'HostListener', 'Inject', 'Input', 'Optional', 'Output', 'Query'],
     http: ['HTTP_PROVIDERS', 'JSON_PROVIDERS', 'Http', 'Jsonp'],
-    router: ['ROUTER_DIRECTIVES', 'ROUTER_PROVIDERS', 'RouteConfig', 'CanActivate', 'Location']
+    router: ['ROUTER_DIRECTIVES', 'ROUTER_PROVIDERS', 'RouteConfig', 'CanActivate', 'Location'],
+    testing: []
 };
 var Util = {
     camelize: function (str) {

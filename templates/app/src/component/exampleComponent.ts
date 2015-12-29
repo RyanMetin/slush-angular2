@@ -1,4 +1,5 @@
-import {Component, CORE_DIRECTIVES} from 'angular2/angular2';
+import {Component} from 'angular2/core';
+import {COMMON_DIRECTIVES, CORE_DIRECTIVES} from 'angular2/common';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 
 import {DragDirective} from '../directive/exampleDirective';
@@ -29,7 +30,7 @@ class HomeComponent {}
 class DragComponent {}
 
 @Component({
-	directives: [CORE_DIRECTIVES, ROUTER_DIRECTIVES],
+	directives: [COMMON_DIRECTIVES, CORE_DIRECTIVES, ROUTER_DIRECTIVES],
 	pipes: [CapitalizePipe],
 	selector: '<%= project %>',
 	styles: [`
@@ -68,7 +69,7 @@ class DragComponent {}
 		<header class="dash">
 			<h1 class="dash__title">{{appName | capitalize}}</h1>
 			<nav class="dash__nav">
-				<a class="dash__link" *ng-for="#route of appRoutes" [router-link]="[route]">{{route}}</a>
+				<a class="dash__link" *ngFor="#route of appRoutes" [routerLink]="[route]">{{route}}</a>
 			</nav>
 		</header>
 		<router-outlet></router-outlet>
@@ -76,13 +77,10 @@ class DragComponent {}
 })
 @RouteConfig([
 	{
-		path: '/',
-		redirectTo: '/home'
-	},
-	{
 		path: '/home',
 		as: 'Home',
-		component: HomeComponent
+		component: HomeComponent,
+    useAsDefault: true
 	},
 	{
 		path: '/example',

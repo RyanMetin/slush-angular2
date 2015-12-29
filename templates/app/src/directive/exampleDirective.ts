@@ -1,4 +1,4 @@
-import {Directive, ElementRef, EventEmitter, HostListener, OnDestroy, OnInit} from 'angular2/angular2';
+import {Directive, ElementRef, EventEmitter, HostListener, OnDestroy, OnInit} from 'angular2/core';
 
 @Directive({
 	selector: '[drag-directive]'
@@ -8,9 +8,9 @@ export class DragDirective implements OnInit, OnDestroy {
 	constructor (public element: ElementRef) {
 	}
 	
-	onInit(): void {
+	ngOnInit(): void {
 	}
 	
-	onDestroy(): void {
+	ngOnDestroy(): void {
 	}
 }

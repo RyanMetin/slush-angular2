@@ -3,8 +3,9 @@
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
 		"inlineSourceMap": true,
-		"module": "commonjs",
+		"module": "system",
+		"moduleResolution": "node",
 		"noImplicitAny": false,
-		"target": "ES5"
+		"target": "es5"
 	}
 }

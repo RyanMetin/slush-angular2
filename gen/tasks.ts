@@ -42,8 +42,8 @@ gulp.task('component', cb => {
 		Util.promptFn.selectIt(2),
 		Util.promptFn.intOrExt('styles'), 
 		Util.promptFn.intOrExt('template'),
+    Util.promptFn.importIt('common'),
 		Util.promptFn.importIt('core'),
-		Util.promptFn.importIt('form'),
 		Util.promptFn.importIt('http'),
 		Util.promptFn.importIt('router'),
 		Util.promptFn.confirmIt('component')
