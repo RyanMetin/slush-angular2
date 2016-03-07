@@ -1,73 +1,98 @@
-import {Component} from 'angular2/core';
+import {Component, Input} from 'angular2/core';
 import {COMMON_DIRECTIVES, CORE_DIRECTIVES} from 'angular2/common';
-import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+import {RouteConfig, RouteDefinition, ROUTER_DIRECTIVES} from 'angular2/router';
 
 import {DragDirective} from '../directive/exampleDirective';
 import {CapitalizePipe} from '../shared/examplePipe';
 
-@Component({
-	selector: 'home-component',
-	styles: [`.home { padding: 4% 8%; }`],
-	template: `<h1 class="home">Welcome to Angular2</h1>`
-})
-class HomeComponent {}
+var APP_ROUTES: RouteDefinition[] = [
+	{ path: '/example', name: 'Example', component: ExampleComponent, useAsDefault: true },
+	{ path: '/resources', name: 'Resources', component: ResourcesComponent }
+];
 
 @Component({
-	directives: [DragDirective],
-	selector: 'drag-component',
+	selector: 'example-component',
 	styles: [`
-		[drag-directive] {
-			position: relative;
-			background: url("res/shield.png") center/contain no-repeat;
-			height: 400px;
-			width: 400px;
-		}
+    .example { 
+      display: flex;
+      flex-direction: column;
+      margin: 4rem auto;
+    }
+    .example__container {
+      display: flex;
+      flex: 1;
+      flex-flow: row nowrap;
+    }
+    .logo {
+      flex: 0 1 auto;
+    }
+  `],
+	template: `
+    <div class="example">
+      <div class="example__container">
+        <img class="logo" [src]="logo.slush">
+        <img class="logo" [src]="logo.shield">
+      </div>
+    </div>
+  `
+})
+class ExampleComponent {
+  public logo: Object = {
+    slush: 'res/slush.png', shield: 'res/shield.png'
+  };
+}
+
+@Component({
+	directives: [],
+	selector: 'resources-component',
+	styles: [`
+    
 	`],
 	template: `
-		<div drag-directive></div>
+		<div></div>
 	`
 })
-class DragComponent {}
+class ResourcesComponent {}
 
 @Component({
 	directives: [COMMON_DIRECTIVES, CORE_DIRECTIVES, ROUTER_DIRECTIVES],
 	pipes: [CapitalizePipe],
-	selector: '<%= project %>',
+	selector: 'slushy',
 	styles: [`
 		.dash {
 			align-items: center;
-			background: #555;
+			background: grey;
 			box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16),
               		0 3px 1px -2px rgba(0,0,0,0.20),
               		0 1px 3px 0 rgba(0,0,0,0.12);
-			color: #EEE;
+			color: white;
 			display: flex;
-			flex-flow: row wrap;
 			justify-content: space-between;
-			padding: 2%;
+			padding: 0.8rem 1.2rem;
 			width: 100%;
 		}
 		.dash__title {
 			flex: auto;
-			font-weight: normal;
+      font-size: 1.6rem;
 		}
 		.dash__nav {
-			flex: none;
+			margin-left: auto;
 		}
 		.dash__link {
 			color: inherit;
+      font-size: 1.4rem;
 			text-decoration: none;
 		}
-		.dash__link:hover { color: #E1BEE7; }
-		.dash__link.router-link-active { color: #BA68C8; }
+		.dash__link.router-link-active { color: #E1BEE7; }
+		.dash__link:hover { color: #BA68C8; }
 		.dash__link:not(:first-of-type):before {
-			color: #EEE;
-			content: " · "
+			color: white;
+			content: " · ";
 		}
 	`],
 	template: `
 		<header class="dash">
-			<h1 class="dash__title">{{appName | capitalize}}</h1>
+			<h1 class="dash__title">{{appTitle | capitalize}}</h1>
 			<nav class="dash__nav">
 				<a class="dash__link" *ngFor="#route of appRoutes" [routerLink]="[route]">{{route}}</a>
 			</nav>
@@ -76,21 +101,12 @@ class DragComponent {}
 	`
 })
 @RouteConfig([
-	{
-		path: '/home',
-		as: 'Home',
-		component: HomeComponent,
-    useAsDefault: true
-	},
-	{
-		path: '/example',
-		as: 'Example',
-		component: DragComponent
-	}
+	{ path: '/example', name: 'Example', component: ExampleComponent, useAsDefault: true },
+	{ path: '/resources', name: 'Resources', component: ResourcesComponent }
 ])
 export default class {
-	public appName: string = '<%= project %>';
+	public appTitle: string = '<%= project %>';
 	public appRoutes: Array<string> = [
-		'Home', 'Example'
+		'Example', 'Resources'
 	];
 }

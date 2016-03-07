@@ -1,16 +1,19 @@
-import {Directive, ElementRef, EventEmitter, HostListener, OnDestroy, OnInit} from 'angular2/core';
+import {Directive, ElementRef, Input} from 'angular2/core';
 
 @Directive({
+  host: [
+    
+  ],
 	selector: '[drag-directive]'
 })
-export class DragDirective implements OnInit, OnDestroy {
-	
-	constructor (public element: ElementRef) {
+export class DragDirective {
+	constructor (private element: ElementRef) {
+    
 	}
-	
-	ngOnInit(): void {
-	}
-	
-	ngOnDestroy(): void {
-	}
+  onMouseEnter () {
+    
+  }
+  onMouseLeave () {
+    
+  }
 }
