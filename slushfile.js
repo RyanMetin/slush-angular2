@@ -1,7 +1,7 @@
 var conflict = require('gulp-conflict'), gulp = require('gulp'), filter = require('gulp-filter'), fs = require('fs'), install = require('gulp-install'), inquirer = require('inquirer'), path = require('path'), rename = require('gulp-rename'), template = require('gulp-template');
 gulp.task('default', function (cb) {
     inquirer.prompt([
-        Util.promptFn.nameIt('project', (gulp.args.length > 0) ? gulp.args : 'slushy'),
+        Util.promptFn.nameIt('project', 'slushy' || gulp.args),
         Util.promptFn.confirmIt('project')
     ], function (answers) {
         if (!answers.good) {
@@ -15,11 +15,6 @@ gulp.task('default', function (cb) {
             .pipe(img)
             .pipe(template(answers))
             .pipe(img.restore)
-            .pipe(rename(function (file) {
-            if (file.basename[0] === '_' && file.extname !== '.scss') {
-                file.basename = '.' + file.basename.slice(1);
-            }
-        }))
             .pipe(conflict(path.join(process.cwd(), answers.slug)))
             .pipe(gulp.dest(path.join(process.cwd(), answers.slug)))
             .pipe(install())

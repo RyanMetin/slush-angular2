@@ -1,112 +1,68 @@
-import {Component, Input} from 'angular2/core';
-import {COMMON_DIRECTIVES, CORE_DIRECTIVES} from 'angular2/common';
-import {RouteConfig, RouteDefinition, ROUTER_DIRECTIVES} from 'angular2/router';
+import {Component, OnInit} from 'angular2/core';
+import {CORE_DIRECTIVES} from 'angular2/common';
 
-import {DragDirective} from '../directive/exampleDirective';
-import {CapitalizePipe} from '../shared/examplePipe';
-
-var APP_ROUTES: RouteDefinition[] = [
-	{ path: '/example', name: 'Example', component: ExampleComponent, useAsDefault: true },
-	{ path: '/resources', name: 'Resources', component: ResourcesComponent }
-];
+import {ShadowDirective} from '../directive/exampleDirective';
+import {Resource, ResourceService} from '../shared/exampleService';
 
 @Component({
-	selector: 'example-component',
+	selector: 'home-component',
 	styles: [`
-    .example { 
+    .home {
       display: flex;
-      flex-direction: column;
-      margin: 4rem auto;
+      flex-flow: row wrap;
+      margin: 2rem auto;
+      justify-content: center;
     }
-    .example__container {
-      display: flex;
-      flex: 1;
-      flex-flow: row nowrap;
-    }
-    .logo {
-      flex: 0 1 auto;
+    .home .logo {
+      height: auto;
+      margin: 1rem;
     }
   `],
 	template: `
-    <div class="example">
-      <div class="example__container">
-        <img class="logo" [src]="logo.slush">
-        <img class="logo" [src]="logo.shield">
-      </div>
+    <div class="home">
+      <img class="logo" [src]="logo.slush">
+      <img class="logo" [src]="logo.shield">
     </div>
   `
 })
-class ExampleComponent {
+export class HomeComponent {
   public logo: Object = {
-    slush: 'res/slush.png', shield: 'res/shield.png'
+    shield: 'res/angular2.png', slush: 'res/slush.png'
   };
 }
 
 @Component({
-	directives: [],
-	selector: 'resources-component',
+	directives: [ShadowDirective, CORE_DIRECTIVES],
+  providers: [ResourceService],
+	selector: 'resource-component',
 	styles: [`
-    
-	`],
-	template: `
-		<div></div>
-	`
-})
-class ResourcesComponent {}
-
-@Component({
-	directives: [COMMON_DIRECTIVES, CORE_DIRECTIVES, ROUTER_DIRECTIVES],
-	pipes: [CapitalizePipe],
-	selector: 'slushy',
-	styles: [`
-		.dash {
-			align-items: center;
+		.resources { list-style-type: none; }
+    .resources .link {
+      align-items: center;
 			background: grey;
-			box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16),
-              		0 3px 1px -2px rgba(0,0,0,0.20),
-              		0 1px 3px 0 rgba(0,0,0,0.12);
 			color: white;
-			display: flex;
-			justify-content: space-between;
-			padding: 0.8rem 1.2rem;
-			width: 100%;
-		}
-		.dash__title {
-			flex: auto;
-      font-size: 1.6rem;
-		}
-		.dash__nav {
-			margin-left: auto;
-		}
-		.dash__link {
-			color: inherit;
-      font-size: 1.4rem;
-			text-decoration: none;
-		}
-		.dash__link.router-link-active { color: #E1BEE7; }
-		.dash__link:hover { color: #BA68C8; }
-		.dash__link:not(:first-of-type):before {
-			color: white;
-			content: " · ";
-		}
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem;
+      margin: 2rem 4rem;
+      text-decoration: none;
+    }
 	`],
 	template: `
-		<header class="dash">
-			<h1 class="dash__title">{{appTitle | capitalize}}</h1>
-			<nav class="dash__nav">
-				<a class="dash__link" *ngFor="#route of appRoutes" [routerLink]="[route]">{{route}}</a>
-			</nav>
-		</header>
-		<router-outlet></router-outlet>
+    <ul class="resources">
+      <li class="resource" *ngFor="#resource of resources">
+        <a class="link" shadow-directive [href]="resource.url">
+          <h2>{{resource.name}}</h2>
+          <p>{{resource.description}}</p>
+        </a>
+      </li>
+    </ul>
 	`
 })
-@RouteConfig([
-	{ path: '/example', name: 'Example', component: ExampleComponent, useAsDefault: true },
-	{ path: '/resources', name: 'Resources', component: ResourcesComponent }
-])
-export default class {
-	public appTitle: string = '<%= project %>';
-	public appRoutes: Array<string> = [
-		'Example', 'Resources'
-	];
+export class ResourceComponent implements OnInit {
+  resources: Resource[] = [];
+  constructor (private _resource: ResourceService) { }
+  ngOnInit () {
+    this._resource.getRes().subscribe(res => this.resources = res);
+  }
 }

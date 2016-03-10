@@ -8,6 +8,7 @@
   <link href="res/favicon.ico" rel="icon"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; font-family: sans-serif; margin: 0; padding: 0; }
+    body { display: flex; flex-direction: column; min-height: 100vh; overflow: hidden; }
   </style>
 </head>
 <body>
@@ -29,7 +30,7 @@
         }
       }
     });
-	  System.import('dist/app');
+	  System.import('dist/boot').catch(console.error.bind(console));
   </script>
 </body>
 </html>

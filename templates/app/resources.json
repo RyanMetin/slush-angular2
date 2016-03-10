@@ -1,0 +1,9 @@
+[{ 
+  "name": "angular.io",
+  "description": "Website for Angular 2",
+  "url": "https://angular.io/"
+}, { 
+  "name": "Awesome Angular 2", 
+  "description": "Awesome list of Angular 2 resources", 
+  "url": "https://github.com/AngularClass/awesome-angular2" 
+}]

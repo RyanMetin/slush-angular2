@@ -18,12 +18,13 @@
     "live-server": "^0.9.2",
     "parallelshell": "^2.0.0",
     "protractor": "^3.1.1",
-    "typescript": "^1.8.7"
+    "typescript": "^1.8.7",
+    "typings": "^0.7.1"
   },
   "scripts": {
-    "postinstall": "npm start",
-    "compile": "tsc -p . --outDir dist -w",
+    "postinstall": "typings install && npm start",
+    "compile": "tsc -p . --outDir dist",
     "serve": "live-server --open=.",
-    "start": "parallelshell \"npm run compile\" \"npm run serve\""
+    "start": "parallelshell \"npm run compile -- -w\" \"npm run serve\""
   }
 }

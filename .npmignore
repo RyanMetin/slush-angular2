@@ -1,5 +1,5 @@
 ./.travis.yml
 ./tsconfig.json
 ./typings.json
-./gen/
-./typings/
+./gen
+./typings
