@@ -1,8 +1,7 @@
-import {Component, Input} from 'angular2/core';
-import {CORE_DIRECTIVES} from 'angular2/common';
+import {Component} from 'angular2/core';
 import {RouteConfig, RouteDefinition, ROUTER_DIRECTIVES} from 'angular2/router';
 
-import {ShadowDirective} from '../directive/exampleDirective';
+import {BoxshadowDirective} from '../directive/exampleDirective';
 import {HomeComponent, ResourceComponent} from './exampleComponent';
 import {CapitalizePipe} from '../shared/examplePipe';
 
@@ -10,9 +9,8 @@ const APP_ROUTES: RouteDefinition[] = [
 	{ path: '/home', name: 'Home', component: HomeComponent, useAsDefault: true },
 	{ path: '/resource', name: 'Resource', component: ResourceComponent }
 ];
-
 @Component({
-	directives: [ShadowDirective, CORE_DIRECTIVES, ROUTER_DIRECTIVES],
+	directives: [BoxshadowDirective, ROUTER_DIRECTIVES],
 	pipes: [CapitalizePipe],
 	selector: '<%= slug %>',
 	styles: [`
@@ -23,7 +21,6 @@ const APP_ROUTES: RouteDefinition[] = [
 			display: flex;
 			justify-content: space-between;
 			padding: 0.8rem 1.2rem;
-			width: 100%;
 		}
 		.app_title {
 			flex: auto;
@@ -45,7 +42,7 @@ const APP_ROUTES: RouteDefinition[] = [
 		}
 	`],
 	template: `
-		<header class="app" shadow-directive>
+		<header class="app" bs-directive>
 			<h1 class="app_title">{{appTitle | capitalize}}</h1>
 			<nav class="app_nav">
 				<a class="app_link" *ngFor="#route of appRoutes" [routerLink]="[route.name]">{{route.name}}</a>

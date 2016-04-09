@@ -3,27 +3,28 @@
   "name": "<%= slug %>",
   "description": "Angular2 Using TypeScript",
   "dependencies": {
-    "angular2": "^2.0.0-beta.12",
+    "angular2": "^2.0.0-beta.14",
     "es6-promise": "^3.1.2",
     "es6-shim": "^0.35.0",
     "reflect-metadata": "^0.1.3",
-    "rxjs": "^5.0.0-beta.3",
-    "systemjs": "^0.19.24",
-    "zone.js": "^0.6.6"
+    "rxjs": "^5.0.0-beta.5",
+    "systemjs": "^0.19.25",
+    "zone.js": "^0.6.10"
   },
   "devDependencies": {
-    "jasmine-core": "^2.4.1",
-    "karma": "^0.13.22",
-    "karma-jasmine": "^0.3.8",
     "live-server": "^0.9.2",
     "parallelshell": "^2.0.0",
-    "protractor": "^3.2.2",
+    "systemjs-builder": "^0.15.14",
     "typescript": "^1.8.9",
-    "typings": "^0.7.9"
+    "typings": "^0.7.12"
+  },
+  "peerDependencies": {
+    "typescript": "^1.8.9",
+    "typings": "^0.7.12"
   },
   "scripts": {
     "postinstall": "typings install && npm start",
-    "compile": "tsc -p . --outDir dist",
+    "compile": "tsc -p .",
     "serve": "live-server --open=.",
     "start": "parallelshell \"npm run compile -- -w\" \"npm run serve\""
   }

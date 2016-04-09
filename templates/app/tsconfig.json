@@ -6,6 +6,8 @@
 		"module": "system",
 		"moduleResolution": "node",
 		"noImplicitAny": false,
+    "outDir": "dist",
+    "rootDir": "src",
 		"target": "es5"
 	},
   "exclude": [

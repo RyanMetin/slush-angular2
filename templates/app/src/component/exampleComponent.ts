@@ -1,11 +1,10 @@
 import {Component, OnInit} from 'angular2/core';
-import {CORE_DIRECTIVES} from 'angular2/common';
+import {Title} from 'angular2/platform/browser';
 
-import {ShadowDirective} from '../directive/exampleDirective';
+import {BoxshadowDirective} from '../directive/exampleDirective';
 import {Resource, ResourceService} from '../shared/exampleService';
 
 @Component({
-	selector: 'home-component',
 	styles: [`
     .home {
       display: flex;
@@ -29,12 +28,14 @@ export class HomeComponent {
   public logo: Object = {
     shield: 'res/angular2.png', slush: 'res/slush.png'
   };
+  constructor (private title: Title) {
+    this.title.setTitle('Home');
+  }
 }
 
 @Component({
-	directives: [ShadowDirective, CORE_DIRECTIVES],
+	directives: [BoxshadowDirective],
   providers: [ResourceService],
-	selector: 'resource-component',
 	styles: [`
 		.resources { list-style-type: none; }
     .resources .link {
@@ -51,7 +52,7 @@ export class HomeComponent {
 	template: `
     <ul class="resources">
       <li class="resource" *ngFor="#resource of resources">
-        <a class="link" shadow-directive [href]="resource.url">
+        <a class="link" bs-directive [href]="resource.url">
           <h2>{{resource.name}}</h2>
           <p>{{resource.description}}</p>
         </a>
@@ -61,8 +62,10 @@ export class HomeComponent {
 })
 export class ResourceComponent implements OnInit {
   resources: Resource[] = [];
-  constructor (private _resource: ResourceService) { }
+  constructor (private resource: ResourceService, private title: Title) {
+    this.title.setTitle('Resources');
+  }
   ngOnInit () {
-    this._resource.getRes().subscribe(res => this.resources = res);
+    this.resource.getRes().subscribe(res => this.resources = res);
   }
 }
