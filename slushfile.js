@@ -28,6 +28,7 @@ gulp.task('component', function (cb) {
         Util.promptFn.selectIt(2),
         Util.promptFn.intOrExt('styles'),
         Util.promptFn.intOrExt('template'),
+        Util.promptFn.importIt('animation'),
         Util.promptFn.importIt('common'),
         Util.promptFn.importIt('core'),
         Util.promptFn.importIt('http'),
@@ -61,6 +62,8 @@ gulp.task('directive', function (cb) {
     inquirer.prompt([
         Util.promptFn.nameIt('directive', gulp.args),
         Util.promptFn.selectIt(0),
+        Util.promptFn.importIt('animation'),
+        Util.promptFn.importIt('common'),
         Util.promptFn.importIt('core'),
         Util.promptFn.confirmIt('directive')
     ], function (answers) {
@@ -83,7 +86,8 @@ gulp.task('pipe', function (cb) {
     Util.checkDir(cb);
     inquirer.prompt([
         Util.promptFn.nameIt('pipe', gulp.args),
-        Util.promptFn.confirmIt('pipe')
+        Util.promptFn.importIt('common'),
+        Util.promptFn.importIt('core'),
     ], function (answers) {
         if (!answers.good) {
             return cb();
@@ -103,6 +107,10 @@ gulp.task('service', function (cb) {
     Util.checkDir(cb);
     inquirer.prompt([
         Util.promptFn.nameIt('service', gulp.args),
+        Util.promptFn.importIt('common'),
+        Util.promptFn.importIt('core'),
+        Util.promptFn.importIt('http'),
+        Util.promptFn.importIt('router'),
         Util.promptFn.confirmIt('service')
     ], function (answers) {
         if (!answers.good) {
@@ -119,13 +127,11 @@ gulp.task('service', function (cb) {
     });
 });
 var ng2API = {
-    animation: [],
-    common: ['COMMON_DIRECTIVES', 'CORE_DIRECTIVES', 'FORM_DIRECTIVES', 'FORM_PROVIDERS', 'FormBuilder', 'Validators'],
-    compiler: [],
-    core: ['DEFAULT_PIPES', 'Attribute', 'EventEmitter', 'Host', 'HostBinding', 'HostListener', 'Inject', 'Input', 'Optional', 'Output', 'Query'],
-    http: ['HTTP_PROVIDERS', 'JSON_PROVIDERS', 'Http', 'Jsonp'],
-    router: ['ROUTER_DIRECTIVES', 'ROUTER_PROVIDERS', 'RouteConfig', 'CanActivate', 'Location'],
-    testing: []
+    animation: ['Animation', 'AnimationBuilder', 'BrowserDetails', 'CssAnimationBuilder', 'CssAnimationOptions'],
+    common: ['COMMON_DIRECTIVES', 'COMMON_PIPES', 'CORE_DIRECTIVES', 'FORM_DIRECTIVES', 'FORM_PROVIDERS', 'FormBuilder', 'Validators'],
+    core: ['APP_COMPONENT', 'APP_ID', 'Attribute', 'bind', 'enableProdMode', 'EventEmitter', 'Host', 'HostListener', 'Inject', 'Input', 'Optional', 'Output', 'Pipe', 'platform', 'PLATFORM_DIRECTIVES', 'PLATFORM_PIPES', 'provide', 'Provider', 'Query'],
+    http: ['Headers', 'Http', 'HTTP_PROVIDERS', 'JSON_PROVIDERS', 'Jsonp', 'Response', 'Request'],
+    router: ['CanActivate', 'Location', 'Redirect', 'RouteConfig', 'RouteDefinition', 'RouteParams', 'RouteRegistry', 'Router', 'ROUTER_DIRECTIVES', 'ROUTER_PROVIDERS']
 };
 var Util = {
     camelize: function (str) {

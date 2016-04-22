@@ -1,7 +1,7 @@
 {
   "name": "slush-angular2",
   "description": "Slush Generator For Angular2",
-  "version": "0.6.3",
+  "version": "0.6.5",
   "author": {
     "name": "Ryan Usumi",
     "email": "rmusumi@hotmail.com",
@@ -18,15 +18,16 @@
   },
   "main": "slushfile.js",
   "scripts": {
+    "ts": "tsc -p ."
   },
   "dependencies": {
-    "gulp": "latest",
-    "gulp-conflict": "latest",
-    "gulp-filter": "latest",
-    "gulp-install": "latest",
-    "gulp-rename": "latest",
-    "gulp-template": "latest",
-    "inquirer": "latest"
+    "gulp": "^3.9.1",
+    "gulp-conflict": "^0.4.0",
+    "gulp-filter": "^4.0.0",
+    "gulp-install": "^0.6.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-template": "^4.0.0",
+    "inquirer": "^1.0.2"
   },
   "keywords": [
     "slushgenerator",

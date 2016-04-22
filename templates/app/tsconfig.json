@@ -1,16 +1,22 @@
 {
 	"compilerOptions": {
+		"declaration": false,
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
 		"inlineSourceMap": true,
 		"module": "system",
 		"moduleResolution": "node",
-		"noImplicitAny": false,
+		"noImplicitAny": true,
+		"noLib": false,
     "outDir": "dist",
+		"pretty": true,
     "rootDir": "src",
 		"target": "es5"
 	},
   "exclude": [
-    "node_modules", "typings/main", "typings/main.d.ts"
+		"dist",
+    "node_modules",
+		"typings/main",
+		"typings/main.d.ts"
   ]
 }
