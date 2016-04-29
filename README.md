@@ -54,7 +54,7 @@
 >* For frak's sake, the tests.
 
 ## Contribute
->There are no guidelines for contributing. If you find a problem or have a suggestion go ahead and [submit an issue](https://github.com/thevelourfog/slush-angular2/issues).
+>There are no guidelines for contributing. If you find a problem or have a suggestion go ahead and [submit an issue](https://github.com/ryanmetin/slush-angular2/issues).
 
 ## License
 >[MIT](https://github.com/thevelourfog/slush-angular2/blob/master/LICENSE)
