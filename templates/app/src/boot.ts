@@ -6,13 +6,13 @@ import {PLATFORM_DIRECTIVES, provide} from '@angular/core';
 import {HTTP_PROVIDERS} from '@angular/http';
 import {ROUTER_PROVIDERS} from '@angular/router';
 
-import App from './component/appComponent';
+import App from './component/app.component';
 
 bootstrap(App, [
   HTTP_PROVIDERS,
 	ROUTER_PROVIDERS,
   Title,
-	provide(APP_BASE_HREF, {useValue: '/'}),
-	provide(LocationStrategy, {useClass: HashLocationStrategy}),
-  provide(PLATFORM_DIRECTIVES, {useValue: [CORE_DIRECTIVES], multi: true}),
+	provide(APP_BASE_HREF, { useValue: '/' }),
+	provide(LocationStrategy, { useClass: HashLocationStrategy }),
+  provide(PLATFORM_DIRECTIVES, { useValue: [CORE_DIRECTIVES], multi: true }),
 ]).catch(e => console.error(e,"\nReport errors at https://github.com/ryanmetin/slush-angular2/issues"));

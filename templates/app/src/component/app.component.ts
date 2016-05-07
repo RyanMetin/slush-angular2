@@ -1,14 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Router, Routes, ROUTER_DIRECTIVES} from '@angular/router';
+import {HomeComponent, LinksComponent} from './example.component';
+import {BoxshadowDirective} from '../directive/example.directive';
+import {CapitalizePipe} from '../shared/example.pipe';
 
-import {BoxshadowDirective} from '../directive/exampleDirective';
-import {HomeComponent, ResourceComponent} from './exampleComponent';
-import {CapitalizePipe} from '../shared/examplePipe';
-
-const APP_ROUTES = [
-	{ path: '/home', component: HomeComponent },
-	{ path: '/resource', component: ResourceComponent }
-];
 @Component({
 	directives: [BoxshadowDirective, ROUTER_DIRECTIVES],
 	pipes: [CapitalizePipe],
@@ -46,7 +41,7 @@ const APP_ROUTES = [
 			<h1 class="app_title">{{appTitle | capitalize}}</h1>
 			<nav class="app_nav">
 				<a class="app_link" [routerLink]="['/home']">Home</a>
-				<a class="app_link" [routerLink]="['/resources']">Resources</a>
+				<a class="app_link" [routerLink]="['/links']">Links</a>
 			</nav>
 		</header>
     <router-outlet></router-outlet>
@@ -54,7 +49,7 @@ const APP_ROUTES = [
 })
 @Routes([
 	{ path: '/home', component: HomeComponent },
-	{ path: '/resources', component: ResourceComponent }
+	{ path: '/links', component: LinksComponent }
 ])
 export default class implements OnInit {
 	public appTitle: string = '<%= project %>';

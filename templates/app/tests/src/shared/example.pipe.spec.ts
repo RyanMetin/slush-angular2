@@ -1,4 +1,5 @@
-import {CapitalizePipe} from './examplePipe';
+import {beforeEach, describe, expect, it} from '@angular/core/testing';
+import {CapitalizePipe} from '../../../src/shared/example.pipe';
 
 describe('CapitalizePipe', () => {
   let pipe: CapitalizePipe;

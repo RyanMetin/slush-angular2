@@ -1,9 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 
-import {BoxshadowDirective} from '../directive/exampleDirective';
-import {Resource, ResourceService} from '../shared/exampleService';
-
 @Component({
 	styles: [`
     .home {
@@ -25,7 +22,7 @@ import {Resource, ResourceService} from '../shared/exampleService';
   `
 })
 export class HomeComponent {
-  public logo: Object = {
+  logo: Object = {
     shield: 'res/angular2.png', slush: 'res/slush.png'
   };
   constructor (private title: Title) {
@@ -33,12 +30,15 @@ export class HomeComponent {
   }
 }
 
+import {BoxshadowDirective} from '../directive/example.directive';
+import {Link, LinkService} from '../shared/example.service';
+
 @Component({
 	directives: [BoxshadowDirective],
-  providers: [ResourceService],
+  providers: [LinkService],
 	styles: [`
-		.resources { list-style-type: none; }
-    .resources .link {
+		.links { list-style-type: none; }
+    .links .link {
       align-items: center;
 			background: grey;
 			color: white;
@@ -50,22 +50,22 @@ export class HomeComponent {
     }
 	`],
 	template: `
-    <ul class="resources">
-      <li class="resource" *ngFor="#resource of resources">
-        <a class="link" bs-directive [href]="resource.url">
-          <h2>{{resource.name}}</h2>
-          <p>{{resource.description}}</p>
+    <ul class="links">
+      <li *ngFor="let link of links">
+        <a class="link" bs-directive [href]="link.url">
+          <h2>{{link.name}}</h2>
+          <p>{{link.description}}</p>
         </a>
       </li>
     </ul>
 	`
 })
-export class ResourceComponent implements OnInit {
-  resources: Resource[];
-  constructor (private resource: ResourceService, private title: Title) {
-    this.title.setTitle('Resources');
+export class LinksComponent implements OnInit {
+  links: Link[];
+  constructor (private link: LinkService, private title: Title) {
+    this.title.setTitle('Links');
   }
   ngOnInit () {
-    this.resource.getResource().subscribe(res => this.resources = res);
+    this.link.getLinks().subscribe(res => this.links = res);
   }
 }
