@@ -1,11 +1,13 @@
 {
 	"compilerOptions": {
+		"declaration": false,
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
 		"inlineSourceMap": true,
 		"module": "system",
 		"moduleResolution": "node",
-		"noImplicitAny": false,
+		"noImplicitAny": true,
+		"noLib": false,
     "outDir": "dist",
 		"pretty": true,
     "rootDir": "src",

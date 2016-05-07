@@ -1,8 +1,12 @@
 {
   "ambientDependencies": {
-    "es6-shim": "registry:dt/es6-shim#0.31.2+20160317120654"
+    "es6-promise": "registry:dt/es6-promise#0.0.0+20160317120654",
+    "es6-shim": "github:DefinitelyTyped/DefinitelyTyped/es6-shim/es6-shim.d.ts#6697d6f7dadbf5773cb40ecda35a76027e0783b2"
   },
   "ambientDevDependencies": {
-    "node": "registry:dt/node#4.0.0+20160330064709"
+    "angular-protractor": "github:DefinitelyTyped/DefinitelyTyped/angular-protractor/angular-protractor.d.ts#17fa1e5f269189f7f8e0f53f8c443e6c2eac562c",
+    "jasmine": "github:DefinitelyTyped/DefinitelyTyped/jasmine/jasmine.d.ts#26c98c8a9530c44f8c801ccc3b2057e2101187ee",
+    "node": "registry:dt/node#4.0.0+20160330064709",
+    "selenium-webdriver": "github:DefinitelyTyped/DefinitelyTyped/selenium-webdriver/selenium-webdriver.d.ts#a83677ed13add14c2ab06c7325d182d0ba2784ea"
   }
 }
