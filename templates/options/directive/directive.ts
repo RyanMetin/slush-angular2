@@ -1,5 +1,4 @@
-///<reference path="../typings/tsd.d.ts"/>
-import {Directive<%= (core.length > 0) ? ',' + core : '' %>} from 'angular2/core';
+import {Directive<%= (core.length > 0) ? ',' + core : '' %>} from '@angular/core';
 
 @Directive({
 	events: [],

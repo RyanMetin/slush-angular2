@@ -1,5 +1,5 @@
-import {Component, OnInit} from 'angular2/core';
-import {Title} from 'angular2/platform/browser';
+import {Component, OnInit} from '@angular/core';
+import {Title} from '@angular/platform-browser';
 
 import {BoxshadowDirective} from '../directive/exampleDirective';
 import {Resource, ResourceService} from '../shared/exampleService';
@@ -61,11 +61,11 @@ export class HomeComponent {
 	`
 })
 export class ResourceComponent implements OnInit {
-  resources: Resource[] = [];
+  resources: Resource[];
   constructor (private resource: ResourceService, private title: Title) {
     this.title.setTitle('Resources');
   }
   ngOnInit () {
-    this.resource.getRes().subscribe(res => this.resources = res);
+    this.resource.getResource().subscribe(res => this.resources = res);
   }
 }

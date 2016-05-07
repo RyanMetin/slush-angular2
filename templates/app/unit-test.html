@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <meta name="viewport" id="viewport" content="width=device-width,initial-scale=1"/>
-  <title></title>
-  <link href="res/favicon.ico" rel="shortcut icon"/>
-  <style>*, *::before, *::after { box-sizing: border-box; font-family: sans-serif; margin: 0; padding: 0; }</style>
-</head>
 <body>
-  <<%= slug %>>Loading...</<%= slug %>>
-  <script src="node_modules/es6-shim/es6-shim.js"></script>
   <script src="node_modules/zone.js/dist/zone.js"></script>
   <script src="node_modules/reflect-metadata/Reflect.js"></script>
   <script src="node_modules/systemjs/dist/system.src.js"></script>
@@ -18,12 +6,10 @@
     System.config({
       map: {
         '@angular': 'node_modules/@angular',
-        //'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
         'rxjs': 'node_modules/rxjs'
       },
       packages: {
-        'dist': { defaultExtension: 'js', format: 'register', main: 'boot.js' },
-        //'angular2-in-memory-web-api': { defaultExtension: 'js' },
+        'dist': { defaultExtension: 'js', format: 'register' },
         '@angular/common': { defaultExtension: 'js', main: 'index.js' },
         '@angular/compiler': { defaultExtension: 'js', main: 'index.js' },
         '@angular/core': { defaultExtension: 'js', main: 'index.js' },
@@ -34,7 +20,11 @@
         'rxjs': { defaultExtension: 'js' }
       }
     });
-	  System.import('dist').catch(console.error.bind(console));
+    Promise.all([
+      System.import('dist/component/appComponent.spec'),
+      System.import('dist/shared/examplePipe.spec')
+    ])
+    .then(window.onload)
+    .catch(console.error.bind(console));
   </script>
 </body>
-</html>

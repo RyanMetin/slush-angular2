@@ -1,4 +1,4 @@
-import {Directive, HostBinding, HostListener} from 'angular2/core';
+import {Directive, HostBinding, HostListener} from '@angular/core';
 
 @Directive({ selector: '[bs-directive]' })
 export class BoxshadowDirective {
@@ -11,22 +11,3 @@ export class BoxshadowDirective {
     this.boxshadow = '0 2px 4px 0 rgba(0,0,0,0.3)';
   }
 }
-
-// @Directive({ selector: '[copy-directive]' })
-// export class CopyDirective {
-//   selection: Selection = window.getSelection();
-//   @Input('copy-directive') target: string;
-//   @HostListener('click') onClick (): void {
-//     let range = document.createRange();
-//     range.selectNodeContents(document.querySelector(this.target));
-//     this.selection.removeAllRanges();
-//     this.selection.addRange(range);
-//     try {
-//       document.execCommand('copy');
-//       console.log('Copied to clipboard.');
-//     } catch (error) {
-//       console.log('Copy failed.');
-//     }
-//     this.selection.removeRange(range);
-//   }
-// }

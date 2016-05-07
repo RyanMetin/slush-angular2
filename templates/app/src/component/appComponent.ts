@@ -1,18 +1,18 @@
-import {Component} from 'angular2/core';
-import {RouteConfig, RouteDefinition, ROUTER_DIRECTIVES} from 'angular2/router';
+import {Component, OnInit} from '@angular/core';
+import {Router, Routes, ROUTER_DIRECTIVES} from '@angular/router';
 
 import {BoxshadowDirective} from '../directive/exampleDirective';
 import {HomeComponent, ResourceComponent} from './exampleComponent';
 import {CapitalizePipe} from '../shared/examplePipe';
 
-const APP_ROUTES: RouteDefinition[] = [
-	{ path: '/home', name: 'Home', component: HomeComponent, useAsDefault: true },
-	{ path: '/resource', name: 'Resource', component: ResourceComponent }
+const APP_ROUTES = [
+	{ path: '/home', component: HomeComponent },
+	{ path: '/resource', component: ResourceComponent }
 ];
 @Component({
 	directives: [BoxshadowDirective, ROUTER_DIRECTIVES],
 	pipes: [CapitalizePipe],
-	selector: '<%= slug %>',
+	selector: 'app',
 	styles: [`
 		.app {
 			align-items: center;
@@ -45,14 +45,21 @@ const APP_ROUTES: RouteDefinition[] = [
 		<header class="app" bs-directive>
 			<h1 class="app_title">{{appTitle | capitalize}}</h1>
 			<nav class="app_nav">
-				<a class="app_link" *ngFor="#route of appRoutes" [routerLink]="[route.name]">{{route.name}}</a>
+				<a class="app_link" [routerLink]="['/home']">Home</a>
+				<a class="app_link" [routerLink]="['/resources']">Resources</a>
 			</nav>
 		</header>
     <router-outlet></router-outlet>
 	`
 })
-@RouteConfig(APP_ROUTES)
-export default class {
+@Routes([
+	{ path: '/home', component: HomeComponent },
+	{ path: '/resources', component: ResourceComponent }
+])
+export default class implements OnInit {
 	public appTitle: string = '<%= project %>';
-	public appRoutes: RouteDefinition[] = APP_ROUTES;
+	constructor (private router: Router) { }
+	ngOnInit () {
+		this.router.navigate(['/home']);
+	}
 }

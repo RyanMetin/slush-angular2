@@ -1,8 +1,10 @@
-import {bootstrap, Title} from 'angular2/platform/browser';
-import {CORE_DIRECTIVES} from 'angular2/common';
-import {Component, PLATFORM_DIRECTIVES, provide} from 'angular2/core';
-import {HTTP_PROVIDERS} from 'angular2/http';
-import {APP_BASE_HREF, ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy} from 'angular2/router';
+import 'rxjs/Rx';
+import {bootstrap} from '@angular/platform-browser-dynamic';
+import {Title} from '@angular/platform-browser';
+import {APP_BASE_HREF, CORE_DIRECTIVES, LocationStrategy, HashLocationStrategy} from '@angular/common';
+import {PLATFORM_DIRECTIVES, provide} from '@angular/core';
+import {HTTP_PROVIDERS} from '@angular/http';
+import {ROUTER_PROVIDERS} from '@angular/router';
 
 import App from './component/appComponent';
 
