@@ -2,7 +2,7 @@ import {provide} from '@angular/core';
 import {beforeEach, beforeEachProviders, describe, expect, inject, it} from '@angular/core/testing';
 import {BaseRequestOptions, Http, Response, ResponseOptions} from '@angular/http';
 import {MockBackend, MockConnection} from '@angular/http/testing';
-import {LinkService} from '../../../src/shared/example.service';
+import {LinkService} from '../../../../src/shared/service/example.service';
 
 class MockLinkService {
   links: Array<Object> = [{ 

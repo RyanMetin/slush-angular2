@@ -1,7 +1,7 @@
 <%= camel %>
 ============
 
-For Angular2 things:
+For Angular2 things (*not guaranteeing this will work with rc1 right now*):
 >`slush angular:<component|directive|pipe|service> [<optional name of thing>]`
 
 To compile and serve:

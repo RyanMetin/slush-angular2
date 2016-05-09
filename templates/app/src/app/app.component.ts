@@ -1,8 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {Router, Routes, ROUTER_DIRECTIVES} from '@angular/router';
-import {HomeComponent, LinksComponent} from './example.component';
-import {BoxshadowDirective} from '../directive/example.directive';
-import {CapitalizePipe} from '../shared/example.pipe';
+
+import {HomeComponent} from '../+example/home';
+import {LinksComponent} from '../+example/links';
+import {BoxshadowDirective} from '../shared/directive/example.directive';
+import {CapitalizePipe} from '../shared/pipe/example.pipe';
 
 @Component({
 	directives: [BoxshadowDirective, ROUTER_DIRECTIVES],

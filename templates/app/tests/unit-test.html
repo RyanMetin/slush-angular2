@@ -24,10 +24,10 @@
       }
     });
     Promise.all([
-      System.import('src/component/app.component.spec'),
-      System.import('src/directive/example.directive.spec'),
-      System.import('src/shared/example.pipe.spec'),
-      System.import('src/shared/example.service.spec')
+      System.import('src/app/app.component.spec'),
+      System.import('src/shared/directive/example.directive.spec'),
+      System.import('src/shared/pipe/example.pipe.spec'),
+      System.import('src/shared/service/example.service.spec')
     ])
     .then(window.onload)
     .catch(console.error.bind(console));
