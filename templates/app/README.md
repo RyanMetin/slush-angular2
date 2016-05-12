@@ -9,3 +9,6 @@ To compile and serve:
 
 To stop compiling and serving:
 >`Ctrl + C`
+
+To bundle application:
+>`gulp start:prod`

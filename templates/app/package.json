@@ -19,33 +19,21 @@
   },
   "devDependencies": {
     "angular2-service-worker": "^0.1.11",
-    "autoprefixer": "^6.3.6",
-    "cssnano": "^3.5.2",
 		"gulp": "^3.9.1",
 		"gulp-concat": "^2.6.0",
-		"gulp-flatten": "^0.2.0",
-		"gulp-html-replace": "^1.5.5",
-		"gulp-inline-ng2-template": "^1.1.4",
-		"gulp-postcss": "^6.1.0",
+    "gulp-connect": "^4.0.0",
+		"gulp-inject": "^4.0.0",
 		"gulp-sourcemaps": "^1.6.0",
+    "gulp-tslint": "^5.0.0",
+    "gulp-typescript": "^2.13.4",
 		"gulp-uglify": "^1.5.3",
-    "jasmine-core": "^2.4.1",
-    "karma": "^0.13.22",
-    "karma-jasmine": "^1.0.2",
-    "live-server": "^0.9.2",
-    "parallelshell": "^2.0.0",
-    "protractor": "^3.3.0",
     "systemjs-builder": "^0.15.16",
     "tslint": "^3.9.0",
-    "typedoc": "^0.3.12",
     "typescript": "^1.8.10",
     "typings": "^0.8.1"
   },
   "scripts": {
-    "compile": "tsc -p .",
-    "lint": "tslint ./src/**/*.ts -t verbose",
-    "serve": "live-server --open=.",
-    "start": "parallelshell \"npm run compile -- -w\" \"npm run serve\"",
-    "postinstall": "typings install"
+    "postinstall": "typings install && gulp",
+    "start": "gulp start:dev"
   }
 }

@@ -1,27 +1,21 @@
 {
-  "compilerOptions": {
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "inlineSourceMap": true,
-    "module": "system",
-    "moduleResolution": "node",
-    "noImplicitAny": false,
+	"compilerOptions": {
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"sourceMap": true,
+		"module": "system",
+		"moduleResolution": "node",
+		"noImplicitAny": false,
     "outDir": "dist",
-    "pretty": true,
+		"pretty": true,
     "rootDir": "src",
-    "target": "es5"
-  },
+		"target": "es5"
+	},
   "exclude": [
-    "dist",
+		"dist",
     "node_modules",
-<<<<<<< HEAD
 		"tests",
 		"typings/main",
 		"typings/main.d.ts"
-=======
-    "tests",
-    "typings/main",
-    "typings/main.d.ts"
->>>>>>> origin/master
   ]
 }

@@ -5,7 +5,7 @@
 [![NPM version](https://badge-me.herokuapp.com/api/npm/slush-angular2.png)](http://badges.enytc.com/for/npm/slush-angular2)
 
 ## Start Using Angular2
->Generate a project that uses **[angular2](https://www.npmjs.com/package/angular2)**, **[systemjs](https://www.npmjs.com/package/systemjs)**, and **[typescript](https://typescriptlang.org)**.
+>Generate a seed project that uses **[angular2](https://www.npmjs.com/package/angular2)**, **[systemjs](https://www.npmjs.com/package/systemjs)**, and **[typescript](https://typescriptlang.org)**.
 >
 >Then generate Angular2 features inside that project.
 
@@ -34,22 +34,24 @@
 >
 >Import your new TypeScript files by their path, ie. `./path`, omitting the `.ts` extension.
 >
->To manually start compiler and server run:
->>`npm start`
+>To manually start compiler and server use:
+>>`npm start` or `gulp start:dev`
+>
+>To bundle application and serve use:
+>>`gulp start:prod`
 
 ## Structure
 >* index.html  <-- Entry point for application.
 >* tsconfig.json  <-- Configuration for TypeScript compiler.
->* res/  <-- Shared resources: images, styling, etc.
+>* res/  <-- Shared resources.
 >* src/  <-- TypeScript goes in here.
 >>* boot.ts  <-- Strapping boots.
->>* component/
->>* directives/
->>* service/
+>>* app/ <-- Main application with route configuration.
+>>* shared/ <-- Common directs, pipes, and services.
+>>* +examples/ <-- Example components.
 >* dist/  <-- JavaScript comes out here.
 
 ## To-do
->* Complete Gulp & Webpack configuration options.
 >* Tests.
 >* Stop forgetting tests.
 >* For frak's sake, the tests.
