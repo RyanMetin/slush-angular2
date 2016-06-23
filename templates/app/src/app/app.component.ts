@@ -11,7 +11,7 @@ import {CapitalizePipe} from '../shared/pipe/example.pipe';
 	pipes: [CapitalizePipe],
 	selector: 'app',
 	styles: [`
-		.app {
+		header {
 			align-items: center;
 			background: grey;
 			color: white;
@@ -19,31 +19,31 @@ import {CapitalizePipe} from '../shared/pipe/example.pipe';
 			justify-content: space-between;
 			padding: 0.8rem 1.2rem;
 		}
-		.app_title {
+		h1 {
 			flex: auto;
       font-size: 1.6rem;
 		}
-		.app_nav {
+		nav {
 			margin-left: auto;
 		}
-		.app_link {
+		a {
 			color: inherit;
       font-size: 1.4rem;
 			text-decoration: none;
 		}
-		.app_link.router-link-active { color: #E1BEE7; }
-		.app_link:hover { color: #BA68C8; }
-		.app_link:not(:first-of-type):before {
+		a.router-link-active { color: #E1BEE7; }
+		a:hover { color: #BA68C8; }
+		a:not(:first-of-type):before {
 			color: white;
 			content: " · ";
 		}
 	`],
 	template: `
-		<header class="app" bs-directive>
-			<h1 class="app_title">{{appTitle | capitalize}}</h1>
-			<nav class="app_nav">
-				<a class="app_link" [routerLink]="['/home']">Home</a>
-				<a class="app_link" [routerLink]="['/links']">Links</a>
+		<header bs-directive>
+			<h1>{{appTitle | capitalize}}</h1>
+			<nav>
+				<a [routerLink]="['/home']">Home</a>
+				<a [routerLink]="['/links']">Links</a>
 			</nav>
 		</header>
     <router-outlet></router-outlet>

@@ -29,7 +29,7 @@ gulp.task('build:prod', ['compile'], () => {
   return builder.buildStatic('app', './dist/build.js', { mangle: false, minify: true, sourceMaps: true });
 });
 
-gulp.task('compile', ['lint'], () => {
+gulp.task('compile', () => {
   gulp.src(['src/**/*.ts', 'typings/browser.d.ts'])
     .pipe(tsc(cfg.tsProject))
     .pipe(gulp.dest('dist'))
@@ -39,10 +39,9 @@ gulp.task('compile', ['lint'], () => {
 gulp.task('inject:dev', () => {
   gulp.src('./index.html')
     .pipe(inject(gulp.src([cfg.config]), {
-      removeTags: true,
-      starttag: '<!-- inject:dev -->',
+      starttag: '<!-- inject:app -->',
       transform: function (filePath, file) {
-        return '<!-- inject:prod -->\n\t<script src="' + filePath + '"></script>\n\t<script>System.import(\'app\').catch(console.error.bind(console));</script>\n\t<!-- endinject -->';
+        return '\n\t<script src="' + filePath + '"></script>\n\t<script>System.import(\'app\').catch(console.error.bind(console));</script>\n\t';
     }}))
     .pipe(gulp.dest('.'));
 });
@@ -50,19 +49,18 @@ gulp.task('inject:dev', () => {
 gulp.task('inject:prod', ['build:prod'], () => {
   gulp.src('./index.html')
     .pipe(inject(gulp.src(['dist/build.js']), {
-      removeTags: true,
-      starttag: '<!-- inject:prod -->',
+      starttag: '<!-- inject:app -->',
       transform: function (filePath, file) {
-        return '<!-- inject:dev --><script src="' + filePath + '"></script><!-- endinject -->';
+        return '<script src="' + filePath + '"></script>';
     }}))
     .pipe(gulp.dest('.'));
 });
 
-gulp.task('lint', () => {
-  gulp.src('src/**/*.ts')
-    .pipe(tslint({ tslint: require('tslint') }))
-    .pipe(tslint.report('prose', { emitError: false }));
-});
+// gulp.task('lint', () => {
+//   gulp.src('src/**/*.ts')
+//     .pipe(tslint({ tslint: require('tslint') }))
+//     .pipe(tslint.report('prose', { emitError: false }));
+// });
 
 gulp.task('polyfill', () => {
   gulp.src(cfg.lib.polyfill, { base: './node_modules' })

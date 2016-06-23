@@ -10,12 +10,5 @@
 		"pretty": true,
     "rootDir": "src",
 		"target": "es5"
-	},
-  "exclude": [
-		"dist",
-    "node_modules",
-		"tests",
-		"typings/main",
-		"typings/main.d.ts"
-  ]
+	}
 }

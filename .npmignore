@@ -1,7 +1,6 @@
-./.appveyor.yml
-./.travis.yml
-./tsconfig.json
-./typings.json
-./tasks
-./typings
-
+.appveyor.yml
+.travis.yml
+tsconfig.json
+typings.json
+tasks/
+typings/
