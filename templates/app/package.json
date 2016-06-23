@@ -34,7 +34,7 @@
   },
   "scripts": {
     "postinstall": "typings install && gulp",
-    "start": "gulp start:dev",
-    "start:prod": "gulp start:prod"
+    "prod": "gulp start:prod",
+    "start": "gulp start:dev"
   }
 }

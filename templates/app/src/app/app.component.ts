@@ -49,10 +49,6 @@ import {CapitalizePipe} from '../shared/pipe/example.pipe';
     <router-outlet></router-outlet>
 	`
 })
-@Routes([
-	{ path: '/home', component: HomeComponent },
-	{ path: '/links', component: LinksComponent }
-])
 export default class implements OnInit {
 	public appTitle: string = '<%= project %>';
 	constructor (private router: Router) { }
