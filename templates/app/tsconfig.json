@@ -2,12 +2,11 @@
 	"compilerOptions": {
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
-		"sourceMap": true,
 		"module": "system",
 		"moduleResolution": "node",
 		"noImplicitAny": false,
     "outDir": "dist",
-		"pretty": true,
+		"removeComments": false,
     "rootDir": "src",
 		"target": "es5"
 	}

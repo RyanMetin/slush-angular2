@@ -38,7 +38,7 @@
 >>`npm start` or `gulp start:dev`
 >
 >To bundle application and serve use:
->>`gulp start:prod`
+>>`npm run prod` or `gulp start:prod`
 
 ## Structure
 >* index.html  <-- Entry point for application.
@@ -55,6 +55,7 @@
 >* Tests.
 >* Stop forgetting tests.
 >* For frak's sake, the tests.
+>* Figure why Typescript is throwing so many errors...
 
 ## Contribute
 >There are no guidelines for contributing. If you find a problem or have a suggestion go ahead and [submit an issue](https://github.com/ryanmetin/slush-angular2/issues).
