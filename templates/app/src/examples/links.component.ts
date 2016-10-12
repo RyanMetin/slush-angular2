@@ -1,12 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {Title} from '@angular/platform-browser';
+import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
-import {BoxshadowDirective} from '../../shared/directive/example.directive';
-import {Link, LinkService} from '../../shared/service/example.service';
+import { Link, LinkService } from '../shared/service/example.service';
 
 @Component({
-	directives: [BoxshadowDirective],
-  providers: [LinkService],
+  providers: [ LinkService ],
 	styles: [`
 		.links { list-style-type: none; }
     .links .link {

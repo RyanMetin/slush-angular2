@@ -31,7 +31,7 @@ gulp.task('build:prod', ['compile'], () => {
 
 gulp.task('compile', () => {
   gulp.src(['src/**/*.ts', 'typings/browser.d.ts'])
-    .pipe(tsc(cfg.tsProject))
+    .pipe(cfg.tsProject())
     .pipe(gulp.dest('dist'))
     .pipe(connect.reload());
 });
@@ -41,7 +41,7 @@ gulp.task('inject:dev', () => {
     .pipe(inject(gulp.src([cfg.config]), {
       starttag: '<!-- inject:app -->',
       transform: function (filePath, file) {
-        return '\n\t<script src="' + filePath + '"></script>\n\t<script>System.import(\'app\').catch(console.error.bind(console));</script>\n\t';
+        return '<script src=".' + filePath + '"></script><script>System.import(\'app\').catch(console.error.bind(console));</script>';
     }}))
     .pipe(gulp.dest('.'));
 });
@@ -51,7 +51,7 @@ gulp.task('inject:prod', ['build:prod'], () => {
     .pipe(inject(gulp.src(['dist/build.js']), {
       starttag: '<!-- inject:app -->',
       transform: function (filePath, file) {
-        return '<script src="' + filePath + '"></script>';
+        return '<script src=".' + filePath + '"></script>';
     }}))
     .pipe(gulp.dest('.'));
 });

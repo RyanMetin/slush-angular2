@@ -21,111 +21,111 @@ gulp.task('default', function (cb) {
             .on('finish', function () { cb(); }).resume();
     });
 });
-gulp.task('component', function (cb) {
-    Util.checkDir(cb);
-    inquirer.prompt([
-        Util.promptFn.nameIt('component', gulp.args),
-        Util.promptFn.selectIt(2),
-        Util.promptFn.intOrExt('styles'),
-        Util.promptFn.intOrExt('template'),
-        Util.promptFn.importIt('animation'),
-        Util.promptFn.importIt('common'),
-        Util.promptFn.importIt('core'),
-        Util.promptFn.importIt('http'),
-        Util.promptFn.importIt('router'),
-        Util.promptFn.confirmIt('component')
-    ], function (answers) {
-        if (!answers.good) {
-            return cb();
-        }
-        answers.camel = Util.camelize(answers.component);
-        answers.mod = Util.classable(answers.camel);
-        answers.slug = Util.slugify(answers.component);
-        answers.select = Util.selectable(answers.selector, answers.slug);
-        var source = [path.join(__dirname, 'templates/options/component/component.ts')];
-        if (answers.styles == 'external') {
-            source.push(path.join(__dirname, 'templates/options/styles.css'));
-        }
-        if (answers.template == 'external') {
-            source.push(path.join(__dirname, 'templates/options/template.html'));
-        }
-        gulp.src(source)
-            .pipe(template(answers))
-            .pipe(rename(function (file) { file.basename = answers.camel; }))
-            .pipe(conflict(path.join(process.cwd(), 'src/component')))
-            .pipe(gulp.dest(path.join(process.cwd(), 'src/component')))
-            .on('finish', function () { cb(); }).resume();
-    });
-});
-gulp.task('directive', function (cb) {
-    Util.checkDir(cb);
-    inquirer.prompt([
-        Util.promptFn.nameIt('directive', gulp.args),
-        Util.promptFn.selectIt(0),
-        Util.promptFn.importIt('animation'),
-        Util.promptFn.importIt('common'),
-        Util.promptFn.importIt('core'),
-        Util.promptFn.confirmIt('directive')
-    ], function (answers) {
-        if (!answers.good) {
-            return cb();
-        }
-        answers.camel = Util.camelize(answers.directive);
-        answers.mod = Util.classable(answers.camel);
-        answers.slug = Util.slugify(answers.directive);
-        answers.select = Util.selectable(answers.selector, answers.slug);
-        gulp.src(path.join(__dirname, 'templates/options/directive/directive.ts'))
-            .pipe(template(answers))
-            .pipe(rename(function (file) { file.basename = answers.camel; }))
-            .pipe(conflict(path.join(process.cwd(), 'src/directive')))
-            .pipe(gulp.dest(path.join(process.cwd(), 'src/directive')))
-            .on('finish', function () { cb(); }).resume();
-    });
-});
-gulp.task('pipe', function (cb) {
-    Util.checkDir(cb);
-    inquirer.prompt([
-        Util.promptFn.nameIt('pipe', gulp.args),
-        Util.promptFn.importIt('common'),
-        Util.promptFn.importIt('core'),
-    ], function (answers) {
-        if (!answers.good) {
-            return cb();
-        }
-        answers.camel = Util.camelize(answers.pipe);
-        answers.mod = Util.classable(answers.camel);
-        answers.slug = Util.slugify(answers.pipe);
-        gulp.src(path.join(__dirname, 'templates/options/pipe/pipe.ts'))
-            .pipe(template(answers))
-            .pipe(rename(function (file) { file.basename = answers.camel; }))
-            .pipe(conflict(path.join(process.cwd(), 'src/shared')))
-            .pipe(gulp.dest(path.join(process.cwd(), 'src/shared')))
-            .on('finish', function () { cb(); }).resume();
-    });
-});
-gulp.task('service', function (cb) {
-    Util.checkDir(cb);
-    inquirer.prompt([
-        Util.promptFn.nameIt('service', gulp.args),
-        Util.promptFn.importIt('common'),
-        Util.promptFn.importIt('core'),
-        Util.promptFn.importIt('http'),
-        Util.promptFn.importIt('router'),
-        Util.promptFn.confirmIt('service')
-    ], function (answers) {
-        if (!answers.good) {
-            return cb();
-        }
-        answers.camel = Util.camelize(answers.service);
-        answers.mod = Util.classable(answers.camel);
-        gulp.src(path.join(__dirname, 'templates/options/service/service.ts'))
-            .pipe(template(answers))
-            .pipe(rename(function (file) { file.basename = answers.camel; }))
-            .pipe(conflict(path.join(process.cwd(), 'src/shared')))
-            .pipe(gulp.dest(path.join(process.cwd(), 'src/shared')))
-            .on('finish', function () { cb(); }).resume();
-    });
-});
+// gulp.task('component', function (cb) {
+//     Util.checkDir(cb);
+//     inquirer.prompt([
+//         Util.promptFn.nameIt('component', gulp.args),
+//         Util.promptFn.selectIt(2),
+//         Util.promptFn.intOrExt('styles'),
+//         Util.promptFn.intOrExt('template'),
+//         Util.promptFn.importIt('animation'),
+//         Util.promptFn.importIt('common'),
+//         Util.promptFn.importIt('core'),
+//         Util.promptFn.importIt('http'),
+//         Util.promptFn.importIt('router'),
+//         Util.promptFn.confirmIt('component')
+//     ], function (answers) {
+//         if (!answers.good) {
+//             return cb();
+//         }
+//         answers.camel = Util.camelize(answers.component);
+//         answers.mod = Util.classable(answers.camel);
+//         answers.slug = Util.slugify(answers.component);
+//         answers.select = Util.selectable(answers.selector, answers.slug);
+//         var source = [path.join(__dirname, 'templates/options/component/component.ts')];
+//         if (answers.styles == 'external') {
+//             source.push(path.join(__dirname, 'templates/options/styles.css'));
+//         }
+//         if (answers.template == 'external') {
+//             source.push(path.join(__dirname, 'templates/options/template.html'));
+//         }
+//         gulp.src(source)
+//             .pipe(template(answers))
+//             .pipe(rename(function (file) { file.basename = answers.camel; }))
+//             .pipe(conflict(path.join(process.cwd(), 'src/component')))
+//             .pipe(gulp.dest(path.join(process.cwd(), 'src/component')))
+//             .on('finish', function () { cb(); }).resume();
+//     });
+// });
+// gulp.task('directive', function (cb) {
+//     Util.checkDir(cb);
+//     inquirer.prompt([
+//         Util.promptFn.nameIt('directive', gulp.args),
+//         Util.promptFn.selectIt(0),
+//         Util.promptFn.importIt('animation'),
+//         Util.promptFn.importIt('common'),
+//         Util.promptFn.importIt('core'),
+//         Util.promptFn.confirmIt('directive')
+//     ], function (answers) {
+//         if (!answers.good) {
+//             return cb();
+//         }
+//         answers.camel = Util.camelize(answers.directive);
+//         answers.mod = Util.classable(answers.camel);
+//         answers.slug = Util.slugify(answers.directive);
+//         answers.select = Util.selectable(answers.selector, answers.slug);
+//         gulp.src(path.join(__dirname, 'templates/options/directive/directive.ts'))
+//             .pipe(template(answers))
+//             .pipe(rename(function (file) { file.basename = answers.camel; }))
+//             .pipe(conflict(path.join(process.cwd(), 'src/directive')))
+//             .pipe(gulp.dest(path.join(process.cwd(), 'src/directive')))
+//             .on('finish', function () { cb(); }).resume();
+//     });
+// });
+// gulp.task('pipe', function (cb) {
+//     Util.checkDir(cb);
+//     inquirer.prompt([
+//         Util.promptFn.nameIt('pipe', gulp.args),
+//         Util.promptFn.importIt('common'),
+//         Util.promptFn.importIt('core'),
+//     ], function (answers) {
+//         if (!answers.good) {
+//             return cb();
+//         }
+//         answers.camel = Util.camelize(answers.pipe);
+//         answers.mod = Util.classable(answers.camel);
+//         answers.slug = Util.slugify(answers.pipe);
+//         gulp.src(path.join(__dirname, 'templates/options/pipe/pipe.ts'))
+//             .pipe(template(answers))
+//             .pipe(rename(function (file) { file.basename = answers.camel; }))
+//             .pipe(conflict(path.join(process.cwd(), 'src/shared')))
+//             .pipe(gulp.dest(path.join(process.cwd(), 'src/shared')))
+//             .on('finish', function () { cb(); }).resume();
+//     });
+// });
+// gulp.task('service', function (cb) {
+//     Util.checkDir(cb);
+//     inquirer.prompt([
+//         Util.promptFn.nameIt('service', gulp.args),
+//         Util.promptFn.importIt('common'),
+//         Util.promptFn.importIt('core'),
+//         Util.promptFn.importIt('http'),
+//         Util.promptFn.importIt('router'),
+//         Util.promptFn.confirmIt('service')
+//     ], function (answers) {
+//         if (!answers.good) {
+//             return cb();
+//         }
+//         answers.camel = Util.camelize(answers.service);
+//         answers.mod = Util.classable(answers.camel);
+//         gulp.src(path.join(__dirname, 'templates/options/service/service.ts'))
+//             .pipe(template(answers))
+//             .pipe(rename(function (file) { file.basename = answers.camel; }))
+//             .pipe(conflict(path.join(process.cwd(), 'src/shared')))
+//             .pipe(gulp.dest(path.join(process.cwd(), 'src/shared')))
+//             .on('finish', function () { cb(); }).resume();
+//     });
+// });
 var ng2API = {
     animation: ['Animation', 'AnimationBuilder', 'BrowserDetails', 'CssAnimationBuilder', 'CssAnimationOptions'],
     common: ['COMMON_DIRECTIVES', 'COMMON_PIPES', 'CORE_DIRECTIVES', 'FORM_DIRECTIVES', 'FORM_PROVIDERS', 'FormBuilder', 'Validators'],

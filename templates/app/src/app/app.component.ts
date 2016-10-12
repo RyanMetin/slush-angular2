@@ -1,14 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {Router, Routes, ROUTER_DIRECTIVES} from '@angular/router';
-
-import {HomeComponent} from '../+examples/home';
-import {LinksComponent} from '../+examples/links';
-import {BoxshadowDirective} from '../shared/directive/example.directive';
-import {CapitalizePipe} from '../shared/pipe/example.pipe';
+import { Component } from '@angular/core';
 
 @Component({
-	directives: [BoxshadowDirective, ROUTER_DIRECTIVES],
-	pipes: [CapitalizePipe],
 	selector: 'app',
 	styles: [`
 		header {
@@ -49,10 +41,6 @@ import {CapitalizePipe} from '../shared/pipe/example.pipe';
     <router-outlet></router-outlet>
 	`
 })
-export default class implements OnInit {
-	public appTitle: string = '<%= project %>';
-	constructor (private router: Router) { }
-	ngOnInit () {
-		this.router.navigate(['/home']);
-	}
+export class AppComponent {
+	appTitle: string = '<%= project %>';
 }
