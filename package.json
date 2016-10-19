@@ -1,65 +1,37 @@
 {
+  "version": "1.0.0",
   "name": "slush-angular2",
   "description": "Slush Generator For Angular2",
-  "version": "1.0.0",
   "author": {
     "name": "Ryan Usumi",
     "email": "rmusumi@hotmail.com",
-    "url": "https://thevelourfog.github.io"
+    "url": "https://ryanmetin.github.io"
   },
-  "homepage": "https://github.com/thevelourfog/slush-angular2",
+  "homepage": "https://github.com/ryanmetin/slush-angular2",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/thevelourfog/slush-angular2.git"
-  },
-  "bugs": {
-    "url": "https://github.com/thevelourfog/slush-angular2/issues"
-  },
-  "main": "slushfile.js",
-  "scripts": {
-    "ts": "tsc -p ."
-  },
-  "dependencies": {
-    "gulp": "^3.9.1",
-    "gulp-conflict": "^0.4.0",
-    "gulp-filter": "^4.0.0",
-    "gulp-install": "^0.6.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-template": "^4.0.0",
-    "inquirer": "^1.1.2"
-  },
-  "keywords": [
-    "slushgenerator",
-    "slush",
-    "angularjs",
-    "angular",
-    "angular2", 
-    "generator",
-    "scaffold",
-    "systemjs",
-    "typescript"
-  ],
-  "gitHead": "0e469577bc7748a9400f793a6117a12af7fdf27b",
-  "_id": "slush-angular2@0.3.4",
-  "_shasum": "5fe28c4e91ffbd0a96c19b8b813ef62082cd8b71",
-  "_from": "slush-angular2@*",
-  "_npmVersion": "2.11.3",
-  "_nodeVersion": "0.12.7",
-  "_npmUser": {
-    "name": "thevelourfog",
-    "email": "rmusumi@hotmail.com"
-  },
   "maintainers": [
     {
-      "name": "thevelourfog",
+      "name": "ryanmetin",
       "email": "rmusumi@hotmail.com"
     }
   ],
-  "dist": {
-    "shasum": "5fe28c4e91ffbd0a96c19b8b813ef62082cd8b71",
-    "tarball": "http://registry.npmjs.org/slush-angular2/-/slush-angular2-0.3.4.tgz"
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ryanmetin/slush-angular2.git"
   },
-  "directories": {},
-  "_resolved": "https://registry.npmjs.org/slush-angular2/-/slush-angular2-0.3.4.tgz"
+  "main": "slushfile.js",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-aside": "^1.0.1",
+    "gulp-conflict": "^0.4.0",
+    "gulp-install": "^0.6.0",
+    "gulp-template": "^4.0.0",
+    "inquirer": "^1.2.2"
+  },
+  "bugs": {
+    "url": "https://github.com/ryanmetin/slush-angular2/issues"
+  },
+  "keywords": [
+    "slushgenerator", "angular", "angular2", "systemjs", "typescript"
+  ]
 }

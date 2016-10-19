@@ -11,7 +11,7 @@ const gulp = require('gulp'),
   cfg = {
     lib: {
       polyfill: [
-        require.resolve('es6-shim/es6-shim.js'),
+        require.resolve('core-js/client/shim.js'),
         require.resolve('zone.js/dist/zone.js'),
         require.resolve('reflect-metadata/Reflect.js'),
         require.resolve('systemjs/dist/system.src.js')
@@ -22,14 +22,14 @@ const gulp = require('gulp'),
   };
   
 
-gulp.task('default', ['compile', 'polyfill']);
+gulp.task('default', ['polyfill']);
 
 gulp.task('build:prod', ['compile'], () => {
   builder = new Builder('.', cfg.config);
   return builder.buildStatic('app', './dist/build.js', { mangle: false, minify: true, sourceMaps: true });
 });
 
-gulp.task('compile', () => {
+gulp.task('compile', ['lint'], () => {
   gulp.src(['src/**/*.ts', 'typings/browser.d.ts'])
     .pipe(cfg.tsProject())
     .pipe(gulp.dest('dist'))
@@ -41,7 +41,7 @@ gulp.task('inject:dev', () => {
     .pipe(inject(gulp.src([cfg.config]), {
       starttag: '<!-- inject:app -->',
       transform: function (filePath, file) {
-        return '<script src=".' + filePath + '"></script><script>System.import(\'app\').catch(console.error.bind(console));</script>';
+        return '\n\t<script src=".' + filePath + '"></script>\n\t<script>System.import(\'app\').catch(console.error.bind(console));</script>\n\t';
     }}))
     .pipe(gulp.dest('.'));
 });
@@ -51,16 +51,15 @@ gulp.task('inject:prod', ['build:prod'], () => {
     .pipe(inject(gulp.src(['dist/build.js']), {
       starttag: '<!-- inject:app -->',
       transform: function (filePath, file) {
-        return '<script src=".' + filePath + '"></script>';
+        return '<script src="' + filePath + '"></script>';
     }}))
     .pipe(gulp.dest('.'));
 });
 
-// gulp.task('lint', () => {
-//   gulp.src('src/**/*.ts')
-//     .pipe(tslint({ tslint: require('tslint') }))
-//     .pipe(tslint.report('prose', { emitError: false }));
-// });
+gulp.task('lint', () => {
+  gulp.src('src/**/*.ts')
+    .pipe(tslint({ formatter: 'prose', tslint: require('tslint') }));
+});
 
 gulp.task('polyfill', () => {
   gulp.src(cfg.lib.polyfill, { base: './node_modules' })

@@ -13,12 +13,12 @@
       '@angular/platform-browser': 'npm:@angular/platform-browser/bundles/platform-browser.umd.js',
       '@angular/platform-browser-dynamic': 'npm:@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
       '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
-      'angular2-in-memory-web-api': 'npm:angular2-in-memory-web-api',
+      'angular-in-memory-web-api': 'npm:angular-in-memory-web-api',
       'rxjs': 'npm:rxjs'
     },
     packages:  {
       'app': { defaultExtension: 'js', main: 'boot.js' },
-      'angular2-in-memory-web-api': { defaultExtension: 'js', main: 'index.js' },
+      'angular-in-memory-web-api': { defaultExtension: 'js', main: 'index.js' },
       'rxjs': { defaultExtension: 'js' }
     }
   });
