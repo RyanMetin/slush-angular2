@@ -26,7 +26,7 @@ gulp.task('default', function (cb) {
 		answers.slug = slugify(answers.project);
 		answers.camel = camelize(answers.project);
 		gulp.src(path.join(__dirname, 'templates/app/**'))
-      .pipe(aside('!**/*.{ico,png}', template(answers)))
+      .pipe(aside('!**/*.{ico,png}', template(answers, { interpolate: /<%=([\s\S]+?)%>/g })))
 			.pipe(conflict(path.join(process.cwd(), answers.slug)))
 			.pipe(gulp.dest(path.join(process.cwd(), answers.slug)))
 			.pipe(install())

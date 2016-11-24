@@ -2,18 +2,13 @@
 	"compilerOptions": {
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
-		"lib": [
-			"dom", "es6"
-		],
+		"removeComments": false,
+		"skipLibCheck": true,
+		"lib": [ "dom", "es6" ],
 		"module": "commonjs",
 		"moduleResolution": "node",
-		"noImplicitAny": false,
     "outDir": "dist",
-		"removeComments": false,
     "rootDir": "src",
-		"target": "es5",
-		"typeRoots": [
-			"node_modules/@types"
-		]
+		"target": "es5"
 	}
 }

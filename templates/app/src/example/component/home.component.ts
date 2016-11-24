@@ -3,21 +3,21 @@ import { Title } from '@angular/platform-browser';
 
 @Component({
 	styles: [`
-    .home {
+    div {
       display: flex;
       flex-flow: row wrap;
       margin: 2rem auto;
       justify-content: center;
     }
-    .home .logo {
+    img {
       height: auto;
       margin: 1rem;
     }
   `],
 	template: `
-    <div class="home">
-      <img class="logo" [src]="logo.slush">
-      <img class="logo" [src]="logo.shield">
+    <div>
+      <img [src]="logo.slush">
+      <img [src]="logo.shield">
     </div>
   `
 })

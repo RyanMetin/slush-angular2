@@ -1,40 +1,21 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, Title } from '@angular/platform-browser';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
+import { APP_BASE_HREF } from '@angular/common';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from '../examples/home.component';
-import { LinksComponent } from '../examples/links.component';
-import { BoxShadowDirective } from '../shared/directive/example.directive';
-import { CapitalizePipe } from '../shared/pipe/example.pipe';
-import { LinkService } from '../shared/service/example.service';
+import { AppRouting } from './app.routing';
+import { ExampleModule } from '../example/example.module';
 
 @NgModule({
   bootstrap: [ AppComponent ],
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    LinksComponent,
-    BoxShadowDirective,
-    CapitalizePipe
-  ],
+  declarations: [ AppComponent ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpModule,
-    RouterModule.forRoot([
-      { path: '', pathMatch: 'full', redirectTo: 'home' },
-      { path: 'home', component: HomeComponent },
-      { path: 'links', component: LinksComponent }
-    ])
+    ExampleModule,
+    AppRouting
   ],
   providers: [
-    { provide: LocationStrategy, useClass: HashLocationStrategy },
-    LinkService,
-    Title
+    { provide: APP_BASE_HREF, useValue: '/' }
   ]
 })
-export class AppModule {}
+export class AppModule { }

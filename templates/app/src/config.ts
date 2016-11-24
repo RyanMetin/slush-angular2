@@ -1,5 +1,6 @@
-(function (global) {
-  System.config({
+((global) => {
+  SystemJS.config({
+    defaultJSExtensions: true,
     paths: {
       'npm:': 'node_modules/'
     },
@@ -17,9 +18,8 @@
       'rxjs': 'npm:rxjs'
     },
     packages:  {
-      'app': { defaultExtension: 'js', main: 'boot.js' },
-      'angular-in-memory-web-api': { defaultExtension: 'js', main: 'index.js' },
-      'rxjs': { defaultExtension: 'js' }
+      'app': { main: 'boot.js' },
+      'angular-in-memory-web-api': { main: 'index.js' }
     }
   });
 })(this);

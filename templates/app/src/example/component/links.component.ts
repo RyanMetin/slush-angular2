@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
-import { Link, LinkService } from '../shared/service/example.service';
+import { Link, LinkService } from '../service/link.service';
 
 @Component({
   providers: [ LinkService ],
 	styles: [`
-		.links { list-style-type: none; }
-    .links .link {
+		ul { list-style-type: none; }
+    a {
       align-items: center;
 			background: grey;
 			color: white;
@@ -19,9 +19,9 @@ import { Link, LinkService } from '../shared/service/example.service';
     }
 	`],
 	template: `
-    <ul class="links">
+    <ul>
       <li *ngFor="let link of links">
-        <a class="link" bs-directive [href]="link.url">
+        <a shadowdirective [href]="link.url">
           <h2>{{link.name}}</h2>
           <p>{{link.description}}</p>
         </a>

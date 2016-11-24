@@ -29,14 +29,15 @@ To bundle application and serve:
 
 ## Structure
 >* index.html <-- Entry point for application.
->* gulpfile.js <--
+>* gulpfile.js <-- Gulp build tasks.
 >* tsconfig.json <-- Configuration for TypeScript compiler.
+>* tslint.json <-- Configuration for TypeScript linter.
 >* res/ <-- Shared resources.
 >* src/ <-- TypeScript goes in here.
 >>* boot.ts <-- Strapping boots.
->>* app/ <-- Main application with route configuration.
->>* shared/ <-- Common directs, pipes, and services.
->>* examples/ <-- Example components.
+>>* config.ts <-- SystemJS configuration.
+>>* app/ <-- App module, component, and routing.
+>>* example/ <-- Example module with components, directive, pipe, and service.
 >* dist/ <-- JavaScript comes out here.
 
 ## Contribute

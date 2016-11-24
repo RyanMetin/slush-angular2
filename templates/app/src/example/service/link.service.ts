@@ -4,12 +4,16 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 export class Link {
-  name: string; description: string; url: string;
+  name: string;
+  description: string;
+  url: string;
 }
+
 @Injectable()
 export class LinkService {
-  constructor (private http: Http) {}
+  private linksUrl = 'res/links.json';
+  constructor (private http: Http) { }
   getLinks (): Observable<Link[]> {
-    return this.http.get('res/resources.json').map((res: Response) => res.json());
+    return this.http.get(this.linksUrl).map((res: Response) => res.json());
   }
 }
